@@ -1,0 +1,481 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<title>Scheda Medicina Estetica — Dr. Simone Caccetta</title>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+:root{--red:#C0392B;--red-d:#96281B;--bg:#F2F2F7;--card:#fff;--sep:rgba(60,60,67,.12);--txt:#1C1C1E;--txt3:#8E8E93;}
+body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;background:linear-gradient(160deg,#F2F2F7 0%,#E9E9F0 100%);min-height:100vh;color:var(--txt);font-size:16px;padding-bottom:88px;}
+input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;}
+.app{max-width:680px;margin:0 auto;}
+.hdr{background:linear-gradient(175deg,#C0392B 0%,#96281B 100%);padding:20px 20px 22px;position:sticky;top:0;z-index:100;}
+.hdr-name{color:#fff;font-size:19px;}
+.hdr-sub{color:rgba(255,255,255,.7);font-size:12px;}
+.hdr-bot{display:flex;align-items:center;margin-top:12px;}
+.saved-pill{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 10px;}
+.dot{width:7px;height:7px;border-radius:50%;background:#30D158;flex-shrink:0;}
+.saved-txt{color:rgba(255,255,255,.9);font-size:12px;}
+.save-time{color:rgba(255,255,255,.6);font-size:11px;margin-top:3px;}
+.tabs{background:rgba(242,242,247,.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--sep);position:sticky;top:84px;z-index:99;padding:0 16px;}
+.tabs-inner{display:flex;}
+.tab{flex:1;padding:12px 4px 11px;text-align:center;font-size:13px;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;cursor:pointer;font-weight:700;}
+.tab.active{color:var(--red);border-bottom-color:var(--red);}
+.page{display:none;padding:20px 16px 0;}
+.page.active{display:block;}
+.group-label{font-size:12px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;padding:0 16px 6px;margin-top:20px;}
+.group-label:first-child{margin-top:0;}
+.list{background:var(--card);border-radius:14px;overflow:hidden;}
+.row{display:flex;align-items:center;border-bottom:0.5px solid var(--sep);min-height:48px;}
+.row:last-child{border-bottom:none;}
+.row-lbl{font-size:15px;color:var(--txt);padding:14px 12px 14px 16px;min-width:130px;flex-shrink:0;}
+.row input{flex:1;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:14px 16px 14px 0;text-align:right;}
+.row input::placeholder{color:var(--txt3);}
+.row-area-lbl{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.4px;padding:12px 16px 0;}
+.row-area{border-bottom:0.5px solid var(--sep);}
+.row-area:last-child{border-bottom:none;}
+.row-area textarea{display:block;width:100%;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:12px 16px;resize:none;line-height:1.5;min-height:100px;}
+.row-area textarea::placeholder{color:var(--txt3);}
+.trow{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:0.5px solid var(--sep);}
+.trow:last-child{border-bottom:none;}
+.trow-lbl{font-size:15px;color:var(--txt);flex:1;padding-right:14px;line-height:1.4;}
+.yn{display:flex;gap:8px;flex-shrink:0;}
+.yn-btn{width:62px;height:38px;border-radius:10px;border:2px solid var(--sep);background:var(--bg);font-weight:700;font-size:15px;color:var(--txt3);cursor:pointer;}
+.tnote{padding:6px 16px 12px;border-bottom:0.5px solid var(--sep);}
+.tnote:last-child{border-bottom:none;}
+.tnote textarea{width:100%;border:0.5px solid var(--sep);border-radius:10px;padding:10px 12px;font-weight:700;font-size:14px;color:var(--txt);background:var(--bg);resize:none;outline:none;min-height:58px;line-height:1.4;}
+.tnote textarea::placeholder{color:var(--txt3);}
+.firme-wrap{display:flex;gap:12px;padding:16px;}
+.firma-box{flex:1;display:flex;flex-direction:column;gap:8px;}
+.firma-label{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;}
+.firma-date{display:flex;align-items:center;border:0.5px solid var(--sep);border-radius:10px;background:var(--bg);overflow:hidden;}
+.firma-date span{font-size:12px;color:var(--txt3);padding:0 10px;white-space:nowrap;}
+.firma-date input{flex:1;border:none;outline:none;font-weight:700;font-size:14px;color:var(--txt);background:transparent;padding:10px 10px 10px 0;}
+.firma-canvas-wrap{border:0.5px solid var(--sep);border-radius:12px;overflow:hidden;background:#fff;}
+.firma-canvas-wrap canvas{display:block;width:100%;touch-action:none;}
+.firma-clear{width:100%;height:34px;border-radius:8px;border:0.5px solid var(--sep);background:var(--bg);font-weight:700;font-size:13px;color:var(--txt3);cursor:pointer;}
+.privacy-text{font-size:13px;color:var(--txt3);line-height:1.5;padding:14px 16px 10px;border-bottom:0.5px solid var(--sep);}
+.footer{position:fixed;bottom:0;left:0;right:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(242,242,247,.92);backdrop-filter:blur(24px);border-top:0.5px solid var(--sep);display:flex;gap:10px;}
+.fbtn{flex:1;height:50px;border-radius:13px;border:none;font-weight:700;font-size:16px;cursor:pointer;}
+.fbtn-sec{background:rgba(255,255,255,.85);color:var(--txt);border:0.5px solid var(--sep);}
+.fbtn-pri{background:linear-gradient(175deg,#C0392B,#96281B);color:#fff;}
+#toast{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.8);color:#fff;padding:16px 24px;border-radius:14px;font-size:15px;z-index:999;text-align:center;line-height:1.5;}
+</style>
+</head>
+<body>
+<div id="toast"></div>
+<div class="app">
+  <div class="hdr">
+    <div class="hdr-name">Dr. Simone Caccetta</div>
+    <div class="hdr-sub">Chirurgia Plastica &amp; Medicina Estetica</div>
+    <div class="hdr-bot">
+      <div class="saved-pill"><div class="dot" id="dot"></div><span class="saved-txt">Salvataggio automatico</span></div>
+    </div>
+    <div class="save-time" id="last-saved"></div>
+  </div>
+  <div class="tabs"><div class="tabs-inner">
+    <button class="tab active" onclick="switchTab(0)">Anagrafica</button>
+    <button class="tab" onclick="switchTab(1)">Anamnesi</button>
+    <button class="tab" onclick="switchTab(2)">Trattamento</button>
+  </div></div>
+
+  <div class="page active" id="tab0">
+    <div class="group-label">Dati personali</div>
+    <div class="list">
+      <div class="row"><span class="row-lbl">Cognome</span><input id="cognome" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Nome</span><input id="nome" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Data di nascita</span><input id="dob" type="date"></div>
+      <div class="row"><span class="row-lbl">Luogo di nascita</span><input id="lob" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Sesso</span><input id="sesso" placeholder="—"></div>
+    </div>
+    <div class="group-label">Contatti</div>
+    <div class="list">
+      <div class="row"><span class="row-lbl">Telefono</span><input id="tel" type="tel" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">E-mail</span><input id="email" type="email" placeholder="—"></div>
+    </div>
+  </div>
+
+  <div class="page" id="tab1">
+    <div class="group-label">Motivo della visita</div>
+    <div class="list">
+      <div class="row"><span class="row-lbl">Area di interesse</span><input id="area" placeholder="—"></div>
+      <div class="row-area-lbl">Inestetismo / Diagnosi</div>
+      <div class="row-area"><textarea id="diagnosi" placeholder="Descrizione..."></textarea></div>
+    </div>
+    <div class="group-label">Controindicazioni e fattori di rischio</div>
+    <div class="list">
+      <div class="trow"><span class="trow-lbl">Allergie a farmaci o prodotti cosmetici</span><div class="yn"><button class="yn-btn" data-key="a1" data-val="si">Sì</button><button class="yn-btn" data-key="a1" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a1n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Malattie autoimmuni</span><div class="yn"><button class="yn-btn" data-key="a2" data-val="si">Sì</button><button class="yn-btn" data-key="a2" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a2n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Disturbi della coagulazione / terapia anticoagulante o antiaggregante</span><div class="yn"><button class="yn-btn" data-key="a3" data-val="si">Sì</button><button class="yn-btn" data-key="a3" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a3n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Herpes labiale ricorrente attivo o recente</span><div class="yn"><button class="yn-btn" data-key="a4" data-val="si">Sì</button><button class="yn-btn" data-key="a4" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a4n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Acne attiva nella zona da trattare</span><div class="yn"><button class="yn-btn" data-key="a5" data-val="si">Sì</button><button class="yn-btn" data-key="a5" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a5n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Impetigine o altra infezione cutanea attiva</span><div class="yn"><button class="yn-btn" data-key="a6" data-val="si">Sì</button><button class="yn-btn" data-key="a6" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a6n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Patologia infiammatoria cronica cutanea attiva nella zona (psoriasi, dermatite, rosacea)</span><div class="yn"><button class="yn-btn" data-key="a7" data-val="si">Sì</button><button class="yn-btn" data-key="a7" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a7n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Pregressi interventi chirurgici nella zona di interesse</span><div class="yn"><button class="yn-btn" data-key="a8" data-val="si">Sì</button><button class="yn-btn" data-key="a8" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a8n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Pregresse reazioni avverse a prodotti di medicina estetica (filler, tossina, biorivitalizzanti)</span><div class="yn"><button class="yn-btn" data-key="a9" data-val="si">Sì</button><button class="yn-btn" data-key="a9" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a9n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Gravidanza in corso o sospetta</span><div class="yn"><button class="yn-btn" data-key="a10" data-val="si">Sì</button><button class="yn-btn" data-key="a10" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a10n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Allattamento al seno</span><div class="yn"><button class="yn-btn" data-key="a11" data-val="si">Sì</button><button class="yn-btn" data-key="a11" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a11n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Utilizzo di isotretinoina negli ultimi 6 mesi</span><div class="yn"><button class="yn-btn" data-key="a12" data-val="si">Sì</button><button class="yn-btn" data-key="a12" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a12n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Utilizzo di fotosensibilizzanti (retinolo, AHA, FANS topici, tetracicline...)</span><div class="yn"><button class="yn-btn" data-key="a13" data-val="si">Sì</button><button class="yn-btn" data-key="a13" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a13n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Fumo</span><div class="yn"><button class="yn-btn" data-key="a14" data-val="si">Sì</button><button class="yn-btn" data-key="a14" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="a14n" placeholder="N° sigarette/die..."></textarea></div>
+    </div>
+    <div class="group-label">Altre patologie</div>
+    <div class="list">
+      <div class="trow"><span class="trow-lbl">Patologie rilevanti (cardiovascolari, diabete, tiroide, neurologiche, neoplasie, epatiche, renali...)</span><div class="yn"><button class="yn-btn" data-key="ap" data-val="si">Sì</button><button class="yn-btn" data-key="ap" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="apn" placeholder="Specificare..."></textarea></div>
+    </div>
+    <div class="group-label">Terapia farmacologica</div>
+    <div class="list">
+      <div class="trow"><span class="trow-lbl">Farmaci in uso (integratori, contraccettivi, TOS, fitoterapici)</span><div class="yn"><button class="yn-btn" data-key="farm" data-val="si">Sì</button><button class="yn-btn" data-key="farm" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="farmn" placeholder="Elencare farmaci e dosaggi..."></textarea></div>
+    </div>
+    <div class="group-label">Anamnesi estetica</div>
+    <div class="list">
+      <div class="row-area-lbl">Trattamenti precedenti</div>
+      <div class="row-area"><textarea id="anam-est" placeholder="Trattamenti precedenti, prodotti, risultati, complicanze..." style="min-height:130px;"></textarea></div>
+    </div>
+  </div>
+
+  <div class="page" id="tab2">
+    <div class="group-label">Piano di trattamento</div>
+    <div class="list">
+      <div class="row-area-lbl">Trattamento concordato</div>
+      <div class="row-area"><textarea id="tratt" placeholder="Descrivere il piano di trattamento..." style="min-height:140px;"></textarea></div>
+      <div class="row"><span class="row-lbl">Prodotto / Dispositivo</span><input id="prod" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Zona target</span><input id="zona" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Quantità / Dose</span><input id="dose" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">N° sedute</span><input id="sedute" placeholder="—"></div>
+      <div class="row-area-lbl">Note cliniche</div>
+      <div class="row-area"><textarea id="note-clin" placeholder="—"></textarea></div>
+    </div>
+    <div class="group-label">Date</div>
+    <div class="list">
+      <div class="row"><span class="row-lbl">Data trattamento</span><input id="data-tratt" type="date"></div>
+      <div class="row"><span class="row-lbl">Prossimo controllo</span><input id="followup" type="date"></div>
+    </div>
+    <div class="group-label">Consenso e documentazione</div>
+    <div class="list">
+      <div class="privacy-text">Il/La sottoscritto/a dichiara di aver ricevuto l'informativa ai sensi dell'art. 13 del Reg. UE 2016/679 (GDPR) e presta il consenso al trattamento dei dati personali per finalità di cura della salute.</div>
+      <div class="trow"><span class="trow-lbl">Consenso informato al trattamento firmato</span><div class="yn"><button class="yn-btn" data-key="cons1" data-val="si">Sì</button><button class="yn-btn" data-key="cons1" data-val="no">No</button></div></div>
+      <div class="trow"><span class="trow-lbl">Consenso al trattamento dati personali (GDPR)</span><div class="yn"><button class="yn-btn" data-key="gdpr1" data-val="si">Sì</button><button class="yn-btn" data-key="gdpr1" data-val="no">No</button></div></div>
+      <div class="trow"><span class="trow-lbl">Consenso all'archiviazione di fotografie cliniche</span><div class="yn"><button class="yn-btn" data-key="gdpr2" data-val="si">Sì</button><button class="yn-btn" data-key="gdpr2" data-val="no">No</button></div></div>
+      <div class="trow"><span class="trow-lbl">Fotografie cliniche basali archiviate</span><div class="yn"><button class="yn-btn" data-key="cons2" data-val="si">Sì</button><button class="yn-btn" data-key="cons2" data-val="no">No</button></div></div>
+    </div>
+    <div class="group-label">Firme</div>
+    <div class="list">
+      <div class="firme-wrap">
+        <div class="firma-box">
+          <div class="firma-label">Paziente</div>
+          <div class="firma-date"><span>Data</span><input id="data-firma-paz" type="date"></div>
+          <div class="firma-canvas-wrap"><canvas id="sig-paz" width="280" height="160"></canvas></div>
+          <button class="firma-clear" onclick="clearCanvas('sig-paz')">Cancella</button>
+        </div>
+        <div class="firma-box">
+          <div class="firma-label">Dr. Simone Caccetta</div>
+          <div class="firma-date"><span>Data</span><input id="data-firma-med" type="date"></div>
+          <div class="firma-canvas-wrap"><canvas id="sig-med" width="280" height="160"></canvas></div>
+          <button class="firma-clear" onclick="clearCanvas('sig-med')">Cancella</button>
+        </div>
+      </div>
+    </div>
+    <div style="height:8px;"></div>
+  </div>
+</div>
+
+<div class="footer">
+  <button class="fbtn fbtn-sec" onclick="newScheda()">+ Nuova scheda</button>
+  <button class="fbtn fbtn-pri" onclick="salvaPDF()">Salva PDF</button>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<script>
+var FIELDS=['cognome','nome','dob','lob','sesso','tel','email','area','diagnosi','a1n','a2n','a3n','a4n','a5n','a6n','a7n','a8n','a9n','a10n','a11n','a12n','a13n','a14n','apn','farmn','anam-est','tratt','prod','zona','dose','sedute','note-clin','data-tratt','followup','data-firma-paz','data-firma-med'];
+var ynLabels={a1:'Allergie a farmaci o prodotti cosmetici',a2:'Malattie autoimmuni',a3:'Disturbi della coagulazione / anticoagulanti',a4:'Herpes labiale ricorrente attivo',a5:'Acne attiva nella zona da trattare',a6:'Impetigine o infezione cutanea attiva',a7:'Patologia infiammatoria cronica (psoriasi, dermatite, rosacea)',a8:'Pregressi interventi chirurgici nella zona',a9:'Pregresse reazioni avverse a prodotti estetici',a10:'Gravidanza in corso o sospetta',a11:'Allattamento al seno',a12:'Isotretinoina negli ultimi 6 mesi',a13:'Fotosensibilizzanti in uso',a14:'Fumo',ap:'Altre patologie rilevanti',farm:'Farmaci in uso',cons1:'Consenso informato firmato',gdpr1:'Consenso trattamento dati (GDPR)',gdpr2:'Consenso archiviazione fotografie',cons2:'Fotografie cliniche archiviate'};
+var ynState={};
+var schedaId='scheda_'+Date.now(),saveTimer=null,canvases={},currentTab=0;
+
+function initCanvas(id){
+  var c=document.getElementById(id),ctx=c.getContext('2d'),drawing=false,lx=0,ly=0;
+  function pos(e){var r=c.getBoundingClientRect(),sx=c.width/r.width,sy=c.height/r.height;if(e.touches)return{x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy};return{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};}
+  c.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);lx=p.x;ly=p.y;});
+  c.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);lx=p.x;ly=p.y;},{passive:false});
+  function draw(e){if(!drawing)return;var p=pos(e);ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(p.x,p.y);ctx.strokeStyle='#1C1C1E';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';ctx.stroke();lx=p.x;ly=p.y;}
+  c.addEventListener('mousemove',draw);
+  c.addEventListener('touchmove',function(e){e.preventDefault();draw(e);},{passive:false});
+  c.addEventListener('mouseup',function(){drawing=false;schedula();});
+  c.addEventListener('touchend',function(){drawing=false;schedula();});
+  canvases[id]={c:c,ctx:ctx};
+}
+function clearCanvas(id){var o=canvases[id];if(o)o.ctx.clearRect(0,0,o.c.width,o.c.height);schedula();}
+initCanvas('sig-paz');initCanvas('sig-med');
+
+document.querySelectorAll('.yn-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){selectBtn(this);});
+  btn.addEventListener('touchend',function(e){e.preventDefault();selectBtn(this);});
+});
+function selectBtn(btn){
+  var key=btn.getAttribute('data-key'),val=btn.getAttribute('data-val');
+  document.querySelectorAll('.yn-btn[data-key="'+key+'"]').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});
+  btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#ffffff';
+  ynState[key]=val;schedula();
+}
+
+function save(){
+  var data={id:schedaId,ts:new Date().toISOString()};
+  Object.assign(data,ynState);
+  FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
+  try{data['sig-paz']=canvases['sig-paz'].c.toDataURL();}catch(e){}
+  try{data['sig-med']=canvases['sig-med'].c.toDataURL();}catch(e){}
+  try{
+    localStorage.setItem('sc_'+schedaId,JSON.stringify(data));
+    localStorage.setItem('sc_last',schedaId);
+    var d=new Date();
+    document.getElementById('last-saved').textContent='Salvato alle '+d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
+    document.getElementById('dot').style.background='#30D158';
+  }catch(e){document.getElementById('dot').style.background='#FF3B30';}
+}
+function schedula(){clearTimeout(saveTimer);saveTimer=setTimeout(save,800);}
+
+function load(id){
+  schedaId=id||schedaId;
+  try{
+    var raw=localStorage.getItem('sc_'+schedaId);if(!raw)return;
+    var data=JSON.parse(raw);ynState={};
+    FIELDS.forEach(function(fid){var el=document.getElementById(fid);if(el&&data[fid]!=null)el.value=data[fid];});
+    document.querySelectorAll('.yn-btn').forEach(function(btn){
+      btn.style.background='';btn.style.borderColor='';btn.style.color='';
+      var k=btn.getAttribute('data-key'),v=btn.getAttribute('data-val');
+      if(data[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#ffffff';ynState[k]=v;}
+    });
+    ['sig-paz','sig-med'].forEach(function(sid){if(data[sid]){var img=new Image();var ctx=canvases[sid].ctx;img.onload=function(){ctx.drawImage(img,0,0);};img.src=data[sid];}});
+  }catch(e){}
+}
+
+function showToast(msg){
+  var t=document.getElementById('toast');t.textContent=msg;t.style.display='block';
+  setTimeout(function(){t.style.display='none';},2500);
+}
+
+function salvaPDF(){
+  if(typeof window.jspdf==='undefined'&&typeof jsPDF==='undefined'){showToast('Libreria PDF non caricata.\nVerifica la connessione internet.');return;}
+  var jsPDFClass=window.jspdf?window.jspdf.jsPDF:jsPDF;
+  var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
+  var W=210,ml=14,mr=14,cw=W-ml-mr,y=0;
+  var RED=[192,57,43],LRED=[253,236,234],DGREY=[100,100,100],BLACK=[28,28,30];
+
+  function newPage(){doc.addPage();y=0;}
+  function checkY(need){if(y+need>270)newPage();}
+
+  function sectionHeader(title){
+    checkY(14);
+    doc.setFillColor(RED[0],RED[1],RED[2]);
+    doc.roundedRect(ml,y,cw,9,2,2,'F');
+    doc.setTextColor(255,255,255);
+    doc.setFont('helvetica','bold');
+    doc.setFontSize(9);
+    doc.text(title.toUpperCase(),ml+4,y+6);
+    y+=12;
+  }
+
+  function fieldRow(label,value){
+    checkY(10);
+    doc.setFillColor(245,245,247);
+    doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');
+    doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
+    doc.setFont('helvetica','bold');doc.setFontSize(8.5);
+    doc.text(label,ml+3,y+5.5);
+    doc.setFont('helvetica','normal');doc.setFontSize(8.5);
+    doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
+    if(value)doc.text(String(value),W-mr-3,y+5.5,{align:'right',maxWidth:cw*0.55});
+    y+=10;
+  }
+
+  function ynRow(label,val,note){
+    checkY(note&&note.trim()?18:10);
+    doc.setFillColor(248,248,250);
+    doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');
+    doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
+    doc.setFont('helvetica','bold');doc.setFontSize(8);
+    doc.text(label,ml+3,y+5.5,{maxWidth:cw-28});
+    var pill=val==='si'?'Sì':'No';
+    doc.setFillColor(RED[0],RED[1],RED[2]);
+    doc.roundedRect(W-mr-16,y+1.5,14,5,1.5,1.5,'F');
+    doc.setTextColor(255,255,255);doc.setFontSize(8);
+    doc.text(pill,W-mr-9,y+5.2,{align:'center'});
+    y+=10;
+    if(note&&note.trim()){
+      doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
+      doc.setFont('helvetica','italic');doc.setFontSize(7.5);
+      var lines=doc.splitTextToSize(note,cw-6);
+      checkY(lines.length*4+2);
+      doc.text(lines,ml+4,y);
+      y+=lines.length*4+3;
+    }
+  }
+
+  function textArea(label,value){
+    if(!value||!value.trim())return;
+    checkY(16);
+    doc.setFont('helvetica','bold');doc.setFontSize(8);
+    doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
+    doc.text(label.toUpperCase(),ml,y+4);
+    y+=6;
+    doc.setFont('helvetica','normal');doc.setFontSize(8.5);
+    doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
+    var lines=doc.splitTextToSize(value,cw);
+    var bh=lines.length*4.5+4;
+    checkY(bh);
+    doc.setFillColor(250,250,252);
+    doc.roundedRect(ml,y,cw,bh,2,2,'F');
+    doc.text(lines,ml+3,y+4);
+    y+=bh+4;
+  }
+
+  function get(id){var el=document.getElementById(id);return el?el.value:'';}
+
+  // ── PAGE HEADER ──
+  doc.setFillColor(RED[0],RED[1],RED[2]);
+  doc.rect(0,0,W,22,'F');
+  doc.setTextColor(255,255,255);
+  doc.setFont('helvetica','bold');doc.setFontSize(14);
+  doc.text('Dr. Simone Caccetta',ml,10);
+  doc.setFontSize(8);doc.setFont('helvetica','normal');
+  doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica  |  Medicina Estetica',ml,16);
+  doc.setFontSize(8);
+  doc.text('SCHEDA ANAMNESTICA',W-mr,10,{align:'right'});
+  var now=new Date();
+  doc.text(now.toLocaleDateString('it-IT'),W-mr,16,{align:'right'});
+  y=28;
+
+  // ── ANAGRAFICA ──
+  sectionHeader('Dati Anagrafici');
+  fieldRow('Cognome',get('cognome'));
+  fieldRow('Nome',get('nome'));
+  fieldRow('Data di nascita',get('dob'));
+  fieldRow('Luogo di nascita',get('lob'));
+  fieldRow('Sesso',get('sesso'));
+  fieldRow('Telefono',get('tel'));
+  fieldRow('E-mail',get('email'));
+  y+=4;
+
+  // ── MOTIVO ──
+  sectionHeader('Motivo della Visita');
+  fieldRow('Area di interesse',get('area'));
+  textArea('Inestetismo / Diagnosi',get('diagnosi'));
+  y+=2;
+
+  // ── CONTROINDICAZIONI ──
+  sectionHeader('Controindicazioni e Fattori di Rischio');
+  var keys=['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14'];
+  keys.forEach(function(k){
+    if(ynState[k]){ynRow(ynLabels[k],ynState[k],get(k+'n'));}
+  });
+  y+=2;
+
+  sectionHeader('Altre Patologie e Farmaci');
+  if(ynState['ap'])ynRow(ynLabels['ap'],ynState['ap'],get('apn'));
+  if(ynState['farm'])ynRow(ynLabels['farm'],ynState['farm'],get('farmn'));
+  textArea('Anamnesi estetica',get('anam-est'));
+  y+=2;
+
+  // ── TRATTAMENTO ──
+  sectionHeader('Piano di Trattamento');
+  textArea('Trattamento concordato',get('tratt'));
+  fieldRow('Prodotto / Dispositivo',get('prod'));
+  fieldRow('Zona target',get('zona'));
+  fieldRow('Quantità / Dose',get('dose'));
+  fieldRow('N° sedute',get('sedute'));
+  textArea('Note cliniche',get('note-clin'));
+  fieldRow('Data trattamento',get('data-tratt'));
+  fieldRow('Prossimo controllo',get('followup'));
+  y+=2;
+
+  // ── CONSENSI ──
+  sectionHeader('Consenso e Documentazione');
+  ['cons1','gdpr1','gdpr2','cons2'].forEach(function(k){
+    if(ynState[k])ynRow(ynLabels[k],ynState[k],'');
+  });
+  y+=4;
+
+  // ── FIRME ──
+  checkY(60);
+  sectionHeader('Firme');
+  var fw=(cw-8)/2;
+  // boxes
+  doc.setDrawColor(220,220,220);doc.setLineWidth(0.3);
+  doc.roundedRect(ml,y,fw,48,2,2,'S');
+  doc.roundedRect(ml+fw+8,y,fw,48,2,2,'S');
+  // labels
+  doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
+  doc.text('PAZIENTE',ml+3,y+5);
+  doc.text('DR. SIMONE CACCETTA',ml+fw+11,y+5);
+  // dates
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
+  doc.text('Data: '+(get('data-firma-paz')||'________________'),ml+3,y+11);
+  doc.text('Data: '+(get('data-firma-med')||'________________'),ml+fw+11,y+11);
+  // signatures
+  try{
+    var imgPaz=canvases['sig-paz'].c.toDataURL('image/png');
+    doc.addImage(imgPaz,'PNG',ml+2,y+14,fw-4,28);
+  }catch(e){}
+  try{
+    var imgMed=canvases['sig-med'].c.toDataURL('image/png');
+    doc.addImage(imgMed,'PNG',ml+fw+10,y+14,fw-4,28);
+  }catch(e){}
+  y+=52;
+
+  // footer on all pages
+  var totalPages=doc.internal.getNumberOfPages();
+  for(var i=1;i<=totalPages;i++){
+    doc.setPage(i);
+    doc.setDrawColor(220,220,220);doc.setLineWidth(0.3);
+    doc.line(ml,285,W-mr,285);
+    doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(150,150,150);
+    doc.text('Dr. Simone Caccetta  —  Documento medico riservato  —  GDPR Reg. UE 2016/679',ml,289);
+    doc.text('Pag. '+i+'/'+totalPages,W-mr,289,{align:'right'});
+  }
+
+  // nome file con cognome e data
+  var cognome=get('cognome').replace(/\s+/g,'_')||'Paziente';
+  var dataT=get('data-tratt')||now.toISOString().split('T')[0];
+  var filename='Scheda_'+cognome+'_'+dataT+'.pdf';
+  doc.save(filename);
+  showToast('PDF salvato:\n'+filename);
+}
+
+function newScheda(){
+  if(!confirm('Creare una nuova scheda? Quella corrente è già salvata.'))return;
+  schedaId='scheda_'+Date.now();ynState={};
+  FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  document.querySelectorAll('.yn-btn').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});
+  clearCanvas('sig-paz');clearCanvas('sig-med');
+  document.getElementById('last-saved').textContent='Nuova scheda';
+}
+
+function switchTab(i){
+  currentTab=i;
+  document.querySelectorAll('.tab').forEach(function(t,j){t.classList.toggle('active',i===j);});
+  document.querySelectorAll('.page').forEach(function(p,j){p.style.display=(i===j)?'block':'none';});
+}
+document.querySelectorAll('.page').forEach(function(p,j){p.style.display=j===0?'block':'none';});
+document.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',schedula);});
+var lastId=localStorage.getItem('sc_last');
+if(lastId){schedaId=lastId;load(lastId);}
+</script>
+</body>
+</html>
