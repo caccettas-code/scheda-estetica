@@ -3,13 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Scheda Medicina Estetica — Dr. Simone Caccetta</title>
+<title>Dr. Simone Caccetta — Medicina Estetica</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
 :root{--red:#C0392B;--red-d:#96281B;--bg:#F2F2F7;--card:#fff;--sep:rgba(60,60,67,.12);--txt:#1C1C1E;--txt3:#8E8E93;}
 body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;background:linear-gradient(160deg,#F2F2F7 0%,#E9E9F0 100%);min-height:100vh;color:var(--txt);font-size:16px;padding-bottom:88px;}
-input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;}
+input,textarea,button,select{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;}
 .app{max-width:680px;margin:0 auto;}
+/* HEADER */
 .hdr{background:linear-gradient(175deg,#C0392B 0%,#96281B 100%);padding:20px 20px 22px;position:sticky;top:0;z-index:100;}
 .hdr-name{color:#fff;font-size:19px;}
 .hdr-sub{color:rgba(255,255,255,.7);font-size:12px;}
@@ -18,25 +19,28 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
 .dot{width:7px;height:7px;border-radius:50%;background:#30D158;flex-shrink:0;}
 .saved-txt{color:rgba(255,255,255,.9);font-size:12px;}
 .save-time{color:rgba(255,255,255,.6);font-size:11px;margin-top:3px;}
+/* TABS */
 .tabs{background:rgba(242,242,247,.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--sep);position:sticky;top:84px;z-index:99;padding:0 16px;}
 .tabs-inner{display:flex;}
-.tab{flex:1;padding:12px 4px 11px;text-align:center;font-size:13px;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;cursor:pointer;font-weight:700;}
+.tab{flex:1;padding:10px 2px 9px;text-align:center;font-size:12px;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;cursor:pointer;font-weight:700;}
 .tab.active{color:var(--red);border-bottom-color:var(--red);}
 .page{display:none;padding:20px 16px 0;}
 .page.active{display:block;}
+/* LISTS */
 .group-label{font-size:12px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;padding:0 16px 6px;margin-top:20px;}
 .group-label:first-child{margin-top:0;}
 .list{background:var(--card);border-radius:14px;overflow:hidden;}
 .row{display:flex;align-items:center;border-bottom:0.5px solid var(--sep);min-height:48px;}
 .row:last-child{border-bottom:none;}
 .row-lbl{font-size:15px;color:var(--txt);padding:14px 12px 14px 16px;min-width:130px;flex-shrink:0;}
-.row input{flex:1;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:14px 16px 14px 0;text-align:right;}
+.row input,.row select{flex:1;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:14px 16px 14px 0;text-align:right;-webkit-appearance:none;}
 .row input::placeholder{color:var(--txt3);}
 .row-area-lbl{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.4px;padding:12px 16px 0;}
 .row-area{border-bottom:0.5px solid var(--sep);}
 .row-area:last-child{border-bottom:none;}
 .row-area textarea{display:block;width:100%;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:12px 16px;resize:none;line-height:1.5;min-height:100px;}
 .row-area textarea::placeholder{color:var(--txt3);}
+/* TOGGLES */
 .trow{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:0.5px solid var(--sep);}
 .trow:last-child{border-bottom:none;}
 .trow-lbl{font-size:15px;color:var(--txt);flex:1;padding-right:14px;line-height:1.4;}
@@ -46,6 +50,7 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
 .tnote:last-child{border-bottom:none;}
 .tnote textarea{width:100%;border:0.5px solid var(--sep);border-radius:10px;padding:10px 12px;font-weight:700;font-size:14px;color:var(--txt);background:var(--bg);resize:none;outline:none;min-height:58px;line-height:1.4;}
 .tnote textarea::placeholder{color:var(--txt3);}
+/* FIRME */
 .firme-wrap{display:flex;gap:12px;padding:16px;}
 .firma-box{flex:1;display:flex;flex-direction:column;gap:8px;}
 .firma-label{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;}
@@ -55,12 +60,24 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
 .firma-canvas-wrap{border:0.5px solid var(--sep);border-radius:12px;overflow:hidden;background:#fff;}
 .firma-canvas-wrap canvas{display:block;width:100%;touch-action:none;}
 .firma-clear{width:100%;height:34px;border-radius:8px;border:0.5px solid var(--sep);background:var(--bg);font-weight:700;font-size:13px;color:var(--txt3);cursor:pointer;}
-.privacy-text{font-size:13px;color:var(--txt3);line-height:1.5;padding:14px 16px 10px;border-bottom:0.5px solid var(--sep);}
+/* CONSENSI */
+.consenso-picker{padding:16px;}
+.consenso-picker select{width:100%;height:48px;border:1.5px solid var(--sep);border-radius:12px;background:var(--bg);font-size:15px;font-weight:700;color:var(--txt);padding:0 14px;outline:none;-webkit-appearance:none;appearance:none;}
+.consenso-body{margin:0 16px 16px;background:var(--bg);border-radius:12px;padding:16px;border:0.5px solid var(--sep);}
+.consenso-body h2{font-size:15px;color:var(--red);margin-bottom:4px;}
+.consenso-body h3{font-size:12px;color:var(--txt3);font-weight:700;margin-bottom:14px;}
+.consenso-testo{font-size:13px;color:var(--txt);line-height:1.7;white-space:pre-wrap;font-weight:400;max-height:320px;overflow-y:auto;border-bottom:0.5px solid var(--sep);padding-bottom:14px;margin-bottom:14px;}
+.consenso-punti{}
+.consenso-punto{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid var(--sep);}
+.consenso-punto:last-child{border-bottom:none;}
+.consenso-punto-lbl{font-size:14px;color:var(--txt);flex:1;padding-right:12px;line-height:1.35;}
+.privacy-text{font-size:13px;color:var(--txt3);line-height:1.5;padding:14px 16px 10px;border-bottom:0.5px solid var(--sep);font-weight:400;}
+/* FOOTER */
 .footer{position:fixed;bottom:0;left:0;right:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(242,242,247,.92);backdrop-filter:blur(24px);border-top:0.5px solid var(--sep);display:flex;gap:10px;}
 .fbtn{flex:1;height:50px;border-radius:13px;border:none;font-weight:700;font-size:16px;cursor:pointer;}
 .fbtn-sec{background:rgba(255,255,255,.85);color:var(--txt);border:0.5px solid var(--sep);}
 .fbtn-pri{background:linear-gradient(175deg,#C0392B,#96281B);color:#fff;}
-#toast{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.8);color:#fff;padding:16px 24px;border-radius:14px;font-size:15px;z-index:999;text-align:center;line-height:1.5;}
+#toast{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.82);color:#fff;padding:16px 24px;border-radius:14px;font-size:15px;z-index:999;text-align:center;line-height:1.6;max-width:280px;}
 </style>
 </head>
 <body>
@@ -78,8 +95,10 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
     <button class="tab active" onclick="switchTab(0)">Anagrafica</button>
     <button class="tab" onclick="switchTab(1)">Anamnesi</button>
     <button class="tab" onclick="switchTab(2)">Trattamento</button>
+    <button class="tab" onclick="switchTab(3)">Consenso</button>
   </div></div>
 
+  <!-- TAB 0: ANAGRAFICA -->
   <div class="page active" id="tab0">
     <div class="group-label">Dati personali</div>
     <div class="list">
@@ -96,6 +115,7 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
     </div>
   </div>
 
+  <!-- TAB 1: ANAMNESI -->
   <div class="page" id="tab1">
     <div class="group-label">Motivo della visita</div>
     <div class="list">
@@ -151,6 +171,7 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
     </div>
   </div>
 
+  <!-- TAB 2: TRATTAMENTO -->
   <div class="page" id="tab2">
     <div class="group-label">Piano di trattamento</div>
     <div class="list">
@@ -168,28 +189,50 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
       <div class="row"><span class="row-lbl">Data trattamento</span><input id="data-tratt" type="date"></div>
       <div class="row"><span class="row-lbl">Prossimo controllo</span><input id="followup" type="date"></div>
     </div>
-    <div class="group-label">Consenso e documentazione</div>
+  </div>
+
+  <!-- TAB 3: CONSENSO -->
+  <div class="page" id="tab3">
+    <div class="group-label">Seleziona tipo di trattamento</div>
     <div class="list">
-      <div class="privacy-text">Il/La sottoscritto/a dichiara di aver ricevuto l'informativa ai sensi dell'art. 13 del Reg. UE 2016/679 (GDPR) e presta il consenso al trattamento dei dati personali per finalità di cura della salute.</div>
-      <div class="trow"><span class="trow-lbl">Consenso informato al trattamento firmato</span><div class="yn"><button class="yn-btn" data-key="cons1" data-val="si">Sì</button><button class="yn-btn" data-key="cons1" data-val="no">No</button></div></div>
-      <div class="trow"><span class="trow-lbl">Consenso al trattamento dati personali (GDPR)</span><div class="yn"><button class="yn-btn" data-key="gdpr1" data-val="si">Sì</button><button class="yn-btn" data-key="gdpr1" data-val="no">No</button></div></div>
-      <div class="trow"><span class="trow-lbl">Consenso all'archiviazione di fotografie cliniche</span><div class="yn"><button class="yn-btn" data-key="gdpr2" data-val="si">Sì</button><button class="yn-btn" data-key="gdpr2" data-val="no">No</button></div></div>
-      <div class="trow"><span class="trow-lbl">Fotografie cliniche basali archiviate</span><div class="yn"><button class="yn-btn" data-key="cons2" data-val="si">Sì</button><button class="yn-btn" data-key="cons2" data-val="no">No</button></div></div>
+      <div class="consenso-picker">
+        <select id="consenso-select" onchange="caricaConsenso(this.value)">
+          <option value="">— Seleziona trattamento —</option>
+          <option value="btx">Tossina Botulinica</option>
+          <option value="filler">Filler — Acido Ialuronico</option>
+          <option value="biostimolazione">Biostimolazione</option>
+          <option value="peeling">Peeling / Resurfacing PRX-T33</option>
+          <option value="generico">Consenso Generico</option>
+        </select>
+      </div>
     </div>
-    <div class="group-label">Firme</div>
-    <div class="list">
-      <div class="firme-wrap">
-        <div class="firma-box">
-          <div class="firma-label">Paziente</div>
-          <div class="firma-date"><span>Data</span><input id="data-firma-paz" type="date"></div>
-          <div class="firma-canvas-wrap"><canvas id="sig-paz" width="280" height="160"></canvas></div>
-          <button class="firma-clear" onclick="clearCanvas('sig-paz')">Cancella</button>
+
+    <div id="consenso-contenuto" style="display:none;">
+      <div class="group-label">Testo del consenso informato</div>
+      <div class="list">
+        <div class="consenso-body">
+          <h2 id="cons-titolo"></h2>
+          <h3 id="cons-sottotitolo"></h3>
+          <div class="consenso-testo" id="cons-testo"></div>
+          <div class="consenso-punti" id="cons-punti"></div>
         </div>
-        <div class="firma-box">
-          <div class="firma-label">Dr. Simone Caccetta</div>
-          <div class="firma-date"><span>Data</span><input id="data-firma-med" type="date"></div>
-          <div class="firma-canvas-wrap"><canvas id="sig-med" width="280" height="160"></canvas></div>
-          <button class="firma-clear" onclick="clearCanvas('sig-med')">Cancella</button>
+      </div>
+
+      <div class="group-label">Firme</div>
+      <div class="list">
+        <div class="firme-wrap">
+          <div class="firma-box">
+            <div class="firma-label">Paziente</div>
+            <div class="firma-date"><span>Data</span><input id="data-firma-paz" type="date"></div>
+            <div class="firma-canvas-wrap"><canvas id="sig-paz" width="280" height="160"></canvas></div>
+            <button class="firma-clear" onclick="clearCanvas('sig-paz')">Cancella</button>
+          </div>
+          <div class="firma-box">
+            <div class="firma-label">Dr. Simone Caccetta</div>
+            <div class="firma-date"><span>Data</span><input id="data-firma-med" type="date"></div>
+            <div class="firma-canvas-wrap"><canvas id="sig-med" width="280" height="160"></canvas></div>
+            <button class="firma-clear" onclick="clearCanvas('sig-med')">Cancella</button>
+          </div>
         </div>
       </div>
     </div>
@@ -198,19 +241,80 @@ input,textarea,button{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;fo
 </div>
 
 <div class="footer">
-  <button class="fbtn fbtn-sec" onclick="newScheda()">+ Nuova scheda</button>
-  <button class="fbtn fbtn-pri" onclick="salvaPDF()">Salva PDF</button>
+  <button class="fbtn fbtn-sec" onclick="newScheda()" style="flex:0.7;font-size:13px;">+ Nuova</button>
+  <button class="fbtn fbtn-pri" onclick="salvaPDF()" style="font-size:14px;">Salva PDF</button>
+  <button class="fbtn" onclick="inviaFirma()" style="background:linear-gradient(175deg,#4CAF8C,#3a9e7a);color:#fff;font-size:13px;box-shadow:0 1px 3px rgba(60,180,120,.25);">✍️ Invia a firma</button>
+</div>
+
+<!-- YOUSIGN MODAL -->
+<div id="ys-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;padding:20px;display:flex;align-items:center;justify-content:center;">
+  <div style="background:#fff;border-radius:18px;padding:24px;max-width:420px;width:100%;">
+    <div style="font-size:17px;font-weight:700;color:#1C1C1E;margin-bottom:6px;">Invia a firma certificata</div>
+    <div style="font-size:13px;color:#8E8E93;margin-bottom:18px;font-weight:400;line-height:1.5;">Il documento verrà inviato via email al paziente per la firma elettronica certificata tramite Yousign.</div>
+    <div style="margin-bottom:12px;">
+      <div style="font-size:12px;font-weight:700;color:#8E8E93;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;">Email paziente</div>
+      <input id="ys-email" type="email" placeholder="paziente@email.com" style="width:100%;height:46px;border:1.5px solid #E5E5EA;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700;outline:none;font-family:inherit;">
+    </div>
+    <div style="margin-bottom:18px;">
+      <div style="font-size:12px;font-weight:700;color:#8E8E93;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;">Nome paziente</div>
+      <input id="ys-name" type="text" placeholder="Nome Cognome" style="width:100%;height:46px;border:1.5px solid #E5E5EA;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700;outline:none;font-family:inherit;">
+    </div>
+    <div id="ys-status" style="font-size:13px;color:#C0392B;margin-bottom:12px;min-height:18px;font-weight:400;"></div>
+    <div style="display:flex;gap:10px;">
+      <button onclick="document.getElementById('ys-modal').style.display='none';" style="flex:1;height:46px;border-radius:12px;border:1.5px solid #E5E5EA;background:#F2F2F7;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">Annulla</button>
+      <button onclick="eseguiFirma()" id="ys-send-btn" style="flex:1;height:46px;border-radius:12px;border:none;background:linear-gradient(175deg,#5DBF9A,#3aA87c);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 1px 4px rgba(60,180,120,.3);">Invia</button>
+    </div>
+  </div>
 </div>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
 <script>
+// ── CONSENSI ────────────────────────────────────────────────────────────────
+var CONSENSI = {
+  btx:{titolo:"Tossina Botulinica",sottotitolo:"Riduzione temporanea delle rughe d'espressione del viso",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con infiltrazione di Tossina Botulinica a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nLa muscolatura del volto produce, con la sua attività, solchi e rughe che tendono ad accentuarsi con il passare degli anni. La tossina botulinica è un farmaco capace di interrompere temporaneamente la trasmissione degli impulsi nervosi che determinano la contrazione della muscolatura mimica. Viene iniettata nei singoli muscoli di cui si vuole modulare l'attività per attenuare i solchi prodotti sulla cute.\n\nI primi effetti si manifestano mediamente dopo 3 giorni e raggiungono il massimo dopo 7-10 giorni. Il risultato dura dai 3 ai 5-6 mesi. L'applicazione non richiede anestesia locale.\n\nCONTROINDICAZIONI\n\nNon possono essere trattati: pazienti affetti da miastenia gravis o altre malattie neuromuscolari, donne in gravidanza o in allattamento, pazienti in terapia con aminoglicosidi, chinolonici o penicillamina.\n\nCOMPLICANZE POSSIBILI\n\nLe complicanze sono rare. Possono verificarsi: modesto arrossamento transitorio, cefalea fugace, piccole ecchimosi a riassorbimento spontaneo. Per migrazione del farmaco verso muscoli adiacenti possono verificarsi ptosi del sopracciglio o ptosi palpebrale, generalmente reversibili in 2-4 settimane. In rari casi (circa 0,2%) il trattamento può non produrre l'effetto desiderato.\n\nALTERNATIVE TERAPEUTICHE\n\nNon esistono alternative mediche equivalenti. Le rughe frontali possono essere trattate con filler o con lifting frontale chirurgico.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di aver compreso che la tossina botulinica si riassorbe progressivamente e sono necessarie reintegrazioni periodiche.\n2. Di essere consapevole che possono verificarsi asimmetrie o irregolarità cutanee transitorie.\n3. Di non aver assunto antiaggreganti, acido acetilsalicilico o FANS da almeno 10 giorni.\n4. Di dover evitare l'esposizione solare senza protezione per 7 giorni.\n5. Che la medicina non garantisce un risultato preciso, dipendente dalle risposte individuali dell'organismo.\n6. Che il presente consenso è valido anche per i trattamenti successivi, salvo revoca esplicita.",punti:[{id:"ct",testo:"Acconsento al trattamento con Tossina Botulinica"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
+  filler:{titolo:"Filler — Acido Ialuronico",sottotitolo:"Riduzione temporanea di rughe e aumenti selettivi di volume",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con infiltrazione di Acido Ialuronico a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nL'Acido Ialuronico è un materiale altamente puro, sterile, in siringhe pre-riempite, che può essere iniettato nei tessuti molli cutanei-sottocutanei al fine di aumentarne il volume. Ha un'elevatissima biocompatibilità e si riassorbe progressivamente nei mesi. La durata varia da 2-3 mesi per prodotti meno densi fino a 6-9 mesi per i più densi.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, infezioni cutanee attive nella zona, allergia documentata al prodotto. La presenza di filler precedenti non conosciuti aumenta il rischio di reazioni locali.\n\nCOMPLICANZE POSSIBILI\n\nLe complicanze sono rare (circa 1%). Possono verificarsi: arrossamento, prurito, gonfiore, ecchimosi, noduletti palpabili. Raramente: infezioni, infiammazione locale.\n\nALTERNATIVE TERAPEUTICHE\n\nFiller riassorbibili a diversa durata (acido polilattico, fosfato tricalcico), filler permanenti (oggi in disuso), autotrapianto di grasso.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di essere consapevole che i due lati del viso non sono identici e non potranno mai essere perfettamente simmetrici.\n2. Che la medicina non garantisce un risultato esatto, dipendente dalle risposte biologiche individuali.\n3. Di non aver assunto antiaggreganti, acido acetilsalicilico o FANS da almeno 10 giorni.\n4. Di dover evitare l'esposizione solare senza protezione per 7 giorni.\n5. Di non essere in stato di gravidanza.\n6. Che eventuali procedure secondarie o ritocchi sono a carico del paziente.\n7. Che il presente consenso è valido anche per i trattamenti analoghi successivi, salvo revoca esplicita.",punti:[{id:"ct",testo:"Acconsento al trattamento con infiltrazione di Acido Ialuronico"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
+  biostimolazione:{titolo:"Biostimolazione",sottotitolo:"Biorivitalizzazione cutanea con acido ialuronico e aminoacidi",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento di Biostimolazione cutanea a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nIl trattamento consiste nell'inoculazione intradermica di una sostanza a base di acido ialuronico, aminoacidi precursori del collagene e dell'elastina, e glicosaminoglicani. L'obiettivo è l'ottimizzazione biologica dello stato cutaneo nelle zone trattate. La sostanza è riassorbibile.\n\nProtocollo standard: 4 sedute settimanali, 2 sedute quindicinali, sedute mensili di mantenimento.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, terapia in corso con isotretinoina o retinoidi.\n\nCOMPLICANZE POSSIBILI\n\nReazioni comuni: eritema, edema, dolore, prurito nel sito di iniezione — solitamente lievi e a risoluzione spontanea. Reazioni rare (circa 2%): reazioni allergiche localizzate, infiammazione, infezione, pustole acneiformi. In casi rarissimi (< 1/15.000): manifestazioni permanenti di indurimento o colorazione grigiastra nel sito.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di non essere in stato di gravidanza.\n2. Di aver comunicato eventuali allergie a farmaci.\n3. Di aver comunicato eventuali trattamenti estetici effettuati negli ultimi anni.\n4. Di comprendere che i risultati non sono definitivi e che saranno necessarie più sedute.\n5. Che la medicina non garantisce un risultato preciso.",punti:[{id:"ct",testo:"Acconsento al trattamento di Biostimolazione"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
+  peeling:{titolo:"Peeling / Resurfacing — PRX-T33",sottotitolo:"Biorivitalizzazione cutanea e trattamento cicatrici atrofiche",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con PRX-T33 a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nPRX-T33 è un dispositivo medico indicato per la biorivitalizzazione della cute nell'invecchiamento cutaneo e per il trattamento delle cicatrici atrofiche. Viene applicato sulla cute mediante massaggio controllato.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, terapia in corso con isotretinoina o retinoidi topici, cute non integra nella zona da trattare.\n\nEFFETTI POST-TRATTAMENTO ATTESI\n\nArrossamento diffuso (può persistere qualche giorno), esfoliazione tardiva, macchie scure rotondeggianti nei primi due giorni — scompaiono con la desquamazione.\n\nCOMPLICANZE POSSIBILI\n\nIrritazione congiuntivale per contatto accidentale. Prurito con arrossamento e microvescicole per allergia all'acido cogico o al lattice. Infiammazioni circoscritte tardive. Abrasioni cutanee per massaggio eccessivo con possibili esiti cicatriziali.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di non essere in stato di gravidanza o allattamento.\n2. Di non essere in terapia con isotretinoina o retinoidi topici.\n3. Di aver ricevuto informazioni sufficienti per una decisione consapevole.\n4. Che tutte le domande poste al medico hanno ricevuto risposta esauriente.",punti:[{id:"ct",testo:"Acconsento al trattamento con PRX-T33"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
+  generico:{titolo:"Consenso Generico",sottotitolo:"Dichiarazione di avvenuta informazione e consenso all'atto sanitario proposto",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta informazioni complete e comprensibili in merito all'atto sanitario proposto, alle sue indicazioni, ai rischi, alle possibili complicanze e alle alternative terapeutiche disponibili.\n\nINFORMAZIONI GENERALI\n\nIl/La paziente dichiara di essere stato/a informato/a in merito a:\n• La natura e le finalità dell'atto sanitario proposto\n• Le modalità di esecuzione della procedura\n• I benefici attesi dal trattamento\n• I rischi e le possibili complicanze\n• Le alternative terapeutiche disponibili\n• La possibilità di rifiutare o revocare il consenso in qualsiasi momento\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di aver ricevuto informazioni esaurienti sull'atto sanitario proposto e di averle comprese appieno.\n2. Di aver avuto la possibilità di porre domande, alle quali ha ricevuto risposta esauriente.\n3. Di essere consapevole che la medicina non può garantire risultati certi, in quanto dipendenti dalle risposte biologiche individuali.\n4. Di poter revocare il presente consenso in qualsiasi momento prima dell'esecuzione.\n5. Che eventuali procedure secondarie rese necessarie da complicanze impreviste sono a carico del paziente.\n\nIn piena libertà di giudizio, sulla base delle informazioni ricevute, accetta l'atto sanitario proposto.",punti:[{id:"ct",testo:"Acconsento all'atto sanitario proposto"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]}
+};
+
+var consState={};
+var currentConsenso=null;
+
+function caricaConsenso(key){
+  if(!key){document.getElementById('consenso-contenuto').style.display='none';return;}
+  var c=CONSENSI[key];
+  currentConsenso=key;
+  document.getElementById('cons-titolo').textContent=c.titolo;
+  document.getElementById('cons-sottotitolo').textContent=c.sottotitolo;
+  document.getElementById('cons-testo').textContent=c.testo;
+  var puntiDiv=document.getElementById('cons-punti');
+  puntiDiv.innerHTML='';
+  c.punti.forEach(function(p){
+    var row=document.createElement('div');
+    row.className='consenso-punto';
+    row.innerHTML='<span class="consenso-punto-lbl">'+p.testo+'</span><div class="yn"><button class="yn-btn" data-key="c_'+p.id+'" data-val="si">Sì</button><button class="yn-btn" data-key="c_'+p.id+'" data-val="no">No</button></div>';
+    puntiDiv.appendChild(row);
+  });
+  // restore state
+  puntiDiv.querySelectorAll('.yn-btn').forEach(function(btn){
+    btn.addEventListener('click',function(){selectBtn(this);});
+    btn.addEventListener('touchend',function(e){e.preventDefault();selectBtn(this);});
+    var k=btn.getAttribute('data-key'),v=btn.getAttribute('data-val');
+    if(ynState[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#fff';}
+  });
+  document.getElementById('consenso-contenuto').style.display='block';
+  schedula();
+}
+
+// ── CORE ────────────────────────────────────────────────────────────────────
 var FIELDS=['cognome','nome','dob','lob','sesso','tel','email','area','diagnosi','a1n','a2n','a3n','a4n','a5n','a6n','a7n','a8n','a9n','a10n','a11n','a12n','a13n','a14n','apn','farmn','anam-est','tratt','prod','zona','dose','sedute','note-clin','data-tratt','followup','data-firma-paz','data-firma-med'];
-var ynLabels={a1:'Allergie a farmaci o prodotti cosmetici',a2:'Malattie autoimmuni',a3:'Disturbi della coagulazione / anticoagulanti',a4:'Herpes labiale ricorrente attivo',a5:'Acne attiva nella zona da trattare',a6:'Impetigine o infezione cutanea attiva',a7:'Patologia infiammatoria cronica (psoriasi, dermatite, rosacea)',a8:'Pregressi interventi chirurgici nella zona',a9:'Pregresse reazioni avverse a prodotti estetici',a10:'Gravidanza in corso o sospetta',a11:'Allattamento al seno',a12:'Isotretinoina negli ultimi 6 mesi',a13:'Fotosensibilizzanti in uso',a14:'Fumo',ap:'Altre patologie rilevanti',farm:'Farmaci in uso',cons1:'Consenso informato firmato',gdpr1:'Consenso trattamento dati (GDPR)',gdpr2:'Consenso archiviazione fotografie',cons2:'Fotografie cliniche archiviate'};
 var ynState={};
 var schedaId='scheda_'+Date.now(),saveTimer=null,canvases={},currentTab=0;
 
 function initCanvas(id){
-  var c=document.getElementById(id),ctx=c.getContext('2d'),drawing=false,lx=0,ly=0;
+  var c=document.getElementById(id);if(!c)return;
+  var ctx=c.getContext('2d'),drawing=false,lx=0,ly=0;
   function pos(e){var r=c.getBoundingClientRect(),sx=c.width/r.width,sy=c.height/r.height;if(e.touches)return{x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy};return{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};}
   c.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);lx=p.x;ly=p.y;});
   c.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);lx=p.x;ly=p.y;},{passive:false});
@@ -222,7 +326,6 @@ function initCanvas(id){
   canvases[id]={c:c,ctx:ctx};
 }
 function clearCanvas(id){var o=canvases[id];if(o)o.ctx.clearRect(0,0,o.c.width,o.c.height);schedula();}
-initCanvas('sig-paz');initCanvas('sig-med');
 
 document.querySelectorAll('.yn-btn').forEach(function(btn){
   btn.addEventListener('click',function(){selectBtn(this);});
@@ -236,11 +339,12 @@ function selectBtn(btn){
 }
 
 function save(){
-  var data={id:schedaId,ts:new Date().toISOString()};
+  var data={id:schedaId,ts:new Date().toISOString(),consensoKey:currentConsenso||''};
   Object.assign(data,ynState);
   FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
-  try{data['sig-paz']=canvases['sig-paz'].c.toDataURL();}catch(e){}
-  try{data['sig-med']=canvases['sig-med'].c.toDataURL();}catch(e){}
+  var sel=document.getElementById('consenso-select');if(sel)data.consensoKey=sel.value;
+  try{data['sig-paz']=canvases['sig-paz']?canvases['sig-paz'].c.toDataURL():'';}catch(e){}
+  try{data['sig-med']=canvases['sig-med']?canvases['sig-med'].c.toDataURL():'';}catch(e){}
   try{
     localStorage.setItem('sc_'+schedaId,JSON.stringify(data));
     localStorage.setItem('sc_last',schedaId);
@@ -260,210 +364,180 @@ function load(id){
     document.querySelectorAll('.yn-btn').forEach(function(btn){
       btn.style.background='';btn.style.borderColor='';btn.style.color='';
       var k=btn.getAttribute('data-key'),v=btn.getAttribute('data-val');
-      if(data[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#ffffff';ynState[k]=v;}
+      if(data[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#fff';ynState[k]=v;}
     });
-    ['sig-paz','sig-med'].forEach(function(sid){if(data[sid]){var img=new Image();var ctx=canvases[sid].ctx;img.onload=function(){ctx.drawImage(img,0,0);};img.src=data[sid];}});
+    if(data.consensoKey){var sel=document.getElementById('consenso-select');if(sel){sel.value=data.consensoKey;caricaConsenso(data.consensoKey);}}
+    ['sig-paz','sig-med'].forEach(function(sid){
+      if(data[sid]&&data[sid].length>100){
+        var img=new Image();
+        img.onload=function(){if(canvases[sid])canvases[sid].ctx.drawImage(img,0,0);};
+        img.src=data[sid];
+      }
+    });
   }catch(e){}
 }
 
-function showToast(msg){
-  var t=document.getElementById('toast');t.textContent=msg;t.style.display='block';
-  setTimeout(function(){t.style.display='none';},2500);
-}
+function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none';},2800);}
 
 function salvaPDF(){
-  if(typeof window.jspdf==='undefined'&&typeof jsPDF==='undefined'){showToast('Libreria PDF non caricata.\nVerifica la connessione internet.');return;}
+  if(typeof window.jspdf==='undefined'&&typeof jsPDF==='undefined'){showToast('Libreria PDF non disponibile.\nVerifica la connessione internet.');return;}
   var jsPDFClass=window.jspdf?window.jspdf.jsPDF:jsPDF;
   var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
   var W=210,ml=14,mr=14,cw=W-ml-mr,y=0;
-  var RED=[192,57,43],LRED=[253,236,234],DGREY=[100,100,100],BLACK=[28,28,30];
+  var RED=[192,57,43],BG=[247,247,249],DG=[100,100,100],BK=[28,28,30];
 
-  function newPage(){doc.addPage();y=0;}
-  function checkY(need){if(y+need>270)newPage();}
-
-  function sectionHeader(title){
-    checkY(14);
-    doc.setFillColor(RED[0],RED[1],RED[2]);
-    doc.roundedRect(ml,y,cw,9,2,2,'F');
-    doc.setTextColor(255,255,255);
-    doc.setFont('helvetica','bold');
-    doc.setFontSize(9);
-    doc.text(title.toUpperCase(),ml+4,y+6);
-    y+=12;
+  function chk(n){if(y+n>272){doc.addPage();y=0;pageHdr();}}
+  function pageHdr(){
+    doc.setFillColor(RED[0],RED[1],RED[2]);doc.rect(0,0,W,18,'F');
+    doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);
+    doc.text('Dr. Simone Caccetta',ml,9);
+    doc.setFontSize(7.5);doc.setFont('helvetica','normal');
+    doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica  |  Medicina Estetica',ml,14);
+    doc.setFontSize(7.5);doc.text(new Date().toLocaleDateString('it-IT'),W-mr,9,{align:'right'});
+    y=23;
   }
-
-  function fieldRow(label,value){
-    checkY(10);
-    doc.setFillColor(245,245,247);
-    doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');
-    doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
-    doc.setFont('helvetica','bold');doc.setFontSize(8.5);
-    doc.text(label,ml+3,y+5.5);
-    doc.setFont('helvetica','normal');doc.setFontSize(8.5);
-    doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
-    if(value)doc.text(String(value),W-mr-3,y+5.5,{align:'right',maxWidth:cw*0.55});
-    y+=10;
+  function secHdr(t){
+    chk(11);
+    doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');
+    doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);
+    doc.text(t.toUpperCase(),ml+4,y+5.5);y+=11;
   }
-
-  function ynRow(label,val,note){
-    checkY(note&&note.trim()?18:10);
-    doc.setFillColor(248,248,250);
-    doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');
-    doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
-    doc.setFont('helvetica','bold');doc.setFontSize(8);
-    doc.text(label,ml+3,y+5.5,{maxWidth:cw-28});
-    var pill=val==='si'?'Sì':'No';
-    doc.setFillColor(RED[0],RED[1],RED[2]);
-    doc.roundedRect(W-mr-16,y+1.5,14,5,1.5,1.5,'F');
-    doc.setTextColor(255,255,255);doc.setFontSize(8);
-    doc.text(pill,W-mr-9,y+5.2,{align:'center'});
-    y+=10;
+  function fRow(lbl,val){
+    chk(9);
+    doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');
+    doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(8);
+    doc.text(lbl,ml+3,y+5);
+    if(val){doc.setFont('helvetica','normal');doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(String(val),W-mr-3,y+5,{align:'right',maxWidth:cw*0.55});}
+    y+=9;
+  }
+  function ynRow(lbl,val,note){
+    var rh=note&&note.trim()?10:8.5;chk(rh+2);
+    doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,rh,1.5,1.5,'F');
+    doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
+    doc.text(lbl,ml+3,y+rh/2+2.5,{maxWidth:cw-22});
+    doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(W-mr-14,y+1.5,12,5,1.5,1.5,'F');
+    doc.setTextColor(255,255,255);doc.setFontSize(7.5);
+    doc.text(val==='si'?'Sì':'No',W-mr-8,y+5.2,{align:'center'});
+    y+=rh+1;
     if(note&&note.trim()){
-      doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
-      doc.setFont('helvetica','italic');doc.setFontSize(7.5);
-      var lines=doc.splitTextToSize(note,cw-6);
-      checkY(lines.length*4+2);
-      doc.text(lines,ml+4,y);
-      y+=lines.length*4+3;
+      doc.setTextColor(DG[0],DG[1],DG[2]);doc.setFont('helvetica','italic');doc.setFontSize(7);
+      var lines=doc.splitTextToSize(note,cw-6);chk(lines.length*3.5+2);
+      doc.text(lines,ml+4,y);y+=lines.length*3.5+3;
     }
   }
-
-  function textArea(label,value){
-    if(!value||!value.trim())return;
-    checkY(16);
-    doc.setFont('helvetica','bold');doc.setFontSize(8);
-    doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
-    doc.text(label.toUpperCase(),ml,y+4);
-    y+=6;
-    doc.setFont('helvetica','normal');doc.setFontSize(8.5);
-    doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
-    var lines=doc.splitTextToSize(value,cw);
-    var bh=lines.length*4.5+4;
-    checkY(bh);
-    doc.setFillColor(250,250,252);
-    doc.roundedRect(ml,y,cw,bh,2,2,'F');
-    doc.text(lines,ml+3,y+4);
-    y+=bh+4;
+  function txtBox(lbl,val){
+    if(!val||!val.trim())return;
+    chk(14);doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);
+    doc.text(lbl.toUpperCase(),ml,y+4);y+=6;
+    doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BK[0],BK[1],BK[2]);
+    var lines=doc.splitTextToSize(val,cw-4),bh=lines.length*4+4;
+    chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,1.5,1.5,'F');
+    doc.text(lines,ml+3,y+4);y+=bh+4;
   }
-
   function get(id){var el=document.getElementById(id);return el?el.value:'';}
 
-  // ── PAGE HEADER ──
-  doc.setFillColor(RED[0],RED[1],RED[2]);
-  doc.rect(0,0,W,22,'F');
-  doc.setTextColor(255,255,255);
-  doc.setFont('helvetica','bold');doc.setFontSize(14);
-  doc.text('Dr. Simone Caccetta',ml,10);
-  doc.setFontSize(8);doc.setFont('helvetica','normal');
-  doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica  |  Medicina Estetica',ml,16);
-  doc.setFontSize(8);
-  doc.text('SCHEDA ANAMNESTICA',W-mr,10,{align:'right'});
-  var now=new Date();
-  doc.text(now.toLocaleDateString('it-IT'),W-mr,16,{align:'right'});
-  y=28;
+  pageHdr();
 
-  // ── ANAGRAFICA ──
-  sectionHeader('Dati Anagrafici');
-  fieldRow('Cognome',get('cognome'));
-  fieldRow('Nome',get('nome'));
-  fieldRow('Data di nascita',get('dob'));
-  fieldRow('Luogo di nascita',get('lob'));
-  fieldRow('Sesso',get('sesso'));
-  fieldRow('Telefono',get('tel'));
-  fieldRow('E-mail',get('email'));
-  y+=4;
+  // SCHEDA ANAMNESTICA
+  doc.setFillColor(BK[0],BK[1],BK[2]);doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
+  doc.roundedRect(ml,y,cw,10,2,2,'F');doc.text('SCHEDA ANAMNESTICA',W/2,y+7,{align:'center'});y+=14;
 
-  // ── MOTIVO ──
-  sectionHeader('Motivo della Visita');
-  fieldRow('Area di interesse',get('area'));
-  textArea('Inestetismo / Diagnosi',get('diagnosi'));
-  y+=2;
+  secHdr('Dati Anagrafici');
+  fRow('Cognome',get('cognome'));fRow('Nome',get('nome'));fRow('Data di nascita',get('dob'));
+  fRow('Luogo di nascita',get('lob'));fRow('Sesso',get('sesso'));fRow('Telefono',get('tel'));fRow('E-mail',get('email'));y+=3;
 
-  // ── CONTROINDICAZIONI ──
-  sectionHeader('Controindicazioni e Fattori di Rischio');
-  var keys=['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14'];
-  keys.forEach(function(k){
-    if(ynState[k]){ynRow(ynLabels[k],ynState[k],get(k+'n'));}
-  });
-  y+=2;
+  secHdr('Motivo della Visita');
+  fRow('Area di interesse',get('area'));txtBox('Inestetismo / Diagnosi',get('diagnosi'));y+=2;
 
-  sectionHeader('Altre Patologie e Farmaci');
-  if(ynState['ap'])ynRow(ynLabels['ap'],ynState['ap'],get('apn'));
-  if(ynState['farm'])ynRow(ynLabels['farm'],ynState['farm'],get('farmn'));
-  textArea('Anamnesi estetica',get('anam-est'));
-  y+=2;
+  secHdr('Controindicazioni e Fattori di Rischio');
+  var akeys=['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14'];
+  var albls=['Allergie a farmaci o prodotti cosmetici','Malattie autoimmuni','Disturbi coagulazione / anticoagulanti','Herpes labiale ricorrente attivo','Acne attiva nella zona da trattare','Impetigine o infezione cutanea attiva','Patologia infiammatoria cronica (psoriasi, dermatite, rosacea)','Pregressi interventi nella zona','Pregresse reazioni avverse a prodotti estetici','Gravidanza in corso o sospetta','Allattamento al seno','Isotretinoina negli ultimi 6 mesi','Fotosensibilizzanti in uso','Fumo'];
+  akeys.forEach(function(k,i){if(ynState[k])ynRow(albls[i],ynState[k],get(k+'n'));});y+=2;
 
-  // ── TRATTAMENTO ──
-  sectionHeader('Piano di Trattamento');
-  textArea('Trattamento concordato',get('tratt'));
-  fieldRow('Prodotto / Dispositivo',get('prod'));
-  fieldRow('Zona target',get('zona'));
-  fieldRow('Quantità / Dose',get('dose'));
-  fieldRow('N° sedute',get('sedute'));
-  textArea('Note cliniche',get('note-clin'));
-  fieldRow('Data trattamento',get('data-tratt'));
-  fieldRow('Prossimo controllo',get('followup'));
-  y+=2;
+  secHdr('Altre Patologie e Farmaci');
+  if(ynState['ap'])ynRow('Altre patologie rilevanti',ynState['ap'],get('apn'));
+  if(ynState['farm'])ynRow('Farmaci in uso',ynState['farm'],get('farmn'));
+  txtBox('Anamnesi estetica',get('anam-est'));y+=2;
 
-  // ── CONSENSI ──
-  sectionHeader('Consenso e Documentazione');
-  ['cons1','gdpr1','gdpr2','cons2'].forEach(function(k){
-    if(ynState[k])ynRow(ynLabels[k],ynState[k],'');
-  });
-  y+=4;
+  secHdr('Piano di Trattamento');
+  txtBox('Trattamento concordato',get('tratt'));
+  fRow('Prodotto / Dispositivo',get('prod'));fRow('Zona target',get('zona'));
+  fRow('Quantità / Dose',get('dose'));fRow('N° sedute',get('sedute'));
+  txtBox('Note cliniche',get('note-clin'));
+  fRow('Data trattamento',get('data-tratt'));fRow('Prossimo controllo',get('followup'));y+=4;
 
-  // ── FIRME ──
-  checkY(60);
-  sectionHeader('Firme');
-  var fw=(cw-8)/2;
-  // boxes
-  doc.setDrawColor(220,220,220);doc.setLineWidth(0.3);
-  doc.roundedRect(ml,y,fw,48,2,2,'S');
-  doc.roundedRect(ml+fw+8,y,fw,48,2,2,'S');
-  // labels
-  doc.setFont('helvetica','bold');doc.setFontSize(8);doc.setTextColor(DGREY[0],DGREY[1],DGREY[2]);
-  doc.text('PAZIENTE',ml+3,y+5);
-  doc.text('DR. SIMONE CACCETTA',ml+fw+11,y+5);
-  // dates
-  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BLACK[0],BLACK[1],BLACK[2]);
-  doc.text('Data: '+(get('data-firma-paz')||'________________'),ml+3,y+11);
-  doc.text('Data: '+(get('data-firma-med')||'________________'),ml+fw+11,y+11);
-  // signatures
-  try{
-    var imgPaz=canvases['sig-paz'].c.toDataURL('image/png');
-    doc.addImage(imgPaz,'PNG',ml+2,y+14,fw-4,28);
-  }catch(e){}
-  try{
-    var imgMed=canvases['sig-med'].c.toDataURL('image/png');
-    doc.addImage(imgMed,'PNG',ml+fw+10,y+14,fw-4,28);
-  }catch(e){}
-  y+=52;
-
-  // footer on all pages
-  var totalPages=doc.internal.getNumberOfPages();
-  for(var i=1;i<=totalPages;i++){
-    doc.setPage(i);
-    doc.setDrawColor(220,220,220);doc.setLineWidth(0.3);
-    doc.line(ml,285,W-mr,285);
-    doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(150,150,150);
-    doc.text('Dr. Simone Caccetta  —  Documento medico riservato  —  GDPR Reg. UE 2016/679',ml,289);
-    doc.text('Pag. '+i+'/'+totalPages,W-mr,289,{align:'right'});
+  // CONSENSO INFORMATO
+  if(currentConsenso&&CONSENSI[currentConsenso]){
+    doc.addPage();y=0;pageHdr();
+    var cons=CONSENSI[currentConsenso];
+    doc.setFillColor(BK[0],BK[1],BK[2]);doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
+    doc.roundedRect(ml,y,cw,10,2,2,'F');doc.text('CONSENSO INFORMATO',W/2,y+7,{align:'center'});y+=14;
+    doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFont('helvetica','bold');doc.setFontSize(12);
+    doc.text(cons.titolo,W/2,y,{align:'center'});y+=6;
+    doc.setTextColor(DG[0],DG[1],DG[2]);doc.setFont('helvetica','normal');doc.setFontSize(9);
+    doc.text(cons.sottotitolo,W/2,y,{align:'center'});y+=10;
+    doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','normal');doc.setFontSize(8);
+    var tlines=doc.splitTextToSize(cons.testo,cw);
+    var bh=tlines.length*4+6;chk(bh);
+    doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,2,2,'F');
+    doc.text(tlines,ml+4,y+5);y+=bh+8;
+    secHdr('Dichiarazioni del Paziente');
+    cons.punti.forEach(function(p){
+      var val=ynState['c_'+p.id];
+      if(val)ynRow(p.testo,val,'');
+      else{
+        chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');
+        doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
+        doc.text(p.testo,ml+3,y+5,{maxWidth:cw-22});
+        doc.setDrawColor(200,200,200);doc.roundedRect(W-mr-14,y+1.5,12,5,1.5,1.5,'S');
+        doc.setTextColor(DG[0],DG[1],DG[2]);doc.text('—',W-mr-8,y+5.2,{align:'center'});y+=9;
+      }
+    });
+    y+=6;
   }
 
-  // nome file con cognome e data
-  var cognome=get('cognome').replace(/\s+/g,'_')||'Paziente';
-  var dataT=get('data-tratt')||now.toISOString().split('T')[0];
-  var filename='Scheda_'+cognome+'_'+dataT+'.pdf';
-  doc.save(filename);
-  showToast('PDF salvato:\n'+filename);
+  // FIRME
+  chk(58);
+  doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,8,2,2,'F');
+  doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);
+  doc.text('FIRME',W/2,y+5.5,{align:'center'});y+=12;
+  var fw=(cw-6)/2;
+  doc.setDrawColor(200,200,200);doc.setLineWidth(0.3);
+  doc.roundedRect(ml,y,fw,44,2,2,'S');doc.roundedRect(ml+fw+6,y,fw,44,2,2,'S');
+  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);
+  doc.text('PAZIENTE',ml+3,y+5);doc.text('DR. SIMONE CACCETTA',ml+fw+9,y+5);
+  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(BK[0],BK[1],BK[2]);
+  doc.text('Data: '+(get('data-firma-paz')||'_______________'),ml+3,y+11);
+  doc.text('Data: '+(get('data-firma-med')||'_______________'),ml+fw+9,y+11);
+  try{if(canvases['sig-paz'])doc.addImage(canvases['sig-paz'].c.toDataURL('image/png'),'PNG',ml+2,y+14,fw-4,24);}catch(e){}
+  try{if(canvases['sig-med'])doc.addImage(canvases['sig-med'].c.toDataURL('image/png'),'PNG',ml+fw+8,y+14,fw-4,24);}catch(e){}
+  y+=48;
+
+  // footer
+  var np=doc.internal.getNumberOfPages();
+  for(var i=1;i<=np;i++){
+    doc.setPage(i);doc.setDrawColor(200,200,200);doc.setLineWidth(0.3);doc.line(ml,284,W-mr,284);
+    doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);
+    doc.text('Dr. Simone Caccetta  —  Documento medico riservato  —  GDPR Reg. UE 2016/679',ml,288);
+    doc.text('Pag. '+i+'/'+np,W-mr,288,{align:'right'});
+  }
+
+  var cognome=(get('cognome')||'Paziente').replace(/\s+/g,'_');
+  var dataT=get('data-tratt')||new Date().toISOString().split('T')[0];
+  var consKey=currentConsenso?'_'+currentConsenso:'';
+  doc.save('Scheda_'+cognome+'_'+dataT+consKey+'.pdf');
+  showToast('PDF salvato!');
 }
 
 function newScheda(){
   if(!confirm('Creare una nuova scheda? Quella corrente è già salvata.'))return;
-  schedaId='scheda_'+Date.now();ynState={};
+  schedaId='scheda_'+Date.now();ynState={};currentConsenso=null;
   FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
   document.querySelectorAll('.yn-btn').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});
-  clearCanvas('sig-paz');clearCanvas('sig-med');
+  var sel=document.getElementById('consenso-select');if(sel)sel.value='';
+  document.getElementById('consenso-contenuto').style.display='none';
+  if(canvases['sig-paz'])clearCanvas('sig-paz');
+  if(canvases['sig-med'])clearCanvas('sig-med');
   document.getElementById('last-saved').textContent='Nuova scheda';
 }
 
@@ -471,11 +545,157 @@ function switchTab(i){
   currentTab=i;
   document.querySelectorAll('.tab').forEach(function(t,j){t.classList.toggle('active',i===j);});
   document.querySelectorAll('.page').forEach(function(p,j){p.style.display=(i===j)?'block':'none';});
+  if(i===3){initCanvas('sig-paz');initCanvas('sig-med');}
 }
 document.querySelectorAll('.page').forEach(function(p,j){p.style.display=j===0?'block':'none';});
 document.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',schedula);});
+
 var lastId=localStorage.getItem('sc_last');
 if(lastId){schedaId=lastId;load(lastId);}
+
+// ── YOUSIGN INTEGRATION ─────────────────────────────────────────────────────
+var YOUSIGN_API_KEY = ''; // chiave gestita dal proxy Cloudflare
+var YOUSIGN_BASE = 'https://yousign-proxy.caccettas.workers.dev';
+
+function inviaFirma(){
+  if(!currentConsenso){showToast('Seleziona prima un consenso\nnella tab Consenso');return;}
+  var nome=document.getElementById('cognome')?document.getElementById('cognome').value+' '+(document.getElementById('nome')?document.getElementById('nome').value:''):'';
+  var email=document.getElementById('email')?document.getElementById('email').value:'';
+  var nameEl=document.getElementById('ys-name');
+  var emailEl=document.getElementById('ys-email');
+  if(nameEl)nameEl.value=nome.trim();
+  if(emailEl)emailEl.value=email.trim();
+  document.getElementById('ys-status').textContent='';
+  document.getElementById('ys-modal').style.display='flex';
+}
+
+function eseguiFirma(){
+  var email=document.getElementById('ys-email').value.trim();
+  var nome=document.getElementById('ys-name').value.trim();
+  if(!email||!nome){document.getElementById('ys-status').textContent='Inserisci email e nome del paziente.';return;}
+  if(!email.match(/^[^@]+@[^@]+\.[^@]+$/)){document.getElementById('ys-status').textContent='Email non valida.';return;}
+
+  var btn=document.getElementById('ys-send-btn');
+  btn.textContent='Invio in corso...';btn.disabled=true;
+  document.getElementById('ys-status').textContent='';
+
+  // Generate PDF as base64
+  var pdfBase64='';
+  try{
+    var jsPDFClass=window.jspdf?window.jspdf.jsPDF:jsPDF;
+    var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
+    var W=210,ml=14,mr=14,cw=W-ml-mr,y=0;
+    var RED=[192,57,43],BG=[247,247,249],DG=[100,100,100],BK=[28,28,30];
+    function chk(n){if(y+n>272){doc.addPage();y=0;phdr();}}
+    function phdr(){
+      doc.setFillColor(RED[0],RED[1],RED[2]);doc.rect(0,0,W,18,'F');
+      doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);
+      doc.text('Dr. Simone Caccetta',ml,9);
+      doc.setFontSize(7.5);doc.setFont('helvetica','normal');
+      doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica  |  Medicina Estetica',ml,14);
+      doc.text(new Date().toLocaleDateString('it-IT'),W-mr,9,{align:'right'});
+      y=23;
+    }
+    function sh(t){chk(11);doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.text(t.toUpperCase(),ml+4,y+5.5);y+=11;}
+    function fr(l,v){chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(8);doc.text(l,ml+3,y+5);if(v){doc.setFont('helvetica','normal');doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(String(v),W-mr-3,y+5,{align:'right',maxWidth:cw*0.55});}y+=9;}
+    function tb(l,v){if(!v||!v.trim())return;chk(14);doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(l.toUpperCase(),ml,y+4);y+=6;doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BK[0],BK[1],BK[2]);var lines=doc.splitTextToSize(v,cw-4),bh=lines.length*4+4;chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,1.5,1.5,'F');doc.text(lines,ml+3,y+4);y+=bh+4;}
+    function get(id){var el=document.getElementById(id);return el?el.value:'';}
+    phdr();
+    // header
+    doc.setFillColor(BK[0],BK[1],BK[2]);doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
+    doc.roundedRect(ml,y,cw,10,2,2,'F');doc.text('SCHEDA ANAMNESTICA',W/2,y+7,{align:'center'});y+=14;
+    sh('Dati Anagrafici');fr('Cognome',get('cognome'));fr('Nome',get('nome'));fr('Data di nascita',get('dob'));fr('Luogo di nascita',get('lob'));fr('Sesso',get('sesso'));fr('Telefono',get('tel'));fr('E-mail',get('email'));y+=3;
+    sh('Motivo della Visita');fr('Area di interesse',get('area'));tb('Inestetismo / Diagnosi',get('diagnosi'));y+=2;
+    sh('Piano di Trattamento');tb('Trattamento concordato',get('tratt'));fr('Prodotto',get('prod'));fr('Zona target',get('zona'));fr('Dose',get('dose'));fr('Data trattamento',get('data-tratt'));y+=4;
+    // Consenso
+    if(currentConsenso&&CONSENSI[currentConsenso]){
+      doc.addPage();y=0;phdr();
+      var cons=CONSENSI[currentConsenso];
+      doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');
+      doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
+      doc.text('CONSENSO INFORMATO',W/2,y+7,{align:'center'});y+=14;
+      doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFontSize(12);doc.text(cons.titolo,W/2,y,{align:'center'});y+=8;
+      doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','normal');doc.setFontSize(8);
+      var tl=doc.splitTextToSize(cons.testo,cw),bh=tl.length*4+6;
+      chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,2,2,'F');doc.text(tl,ml+4,y+5);y+=bh+8;
+      sh('Dichiarazioni — il paziente deve firmare digitalmente di seguito');
+      cons.punti.forEach(function(p){
+        chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');
+        doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
+        doc.text(p.testo,ml+3,y+5,{maxWidth:cw-4});y+=9;
+      });
+    }
+    // Firma page
+    doc.addPage();y=0;phdr();
+    doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');
+    doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
+    doc.text('FIRMA DEL PAZIENTE',W/2,y+7,{align:'center'});y+=16;
+    doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(DG[0],DG[1],DG[2]);
+    doc.text('Il/La paziente '+nome+' firma il presente documento in forma elettronica certificata.',ml,y,{maxWidth:cw});y+=10;
+    doc.text('Data: '+new Date().toLocaleDateString('it-IT'),ml,y);y+=20;
+    // Signature placeholder
+    doc.setDrawColor(RED[0],RED[1],RED[2]);doc.setLineWidth(0.5);
+    doc.roundedRect(ml,y,cw,30,3,3,'S');
+    doc.setFontSize(9);doc.setTextColor(DG[0],DG[1],DG[2]);
+    doc.text('Firma elettronica certificata Yousign',W/2,y+17,{align:'center'});
+    // Footer
+    var np=doc.internal.getNumberOfPages();
+    for(var i=1;i<=np;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);doc.text('Dr. Simone Caccetta — Documento medico riservato — GDPR Reg. UE 2016/679',ml,289);doc.text('Pag. '+i+'/'+np,W-mr,289,{align:'right'});}
+    pdfBase64=doc.output('datauristring').split(',')[1];
+  }catch(e){document.getElementById('ys-status').textContent='Errore generazione PDF: '+e.message;btn.textContent='Invia';btn.disabled=false;return;}
+
+  // Step 1: Create signature request
+  fetch(YOUSIGN_BASE+'/signature_requests',{
+    method:'POST',
+    headers:{'Content-Type':'application/json'},
+    body:JSON.stringify({name:'Consenso_'+nome.replace(/\s/g,'_')+'_'+new Date().toISOString().split('T')[0],delivery_mode:'email',timezone:'Europe/Rome'})
+  })
+  .then(function(r){if(!r.ok)throw new Error('Errore creazione richiesta ('+r.status+')');return r.json();})
+  .then(function(req){
+    var reqId=req.id;
+    // Step 2: Upload document
+    return fetch(YOUSIGN_BASE+'/signature_requests/'+reqId+'/documents',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({file_name:'Scheda_'+nome.replace(/\s/g,'_')+'.pdf',content_type:'application/pdf',content:pdfBase64})
+    })
+    .then(function(r){if(!r.ok)throw new Error('Errore upload PDF ('+r.status+')');return r.json();})
+    .then(function(doc_){
+      // Step 3: Add signer
+      return fetch(YOUSIGN_BASE+'/signature_requests/'+reqId+'/signers',{
+        method:'POST',
+        headers:{'Content-Type':'application/json'},
+        body:JSON.stringify({info:{first_name:nome.split(' ')[0]||nome,last_name:nome.split(' ').slice(1).join(' ')||'.',email:email,locale:'it'},signature_level:'electronic_signature',signature_authentication_mode:'no_otp',fields:[{type:'signature',document_id:doc_.id,page:doc_.page_count||3,x:50,y:200,width:200,height:50}]})
+      })
+      .then(function(r){if(!r.ok)return r.text().then(function(t){throw new Error('Errore aggiunta firmatario: '+t);});return r.json();})
+      .then(function(){
+        // Step 4: Activate
+        return fetch(YOUSIGN_BASE+'/signature_requests/'+reqId+'/activate',{
+          method:'POST',
+          headers:{'Authorization':'Bearer '+YOUSIGN_API_KEY,'Content-Type':'application/json'}
+        });
+      })
+      .then(function(r){if(!r.ok)throw new Error('Errore attivazione ('+r.status+')');return r.json();});
+    });
+  })
+  .then(function(result){
+    btn.textContent='Invia';btn.disabled=false;
+    document.getElementById('ys-modal').style.display='none';
+    // Save signature request id
+    var data=JSON.parse(localStorage.getItem('sc_'+schedaId)||'{}');
+    data.ysRequestId=result.id||'';
+    data.ysStatus='inviato';
+    data.ysEmail=email;
+    localStorage.setItem('sc_'+schedaId,JSON.stringify(data));
+    showToast('Inviato! ✓\n'+nome+' riceverà un email\nper firmare il documento.');
+  })
+  .catch(function(err){
+    btn.textContent='Invia';btn.disabled=false;
+    document.getElementById('ys-status').textContent='Errore: '+err.message;
+    console.error(err);
+  });
+}
+
 </script>
 </body>
 </html>
