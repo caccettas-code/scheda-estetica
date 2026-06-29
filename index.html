@@ -572,14 +572,11 @@ function inviaFirma(){
 function eseguiFirma(){
   var email=document.getElementById('ys-email').value.trim();
   var nome=document.getElementById('ys-name').value.trim();
-  if(!email||!nome){document.getElementById('ys-status').textContent='Inserisci email e nome del paziente.';return;}
-  if(!email.match(/^[^@]+@[^@]+\.[^@]+$/)){document.getElementById('ys-status').textContent='Email non valida.';return;}
-
+  if(!email||!nome){document.getElementById('ys-status').textContent='Inserisci email e nome.';return;}
   var btn=document.getElementById('ys-send-btn');
-  btn.textContent='Invio in corso...';btn.disabled=true;
-  document.getElementById('ys-status').textContent='';
+  btn.textContent='Invio...';btn.disabled=true;
+  document.getElementById('ys-status').textContent='Generazione PDF...';
 
-  // Generate PDF as base64
   var pdfBase64='';
   try{
     var jsPDFClass=window.jspdf?window.jspdf.jsPDF:jsPDF;
@@ -587,112 +584,75 @@ function eseguiFirma(){
     var W=210,ml=14,mr=14,cw=W-ml-mr,y=0;
     var RED=[192,57,43],BG=[247,247,249],DG=[100,100,100],BK=[28,28,30];
     function chk(n){if(y+n>272){doc.addPage();y=0;phdr();}}
-    function phdr(){
-      doc.setFillColor(RED[0],RED[1],RED[2]);doc.rect(0,0,W,18,'F');
-      doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);
-      doc.text('Dr. Simone Caccetta',ml,9);
-      doc.setFontSize(7.5);doc.setFont('helvetica','normal');
-      doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica  |  Medicina Estetica',ml,14);
-      doc.text(new Date().toLocaleDateString('it-IT'),W-mr,9,{align:'right'});
-      y=23;
-    }
+    function phdr(){doc.setFillColor(RED[0],RED[1],RED[2]);doc.rect(0,0,W,18,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);doc.text('Dr. Simone Caccetta',ml,9);doc.setFontSize(7.5);doc.setFont('helvetica','normal');doc.text('Chirurgia Plastica | Medicina Estetica',ml,14);doc.text(new Date().toLocaleDateString('it-IT'),W-mr,9,{align:'right'});y=23;}
     function sh(t){chk(11);doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.text(t.toUpperCase(),ml+4,y+5.5);y+=11;}
     function fr(l,v){chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(8);doc.text(l,ml+3,y+5);if(v){doc.setFont('helvetica','normal');doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(String(v),W-mr-3,y+5,{align:'right',maxWidth:cw*0.55});}y+=9;}
     function tb(l,v){if(!v||!v.trim())return;chk(14);doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(l.toUpperCase(),ml,y+4);y+=6;doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BK[0],BK[1],BK[2]);var lines=doc.splitTextToSize(v,cw-4),bh=lines.length*4+4;chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,1.5,1.5,'F');doc.text(lines,ml+3,y+4);y+=bh+4;}
     function get(id){var el=document.getElementById(id);return el?el.value:'';}
     phdr();
-    // header
-    doc.setFillColor(BK[0],BK[1],BK[2]);doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
-    doc.roundedRect(ml,y,cw,10,2,2,'F');doc.text('SCHEDA ANAMNESTICA',W/2,y+7,{align:'center'});y+=14;
-    sh('Dati Anagrafici');fr('Cognome',get('cognome'));fr('Nome',get('nome'));fr('Data di nascita',get('dob'));fr('Luogo di nascita',get('lob'));fr('Sesso',get('sesso'));fr('Telefono',get('tel'));fr('E-mail',get('email'));y+=3;
-    sh('Motivo della Visita');fr('Area di interesse',get('area'));tb('Inestetismo / Diagnosi',get('diagnosi'));y+=2;
-    sh('Piano di Trattamento');tb('Trattamento concordato',get('tratt'));fr('Prodotto',get('prod'));fr('Zona target',get('zona'));fr('Dose',get('dose'));fr('Data trattamento',get('data-tratt'));y+=4;
-    // Consenso
+    doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);doc.text('SCHEDA ANAMNESTICA',W/2,y+7,{align:'center'});y+=14;
+    sh('Dati Anagrafici');fr('Cognome',get('cognome'));fr('Nome',get('nome'));fr('Data di nascita',get('dob'));fr('Sesso',get('sesso'));fr('Telefono',get('tel'));fr('E-mail',get('email'));y+=3;
+    sh('Motivo della Visita');fr('Area di interesse',get('area'));tb('Inestetismo',get('diagnosi'));y+=2;
+    sh('Piano di Trattamento');tb('Trattamento',get('tratt'));fr('Prodotto',get('prod'));fr('Data',get('data-tratt'));y+=4;
     if(currentConsenso&&CONSENSI[currentConsenso]){
       doc.addPage();y=0;phdr();
       var cons=CONSENSI[currentConsenso];
-      doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');
-      doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
-      doc.text('CONSENSO INFORMATO',W/2,y+7,{align:'center'});y+=14;
+      doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);doc.text('CONSENSO INFORMATO',W/2,y+7,{align:'center'});y+=14;
       doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFontSize(12);doc.text(cons.titolo,W/2,y,{align:'center'});y+=8;
       doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','normal');doc.setFontSize(8);
-      var tl=doc.splitTextToSize(cons.testo,cw),bh=tl.length*4+6;
-      chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,2,2,'F');doc.text(tl,ml+4,y+5);y+=bh+8;
-      sh('Dichiarazioni — il paziente deve firmare digitalmente di seguito');
-      cons.punti.forEach(function(p){
-        chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');
-        doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
-        doc.text(p.testo,ml+3,y+5,{maxWidth:cw-4});y+=9;
-      });
+      var tl=doc.splitTextToSize(cons.testo,cw),bh=tl.length*4+6;chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,2,2,'F');doc.text(tl,ml+4,y+5);y+=bh+8;
+      sh('Firma elettronica — paziente: '+nome);
+      doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,30,2,2,'F');
+      doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(DG[0],DG[1],DG[2]);
+      doc.text('Data: '+new Date().toLocaleDateString('it-IT'),ml+4,y+10);
+      doc.text('[Firma elettronica certificata Yousign]',ml+4,y+22);y+=34;
     }
-    // Firma page
-    doc.addPage();y=0;phdr();
-    doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');
-    doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
-    doc.text('FIRMA DEL PAZIENTE',W/2,y+7,{align:'center'});y+=16;
-    doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(DG[0],DG[1],DG[2]);
-    doc.text('Il/La paziente '+nome+' firma il presente documento in forma elettronica certificata.',ml,y,{maxWidth:cw});y+=10;
-    doc.text('Data: '+new Date().toLocaleDateString('it-IT'),ml,y);y+=20;
-    // Signature placeholder
-    doc.setDrawColor(RED[0],RED[1],RED[2]);doc.setLineWidth(0.5);
-    doc.roundedRect(ml,y,cw,30,3,3,'S');
-    doc.setFontSize(9);doc.setTextColor(DG[0],DG[1],DG[2]);
-    doc.text('Firma elettronica certificata Yousign',W/2,y+17,{align:'center'});
-    // Footer
     var np=doc.internal.getNumberOfPages();
     for(var i=1;i<=np;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);doc.text('Dr. Simone Caccetta — Documento medico riservato — GDPR Reg. UE 2016/679',ml,289);doc.text('Pag. '+i+'/'+np,W-mr,289,{align:'right'});}
     pdfBase64=doc.output('datauristring').split(',')[1];
-  }catch(e){document.getElementById('ys-status').textContent='Errore generazione PDF: '+e.message;btn.textContent='Invia';btn.disabled=false;return;}
+  }catch(e){
+    document.getElementById('ys-status').textContent='Errore PDF: '+e.message;
+    btn.textContent='Invia';btn.disabled=false;return;
+  }
 
-  // Step 1: Create signature request
-  fetch(YOUSIGN_BASE+'/signature_requests',{
-    method:'POST',
-    headers:{'Content-Type':'application/json'},
-    body:JSON.stringify({name:'Consenso_'+nome.replace(/\s/g,'_')+'_'+new Date().toISOString().split('T')[0],delivery_mode:'email',timezone:'Europe/Rome'})
+  var PROXY='https://yousign-proxy.caccettas.workers.dev/proxy';
+  var cognome=document.getElementById('cognome')?document.getElementById('cognome').value:'';
+  var nomeArr=nome.split(' ');
+  var firstName=nomeArr[0]||nome;
+  var lastName=nomeArr.slice(1).join(' ')||cognome||'.';
+  var reqId='';
+
+  document.getElementById('ys-status').textContent='Creazione richiesta...';
+
+  fetch(PROXY+'/create_request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Consenso_'+nome.replace(/ /g,'_')})})
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(!data.id)throw new Error('Creazione fallita: '+JSON.stringify(data));
+    reqId=data.id;
+    document.getElementById('ys-status').textContent='Upload documento...';
+    return fetch(PROXY+'/upload_document',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:reqId,pdf_base64:pdfBase64,filename:'Scheda_'+cognome+'.pdf'})});
   })
-  .then(function(r){if(!r.ok)throw new Error('Errore creazione richiesta ('+r.status+')');return r.json();})
-  .then(function(req){
-    var reqId=req.id;
-    // Step 2: Upload document
-    return fetch(YOUSIGN_BASE+'/signature_requests/'+reqId+'/documents',{
-      method:'POST',
-      headers:{'Content-Type':'application/json'},
-      body:JSON.stringify({file_name:'Scheda_'+nome.replace(/\s/g,'_')+'.pdf',content_type:'application/pdf',content:pdfBase64})
-    })
-    .then(function(r){if(!r.ok)throw new Error('Errore upload PDF ('+r.status+')');return r.json();})
-    .then(function(doc_){
-      // Step 3: Add signer
-      return fetch(YOUSIGN_BASE+'/signature_requests/'+reqId+'/signers',{
-        method:'POST',
-        headers:{'Content-Type':'application/json'},
-        body:JSON.stringify({info:{first_name:nome.split(' ')[0]||nome,last_name:nome.split(' ').slice(1).join(' ')||'.',email:email,locale:'it'},signature_level:'electronic_signature',signature_authentication_mode:'no_otp',fields:[{type:'signature',document_id:doc_.id,page:doc_.page_count||3,x:50,y:200,width:200,height:50}]})
-      })
-      .then(function(r){if(!r.ok)return r.text().then(function(t){throw new Error('Errore aggiunta firmatario: '+t);});return r.json();})
-      .then(function(){
-        // Step 4: Activate
-        return fetch(YOUSIGN_BASE+'/signature_requests/'+reqId+'/activate',{
-          method:'POST',
-          headers:{'Authorization':'Bearer '+YOUSIGN_API_KEY,'Content-Type':'application/json'}
-        });
-      })
-      .then(function(r){if(!r.ok)throw new Error('Errore attivazione ('+r.status+')');return r.json();});
-    });
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(!data.id)throw new Error('Upload fallito: '+JSON.stringify(data));
+    document.getElementById('ys-status').textContent='Aggiunta firmatario...';
+    return fetch(PROXY+'/add_signer',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:reqId,document_id:data.id,email:email,first_name:firstName,last_name:lastName})});
   })
-  .then(function(result){
+  .then(function(r){return r.json();})
+  .then(function(data){
+    if(!data.id)throw new Error('Firmatario fallito: '+JSON.stringify(data));
+    document.getElementById('ys-status').textContent='Attivazione...';
+    return fetch(PROXY+'/activate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:reqId})});
+  })
+  .then(function(r){return r.json();})
+  .then(function(){
     btn.textContent='Invia';btn.disabled=false;
     document.getElementById('ys-modal').style.display='none';
-    // Save signature request id
-    var data=JSON.parse(localStorage.getItem('sc_'+schedaId)||'{}');
-    data.ysRequestId=result.id||'';
-    data.ysStatus='inviato';
-    data.ysEmail=email;
-    localStorage.setItem('sc_'+schedaId,JSON.stringify(data));
-    showToast('Inviato! ✓\n'+nome+' riceverà un email\nper firmare il documento.');
+    showToast('Inviato! Il paziente '+nome+' ricevera una email per firmare.');
   })
   .catch(function(err){
     btn.textContent='Invia';btn.disabled=false;
     document.getElementById('ys-status').textContent='Errore: '+err.message;
-    console.error(err);
   });
 }
 
