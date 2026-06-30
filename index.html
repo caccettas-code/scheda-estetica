@@ -3,44 +3,77 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-<title>Dr. Simone Caccetta — Medicina Estetica</title>
+<title>Dr. Simone Caccetta</title>
 <style>
 *{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
-:root{--red:#C0392B;--red-d:#96281B;--bg:#F2F2F7;--card:#fff;--sep:rgba(60,60,67,.12);--txt:#1C1C1E;--txt3:#8E8E93;}
-body{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;background:linear-gradient(160deg,#F2F2F7 0%,#E9E9F0 100%);min-height:100vh;color:var(--txt);font-size:16px;padding-bottom:88px;}
-input,textarea,button,select{font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;font-weight:700;}
-.app{max-width:680px;margin:0 auto;}
-/* HEADER */
-.hdr{background:linear-gradient(175deg,#C0392B 0%,#96281B 100%);padding:20px 20px 22px;position:sticky;top:0;z-index:100;}
-.hdr-name{color:#fff;font-size:19px;}
-.hdr-sub{color:rgba(255,255,255,.7);font-size:12px;}
-.hdr-bot{display:flex;align-items:center;margin-top:12px;}
-.saved-pill{display:flex;align-items:center;gap:5px;background:rgba(255,255,255,.15);border-radius:20px;padding:4px 10px;}
+:root{
+  --red:#C0392B;--red-d:#96281B;--red-l:#FDECEA;
+  --blue:#2176AE;--blue-d:#1a5f8a;--blue-l:#E8F4FD;
+  --bg:#F2F2F7;--card:#fff;--sep:rgba(60,60,67,.12);
+  --txt:#1C1C1E;--txt3:#8E8E93;
+  --fnt:"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+body{font-family:var(--fnt);font-weight:700;background:var(--bg);min-height:100vh;color:var(--txt);font-size:16px;padding-bottom:88px;}
+input,textarea,button,select{font-family:var(--fnt);font-weight:700;}
+
+/* ── HOME ── */
+.home{display:flex;flex-direction:column;align-items:center;justify-content:center;min-height:100vh;padding:32px 24px;background:linear-gradient(170deg,#F0F0F5 0%,#E4E4EC 100%);}
+.home-logo{font-size:22px;font-weight:700;color:var(--txt);margin-bottom:4px;letter-spacing:-.3px;}
+.home-sub{font-size:14px;color:var(--txt3);font-weight:400;margin-bottom:48px;text-align:center;}
+.home-cards{display:flex;flex-direction:column;gap:16px;width:100%;max-width:400px;}
+.home-card{border-radius:18px;padding:28px 24px;cursor:pointer;display:flex;align-items:center;gap:20px;box-shadow:0 2px 12px rgba(0,0,0,.08);transition:transform .1s;}
+.home-card:active{transform:scale(.97);}
+.home-card-est{background:linear-gradient(135deg,#D44D3D,#B03A2E);}
+.home-card-chir{background:linear-gradient(135deg,#3A8CC5,#2171A8);}
+.home-card-icon{font-size:36px;flex-shrink:0;}
+.home-card-text{}
+.home-card-title{font-size:18px;font-weight:700;color:#fff;margin-bottom:4px;}
+.home-card-desc{font-size:13px;color:rgba(255,255,255,.75);font-weight:400;line-height:1.4;}
+
+/* ── HEADER ── */
+.hdr{padding:20px 20px 18px;position:sticky;top:0;z-index:100;}
+.hdr-est{background:linear-gradient(175deg,#D44D3D,#B03A2E);}
+.hdr-chir{background:linear-gradient(175deg,#3A8CC5,#2171A8);}
+.hdr-top{display:flex;align-items:center;gap:12px;}
+.hdr-back{color:rgba(255,255,255,.8);font-size:14px;font-weight:400;cursor:pointer;background:rgba(255,255,255,.15);border:none;border-radius:20px;padding:5px 12px;}
+.hdr-name{color:#fff;font-size:17px;flex:1;}
+.hdr-sub{color:rgba(255,255,255,.7);font-size:11px;font-weight:400;margin-top:2px;}
+
+
 .dot{width:7px;height:7px;border-radius:50%;background:#30D158;flex-shrink:0;}
 .saved-txt{color:rgba(255,255,255,.9);font-size:12px;}
-.save-time{color:rgba(255,255,255,.6);font-size:11px;margin-top:3px;}
-/* TABS */
-.tabs{background:rgba(242,242,247,.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--sep);position:sticky;top:84px;z-index:99;padding:0 16px;}
+
+
+/* ── TABS ── */
+.tabs-est{background:rgba(242,242,247,.95);backdrop-filter:blur(20px);border-bottom:0.5px solid var(--sep);position:sticky;top:80px;z-index:99;padding:0 16px;}
+.tabs-chir{background:rgba(232,244,253,.95);backdrop-filter:blur(20px);border-bottom:0.5px solid rgba(33,118,174,.15);position:sticky;top:80px;z-index:99;padding:0 16px;}
 .tabs-inner{display:flex;}
-.tab{flex:1;padding:10px 2px 9px;text-align:center;font-size:12px;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;cursor:pointer;font-weight:700;}
-.tab.active{color:var(--red);border-bottom-color:var(--red);}
+.tab-est{flex:1;padding:10px 2px 9px;text-align:center;font-size:12px;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;cursor:pointer;font-weight:700;}
+.tab-est.active{color:var(--red);border-bottom-color:var(--red);}
+.tab-chir{flex:1;padding:10px 2px 9px;text-align:center;font-size:12px;color:var(--txt3);border:none;background:none;border-bottom:2.5px solid transparent;cursor:pointer;font-weight:700;}
+.tab-chir.active{color:var(--blue);border-bottom-color:var(--blue);}
+
 .page{display:none;padding:20px 16px 0;}
 .page.active{display:block;}
-/* LISTS */
+
+/* ── LISTS ── */
 .group-label{font-size:12px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;padding:0 16px 6px;margin-top:20px;}
 .group-label:first-child{margin-top:0;}
+.group-label-blue{color:var(--blue);}
 .list{background:var(--card);border-radius:14px;overflow:hidden;}
+.list-blue{border:1px solid rgba(33,118,174,.12);}
 .row{display:flex;align-items:center;border-bottom:0.5px solid var(--sep);min-height:48px;}
 .row:last-child{border-bottom:none;}
 .row-lbl{font-size:15px;color:var(--txt);padding:14px 12px 14px 16px;min-width:130px;flex-shrink:0;}
-.row input,.row select{flex:1;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:14px 16px 14px 0;text-align:right;-webkit-appearance:none;}
+.row input,.row select{flex:1;border:none;outline:none;font-family:var(--fnt);font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:14px 16px 14px 0;text-align:right;-webkit-appearance:none;}
 .row input::placeholder{color:var(--txt3);}
 .row-area-lbl{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.4px;padding:12px 16px 0;}
 .row-area{border-bottom:0.5px solid var(--sep);}
 .row-area:last-child{border-bottom:none;}
-.row-area textarea{display:block;width:100%;border:none;outline:none;font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:12px 16px;resize:none;line-height:1.5;min-height:100px;}
+.row-area textarea{display:block;width:100%;border:none;outline:none;font-family:var(--fnt);font-weight:700;font-size:15px;color:var(--txt);background:transparent;padding:12px 16px;resize:none;line-height:1.5;min-height:100px;}
 .row-area textarea::placeholder{color:var(--txt3);}
-/* TOGGLES */
+
+/* ── TOGGLES ── */
 .trow{display:flex;align-items:center;justify-content:space-between;padding:14px 16px;border-bottom:0.5px solid var(--sep);}
 .trow:last-child{border-bottom:none;}
 .trow-lbl{font-size:15px;color:var(--txt);flex:1;padding-right:14px;line-height:1.4;}
@@ -48,523 +81,1331 @@ input,textarea,button,select{font-family:"Helvetica Neue",Helvetica,Arial,sans-s
 .yn-btn{width:62px;height:38px;border-radius:10px;border:2px solid var(--sep);background:var(--bg);font-weight:700;font-size:15px;color:var(--txt3);cursor:pointer;}
 .tnote{padding:6px 16px 12px;border-bottom:0.5px solid var(--sep);}
 .tnote:last-child{border-bottom:none;}
-.tnote textarea{width:100%;border:0.5px solid var(--sep);border-radius:10px;padding:10px 12px;font-weight:700;font-size:14px;color:var(--txt);background:var(--bg);resize:none;outline:none;min-height:58px;line-height:1.4;}
+.tnote textarea{width:100%;border:0.5px solid var(--sep);border-radius:10px;padding:10px 12px;font-family:var(--fnt);font-weight:700;font-size:14px;color:var(--txt);background:var(--bg);resize:none;outline:none;min-height:58px;line-height:1.4;}
 .tnote textarea::placeholder{color:var(--txt3);}
-/* FIRME */
-.firme-wrap{display:flex;gap:12px;padding:16px;}
-.firma-box{flex:1;display:flex;flex-direction:column;gap:8px;}
-.firma-label{font-size:11px;color:var(--txt3);text-transform:uppercase;letter-spacing:.5px;}
-.firma-date{display:flex;align-items:center;border:0.5px solid var(--sep);border-radius:10px;background:var(--bg);overflow:hidden;}
-.firma-date span{font-size:12px;color:var(--txt3);padding:0 10px;white-space:nowrap;}
-.firma-date input{flex:1;border:none;outline:none;font-weight:700;font-size:14px;color:var(--txt);background:transparent;padding:10px 10px 10px 0;}
-.firma-canvas-wrap{border:0.5px solid var(--sep);border-radius:12px;overflow:hidden;background:#fff;}
-.firma-canvas-wrap canvas{display:block;width:100%;touch-action:none;}
-.firma-clear{width:100%;height:34px;border-radius:8px;border:0.5px solid var(--sep);background:var(--bg);font-weight:700;font-size:13px;color:var(--txt3);cursor:pointer;}
-/* CONSENSI */
+
+/* ── CONSENSO ── */
 .consenso-picker{padding:16px;}
-.consenso-picker select{width:100%;height:48px;border:1.5px solid var(--sep);border-radius:12px;background:var(--bg);font-size:15px;font-weight:700;color:var(--txt);padding:0 14px;outline:none;-webkit-appearance:none;appearance:none;}
+.consenso-picker select{width:100%;height:48px;border:1.5px solid var(--sep);border-radius:12px;background:var(--bg);font-size:15px;font-weight:700;color:var(--txt);padding:0 14px;outline:none;-webkit-appearance:none;}
 .consenso-body{margin:0 16px 16px;background:var(--bg);border-radius:12px;padding:16px;border:0.5px solid var(--sep);}
 .consenso-body h2{font-size:15px;color:var(--red);margin-bottom:4px;}
 .consenso-body h3{font-size:12px;color:var(--txt3);font-weight:700;margin-bottom:14px;}
-.consenso-testo{font-size:13px;color:var(--txt);line-height:1.7;white-space:pre-wrap;font-weight:400;max-height:320px;overflow-y:auto;border-bottom:0.5px solid var(--sep);padding-bottom:14px;margin-bottom:14px;}
-.consenso-punti{}
+.consenso-testo{font-size:13px;color:var(--txt);line-height:1.7;white-space:pre-wrap;font-weight:400;max-height:280px;overflow-y:auto;border-bottom:0.5px solid var(--sep);padding-bottom:14px;margin-bottom:14px;}
 .consenso-punto{display:flex;align-items:center;justify-content:space-between;padding:10px 0;border-bottom:0.5px solid var(--sep);}
 .consenso-punto:last-child{border-bottom:none;}
 .consenso-punto-lbl{font-size:14px;color:var(--txt);flex:1;padding-right:12px;line-height:1.35;}
 .privacy-text{font-size:13px;color:var(--txt3);line-height:1.5;padding:14px 16px 10px;border-bottom:0.5px solid var(--sep);font-weight:400;}
-/* FOOTER */
+
+/* ── BAP result ── */
+.bap-result{padding:16px;display:none;}
+/* ── Firma ── */
+.firma-box{position:relative;border:1.5px dashed var(--sep);border-radius:10px;background:#fff;overflow:hidden;touch-action:none;}
+.firma-canvas{display:block;width:100%;height:140px;touch-action:none;}
+.firma-placeholder{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);color:var(--txt3);font-size:13px;pointer-events:none;}
+.firma-clear{margin-top:8px;background:none;border:none;color:var(--red);font-size:13px;font-weight:600;padding:4px 0;cursor:pointer;}
+.bap-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px;}
+.bap-side{background:var(--blue-l);border-radius:12px;padding:14px;border:1px solid rgba(33,118,174,.15);}
+.bap-side-title{font-size:11px;color:var(--blue);text-transform:uppercase;font-weight:700;margin-bottom:8px;}
+.bap-side-content{font-size:13px;color:var(--txt);line-height:1.7;font-weight:700;}
+.bap-warn{margin-top:12px;font-size:13px;color:#C0392B;font-weight:400;line-height:1.5;}
+
+/* ── FOOTER ── */
 .footer{position:fixed;bottom:0;left:0;right:0;padding:10px 16px calc(10px + env(safe-area-inset-bottom));background:rgba(242,242,247,.92);backdrop-filter:blur(24px);border-top:0.5px solid var(--sep);display:flex;gap:10px;}
-.fbtn{flex:1;height:50px;border-radius:13px;border:none;font-weight:700;font-size:16px;cursor:pointer;}
+.fbtn{flex:1;height:50px;border-radius:13px;border:none;font-family:var(--fnt);font-weight:700;font-size:15px;cursor:pointer;}
 .fbtn-sec{background:rgba(255,255,255,.85);color:var(--txt);border:0.5px solid var(--sep);}
-.fbtn-pri{background:linear-gradient(175deg,#C0392B,#96281B);color:#fff;}
+.fbtn-red{background:linear-gradient(175deg,#D44D3D,#B03A2E);color:#fff;}
+.fbtn-blue{background:linear-gradient(175deg,#3A8CC5,#2171A8);color:#fff;}
+.fbtn-green{background:linear-gradient(175deg,#34C759,#28a548);color:#fff;font-size:13px;}
+
+/* ── MODAL FIRMA ── */
+#ys-modal{display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;padding:20px;align-items:center;justify-content:center;}
+.ys-modal-inner{background:#fff;border-radius:18px;padding:24px;max-width:420px;width:100%;}
+.ys-modal-title{font-size:17px;font-weight:700;color:var(--txt);margin-bottom:6px;}
+.ys-modal-desc{font-size:13px;color:var(--txt3);margin-bottom:18px;font-weight:400;line-height:1.5;}
+.ys-field-label{font-size:12px;font-weight:700;color:var(--txt3);text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;}
+.ys-input{width:100%;height:46px;border:1.5px solid var(--sep);border-radius:10px;padding:0 14px;font-size:15px;font-weight:700;outline:none;font-family:var(--fnt);margin-bottom:12px;}
+#ys-status{font-size:13px;color:var(--red);margin-bottom:12px;min-height:18px;font-weight:400;}
+.ys-btns{display:flex;gap:10px;}
+.ys-btn-cancel{flex:1;height:46px;border-radius:12px;border:1.5px solid var(--sep);background:var(--bg);font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fnt);}
+.ys-btn-send{flex:1;height:46px;border-radius:12px;border:none;background:linear-gradient(175deg,#34C759,#28a548);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:var(--fnt);}
+
 #toast{display:none;position:fixed;top:50%;left:50%;transform:translate(-50%,-50%);background:rgba(0,0,0,.82);color:#fff;padding:16px 24px;border-radius:14px;font-size:15px;z-index:999;text-align:center;line-height:1.6;max-width:280px;}
 </style>
 </head>
 <body>
 <div id="toast"></div>
-<div class="app">
-  <div class="hdr">
-    <div class="hdr-name">Dr. Simone Caccetta</div>
-    <div class="hdr-sub">Chirurgia Plastica &amp; Medicina Estetica</div>
-    <div class="hdr-bot">
-      <div class="saved-pill"><div class="dot" id="dot"></div><span class="saved-txt">Salvataggio automatico</span></div>
+
+<!-- ══ HOME ══ -->
+<div class="home" id="home-screen">
+  <div class="home-logo">Dr. Simone Caccetta</div>
+  <div class="home-sub">Chirurgia Plastica, Ricostruttiva ed Estetica</div>
+  <div class="home-cards">
+    <div class="home-card home-card-est" onclick="openSection('est')">
+      <div class="home-card-text">
+        <div class="home-card-title">Medicina Estetica</div>
+        <div class="home-card-desc">Filler, tossina botulinica, biostimolazione, peeling</div>
+      </div>
     </div>
-    <div class="save-time" id="last-saved"></div>
+    <div class="home-card home-card-chir" onclick="openSection('chir')">
+      <div class="home-card-text">
+        <div class="home-card-title">Chirurgia</div>
+        <div class="home-card-desc">Programmazione interventi chirurgici</div>
+      </div>
+    </div>
   </div>
-  <div class="tabs"><div class="tabs-inner">
-    <button class="tab active" onclick="switchTab(0)">Anagrafica</button>
-    <button class="tab" onclick="switchTab(1)">Anamnesi</button>
-    <button class="tab" onclick="switchTab(2)">Trattamento</button>
-    <button class="tab" onclick="switchTab(3)">Consenso</button>
+</div>
+
+<!-- ══ APP MEDICINA ESTETICA ══ -->
+<div id="app-est" style="display:none;">
+  <div class="hdr hdr-est">
+    <div class="hdr-top">
+      <button class="hdr-back" onclick="goHome()">← Home</button>
+      <div>
+        <div class="hdr-name">Medicina Estetica</div>
+        <div class="hdr-sub">Dr. Simone Caccetta</div>
+      </div>
+    </div>
+
+  </div>
+  <div class="tabs-est"><div class="tabs-inner">
+    <button class="tab-est active" onclick="switchTabEst(0)">Anagrafica</button>
+    <button class="tab-est" onclick="switchTabEst(1)">Anamnesi</button>
+    <button class="tab-est" onclick="switchTabEst(2)">Trattamento</button>
+    <button class="tab-est" onclick="switchTabEst(3)">Consenso</button>
   </div></div>
 
-  <!-- TAB 0: ANAGRAFICA -->
-  <div class="page active" id="tab0">
+  <!-- EST TAB 0 -->
+  <div class="page active" id="est-tab0">
+    <div class="group-label">Data scheda</div>
+    <div class="list">
+      <div class="row"><span class="row-lbl">Data</span><input id="e-data-scheda" type="date"></div>
+    </div>
     <div class="group-label">Dati personali</div>
     <div class="list">
-      <div class="row"><span class="row-lbl">Cognome</span><input id="cognome" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">Nome</span><input id="nome" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">Data di nascita</span><input id="dob" type="date"></div>
-      <div class="row"><span class="row-lbl">Luogo di nascita</span><input id="lob" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">Sesso</span><input id="sesso" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Cognome</span><input id="e-cognome" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Nome</span><input id="e-nome" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Data di nascita</span><input id="e-dob" type="text" placeholder="gg/mm/aaaa" inputmode="numeric"></div>
+      <div class="row"><span class="row-lbl">Luogo di nascita</span><input id="e-lob" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Sesso</span><input id="e-sesso" placeholder="—"></div>
     </div>
     <div class="group-label">Contatti</div>
     <div class="list">
-      <div class="row"><span class="row-lbl">Telefono</span><input id="tel" type="tel" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">E-mail</span><input id="email" type="email" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Telefono</span><input id="e-tel" type="tel" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">E-mail</span><input id="e-email" type="email" placeholder="—"></div>
     </div>
   </div>
 
-  <!-- TAB 1: ANAMNESI -->
-  <div class="page" id="tab1">
+  <!-- EST TAB 1 -->
+  <div class="page" id="est-tab1">
     <div class="group-label">Motivo della visita</div>
     <div class="list">
-      <div class="row"><span class="row-lbl">Area di interesse</span><input id="area" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Area di interesse</span><input id="e-area" placeholder="—"></div>
       <div class="row-area-lbl">Inestetismo / Diagnosi</div>
-      <div class="row-area"><textarea id="diagnosi" placeholder="Descrizione..."></textarea></div>
+      <div class="row-area"><textarea id="e-diagnosi" placeholder="Descrizione..."></textarea></div>
     </div>
     <div class="group-label">Controindicazioni e fattori di rischio</div>
     <div class="list">
-      <div class="trow"><span class="trow-lbl">Allergie a farmaci o prodotti cosmetici</span><div class="yn"><button class="yn-btn" data-key="a1" data-val="si">Sì</button><button class="yn-btn" data-key="a1" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a1n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Malattie autoimmuni</span><div class="yn"><button class="yn-btn" data-key="a2" data-val="si">Sì</button><button class="yn-btn" data-key="a2" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a2n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Disturbi della coagulazione / terapia anticoagulante o antiaggregante</span><div class="yn"><button class="yn-btn" data-key="a3" data-val="si">Sì</button><button class="yn-btn" data-key="a3" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a3n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Herpes labiale ricorrente attivo o recente</span><div class="yn"><button class="yn-btn" data-key="a4" data-val="si">Sì</button><button class="yn-btn" data-key="a4" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a4n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Acne attiva nella zona da trattare</span><div class="yn"><button class="yn-btn" data-key="a5" data-val="si">Sì</button><button class="yn-btn" data-key="a5" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a5n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Impetigine o altra infezione cutanea attiva</span><div class="yn"><button class="yn-btn" data-key="a6" data-val="si">Sì</button><button class="yn-btn" data-key="a6" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a6n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Patologia infiammatoria cronica cutanea attiva nella zona (psoriasi, dermatite, rosacea)</span><div class="yn"><button class="yn-btn" data-key="a7" data-val="si">Sì</button><button class="yn-btn" data-key="a7" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a7n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Pregressi interventi chirurgici nella zona di interesse</span><div class="yn"><button class="yn-btn" data-key="a8" data-val="si">Sì</button><button class="yn-btn" data-key="a8" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a8n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Pregresse reazioni avverse a prodotti di medicina estetica (filler, tossina, biorivitalizzanti)</span><div class="yn"><button class="yn-btn" data-key="a9" data-val="si">Sì</button><button class="yn-btn" data-key="a9" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a9n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Gravidanza in corso o sospetta</span><div class="yn"><button class="yn-btn" data-key="a10" data-val="si">Sì</button><button class="yn-btn" data-key="a10" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a10n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Allattamento al seno</span><div class="yn"><button class="yn-btn" data-key="a11" data-val="si">Sì</button><button class="yn-btn" data-key="a11" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a11n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Utilizzo di isotretinoina negli ultimi 6 mesi</span><div class="yn"><button class="yn-btn" data-key="a12" data-val="si">Sì</button><button class="yn-btn" data-key="a12" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a12n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Utilizzo di fotosensibilizzanti (retinolo, AHA, FANS topici, tetracicline...)</span><div class="yn"><button class="yn-btn" data-key="a13" data-val="si">Sì</button><button class="yn-btn" data-key="a13" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a13n" placeholder="Specificare..."></textarea></div>
-      <div class="trow"><span class="trow-lbl">Fumo</span><div class="yn"><button class="yn-btn" data-key="a14" data-val="si">Sì</button><button class="yn-btn" data-key="a14" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="a14n" placeholder="N° sigarette/die..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Allergie a farmaci o prodotti cosmetici</span><div class="yn"><button class="yn-btn" data-key="ea1" data-val="si">Sì</button><button class="yn-btn" data-key="ea1" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea1n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Malattie autoimmuni</span><div class="yn"><button class="yn-btn" data-key="ea2" data-val="si">Sì</button><button class="yn-btn" data-key="ea2" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea2n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Disturbi della coagulazione / anticoagulanti</span><div class="yn"><button class="yn-btn" data-key="ea3" data-val="si">Sì</button><button class="yn-btn" data-key="ea3" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea3n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Herpes labiale ricorrente attivo</span><div class="yn"><button class="yn-btn" data-key="ea4" data-val="si">Sì</button><button class="yn-btn" data-key="ea4" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea4n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Acne attiva nella zona da trattare</span><div class="yn"><button class="yn-btn" data-key="ea5" data-val="si">Sì</button><button class="yn-btn" data-key="ea5" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea5n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Patologia infiammatoria cronica cutanea (psoriasi, rosacea, dermatite)</span><div class="yn"><button class="yn-btn" data-key="ea6" data-val="si">Sì</button><button class="yn-btn" data-key="ea6" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea6n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Pregressi interventi chirurgici nella zona</span><div class="yn"><button class="yn-btn" data-key="ea7" data-val="si">Sì</button><button class="yn-btn" data-key="ea7" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea7n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Pregresse reazioni avverse a prodotti estetici</span><div class="yn"><button class="yn-btn" data-key="ea8" data-val="si">Sì</button><button class="yn-btn" data-key="ea8" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea8n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Gravidanza in corso o sospetta</span><div class="yn"><button class="yn-btn" data-key="ea9" data-val="si">Sì</button><button class="yn-btn" data-key="ea9" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea9n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Allattamento al seno</span><div class="yn"><button class="yn-btn" data-key="ea10" data-val="si">Sì</button><button class="yn-btn" data-key="ea10" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea10n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Isotretinoina negli ultimi 6 mesi</span><div class="yn"><button class="yn-btn" data-key="ea11" data-val="si">Sì</button><button class="yn-btn" data-key="ea11" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea11n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Fotosensibilizzanti (retinolo, AHA, FANS, tetracicline)</span><div class="yn"><button class="yn-btn" data-key="ea12" data-val="si">Sì</button><button class="yn-btn" data-key="ea12" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea12n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Fumo</span><div class="yn"><button class="yn-btn" data-key="ea13" data-val="si">Sì</button><button class="yn-btn" data-key="ea13" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="ea13n" placeholder="N° sigarette/die..."></textarea></div>
     </div>
     <div class="group-label">Altre patologie</div>
     <div class="list">
-      <div class="trow"><span class="trow-lbl">Patologie rilevanti (cardiovascolari, diabete, tiroide, neurologiche, neoplasie, epatiche, renali...)</span><div class="yn"><button class="yn-btn" data-key="ap" data-val="si">Sì</button><button class="yn-btn" data-key="ap" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="apn" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Patologie rilevanti (cardiovascolari, diabete, tiroide, neurologiche, neoplasie...)</span><div class="yn"><button class="yn-btn" data-key="eap" data-val="si">Sì</button><button class="yn-btn" data-key="eap" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="eapn" placeholder="Specificare..."></textarea></div>
     </div>
     <div class="group-label">Terapia farmacologica</div>
     <div class="list">
-      <div class="trow"><span class="trow-lbl">Farmaci in uso (integratori, contraccettivi, TOS, fitoterapici)</span><div class="yn"><button class="yn-btn" data-key="farm" data-val="si">Sì</button><button class="yn-btn" data-key="farm" data-val="no">No</button></div></div>
-      <div class="tnote"><textarea id="farmn" placeholder="Elencare farmaci e dosaggi..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Farmaci in uso (integratori, contraccettivi, TOS)</span><div class="yn"><button class="yn-btn" data-key="efarm" data-val="si">Sì</button><button class="yn-btn" data-key="efarm" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="efarmn" placeholder="Elencare..."></textarea></div>
     </div>
     <div class="group-label">Anamnesi estetica</div>
     <div class="list">
       <div class="row-area-lbl">Trattamenti precedenti</div>
-      <div class="row-area"><textarea id="anam-est" placeholder="Trattamenti precedenti, prodotti, risultati, complicanze..." style="min-height:130px;"></textarea></div>
+      <div class="row-area"><textarea id="e-anam" placeholder="Trattamenti precedenti, prodotti, risultati..." style="min-height:120px;"></textarea></div>
     </div>
   </div>
 
-  <!-- TAB 2: TRATTAMENTO -->
-  <div class="page" id="tab2">
+  <!-- EST TAB 2 -->
+  <div class="page" id="est-tab2">
     <div class="group-label">Piano di trattamento</div>
     <div class="list">
       <div class="row-area-lbl">Trattamento concordato</div>
-      <div class="row-area"><textarea id="tratt" placeholder="Descrivere il piano di trattamento..." style="min-height:140px;"></textarea></div>
-      <div class="row"><span class="row-lbl">Prodotto / Dispositivo</span><input id="prod" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">Zona target</span><input id="zona" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">Quantità / Dose</span><input id="dose" placeholder="—"></div>
-      <div class="row"><span class="row-lbl">N° sedute</span><input id="sedute" placeholder="—"></div>
+      <div class="row-area"><textarea id="e-tratt" placeholder="Descrivere il piano..." style="min-height:130px;"></textarea></div>
+      <div class="row"><span class="row-lbl">Prodotto / Dispositivo</span><input id="e-prod" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Zona target</span><input id="e-zona" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Quantità / Dose</span><input id="e-dose" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">N° sedute</span><input id="e-sedute" placeholder="—"></div>
       <div class="row-area-lbl">Note cliniche</div>
-      <div class="row-area"><textarea id="note-clin" placeholder="—"></textarea></div>
+      <div class="row-area"><textarea id="e-note" placeholder="—"></textarea></div>
     </div>
     <div class="group-label">Date</div>
     <div class="list">
-      <div class="row"><span class="row-lbl">Data trattamento</span><input id="data-tratt" type="date"></div>
-      <div class="row"><span class="row-lbl">Prossimo controllo</span><input id="followup" type="date"></div>
+      <div class="row"><span class="row-lbl">Data trattamento</span><input id="e-data-tratt" type="date"></div>
+      <div class="row"><span class="row-lbl">Prossimo controllo</span><input id="e-followup" type="date"></div>
     </div>
   </div>
 
-  <!-- TAB 3: CONSENSO -->
-  <div class="page" id="tab3">
-    <div class="group-label">Seleziona tipo di trattamento</div>
+  <!-- EST TAB 3 -->
+  <div class="page" id="est-tab3">
+    <div class="group-label">Seleziona trattamento</div>
     <div class="list">
       <div class="consenso-picker">
-        <select id="consenso-select" onchange="caricaConsenso(this.value)">
-          <option value="">— Seleziona trattamento —</option>
+        <select id="e-consenso-sel" onchange="caricaConsenso(this.value)">
+          <option value="">— Seleziona —</option>
           <option value="btx">Tossina Botulinica</option>
           <option value="filler">Filler — Acido Ialuronico</option>
           <option value="biostimolazione">Biostimolazione</option>
-          <option value="peeling">Peeling / Resurfacing PRX-T33</option>
+          <option value="peeling">Peeling / PRX-T33</option>
           <option value="generico">Consenso Generico</option>
         </select>
       </div>
     </div>
-
-    <div id="consenso-contenuto" style="display:none;">
-      <div class="group-label">Testo del consenso informato</div>
+    <div id="e-consenso-contenuto" style="display:none;">
+      <div class="group-label">Testo consenso</div>
       <div class="list">
         <div class="consenso-body">
-          <h2 id="cons-titolo"></h2>
-          <h3 id="cons-sottotitolo"></h3>
-          <div class="consenso-testo" id="cons-testo"></div>
-          <div class="consenso-punti" id="cons-punti"></div>
+          <h2 id="e-cons-titolo"></h2>
+          <h3 id="e-cons-sub"></h3>
+          <div class="row-area-lbl" style="padding-top:10px;">Intervento specifico / Procedura proposta</div>
+          <div class="row-area" style="border-bottom:0.5px solid var(--sep);"><textarea id="e-cons-procedura" placeholder="Descrivere l'intervento specifico e la procedura proposta..." style="min-height:80px;"></textarea></div>
+          <div class="consenso-testo" id="e-cons-testo"></div>
+          <div id="e-cons-punti"></div>
         </div>
       </div>
-
-      <div class="group-label">Firme</div>
+      <div class="group-label">Documentazione</div>
       <div class="list">
-        <div class="firme-wrap">
-          <div class="firma-box">
-            <div class="firma-label">Paziente</div>
-            <div class="firma-date"><span>Data</span><input id="data-firma-paz" type="date"></div>
-            <div class="firma-canvas-wrap"><canvas id="sig-paz" width="280" height="160"></canvas></div>
-            <button class="firma-clear" onclick="clearCanvas('sig-paz')">Cancella</button>
-          </div>
-          <div class="firma-box">
-            <div class="firma-label">Dr. Simone Caccetta</div>
-            <div class="firma-date"><span>Data</span><input id="data-firma-med" type="date"></div>
-            <div class="firma-canvas-wrap"><canvas id="sig-med" width="280" height="160"></canvas></div>
-            <button class="firma-clear" onclick="clearCanvas('sig-med')">Cancella</button>
-          </div>
+        <div class="trow"><span class="trow-lbl">Fotografie cliniche basali archiviate</span><div class="yn"><button class="yn-btn" data-key="econs-foto" data-val="si">Sì</button><button class="yn-btn" data-key="econs-foto" data-val="no">No</button></div></div>
+        <div class="row"><span class="row-lbl">Data visita</span><input id="e-data-visita" type="date"></div>
+      </div>
+      <div class="group-label">Firme</div>
+      <div class="list" style="padding:14px 16px;">
+        <div style="font-size:13px;font-weight:600;color:var(--txt3);margin-bottom:6px;">Firma del paziente</div>
+        <div class="firma-box">
+          <canvas id="e-firma-paziente" class="firma-canvas"></canvas>
+          <div class="firma-placeholder" id="e-firma-paziente-ph">Firma qui</div>
         </div>
+        <button class="firma-clear" onclick="clearSingleFirma('e-firma-paziente')">Cancella firma</button>
+        <div style="font-size:13px;font-weight:600;color:var(--txt3);margin:18px 0 6px;">Firma del chirurgo</div>
+        <div class="firma-box">
+          <canvas id="e-firma-chirurgo" class="firma-canvas"></canvas>
+          <div class="firma-placeholder" id="e-firma-chirurgo-ph">Firma qui</div>
+        </div>
+        <button class="firma-clear" onclick="clearSingleFirma('e-firma-chirurgo')">Cancella firma</button>
       </div>
     </div>
     <div style="height:8px;"></div>
   </div>
+
+  <div class="footer">
+    <button class="fbtn fbtn-sec" onclick="newSchedaEst()" style="flex:0.7;font-size:13px;">+ Nuova</button>
+    <button class="fbtn fbtn-red" onclick="salvaPDFEst()">Salva PDF</button>
+    <button class="fbtn fbtn-green" onclick="inviaFirma()">Invia a firma</button>
+  </div>
 </div>
 
-<div class="footer">
-  <button class="fbtn fbtn-sec" onclick="newScheda()" style="flex:0.7;font-size:13px;">+ Nuova</button>
-  <button class="fbtn fbtn-pri" onclick="salvaPDF()" style="font-size:14px;">Salva PDF</button>
-  <button class="fbtn" onclick="inviaFirma()" style="background:linear-gradient(175deg,#4CAF8C,#3a9e7a);color:#fff;font-size:13px;box-shadow:0 1px 3px rgba(60,180,120,.25);">✍️ Invia a firma</button>
-</div>
+<!-- ══ APP CHIRURGIA ══ -->
+<div id="app-chir" style="display:none;">
+  <div class="hdr hdr-chir">
+    <div class="hdr-top">
+      <button class="hdr-back" onclick="goHome()">← Home</button>
+      <div>
+        <div class="hdr-name">Chirurgia</div>
+        <div class="hdr-sub">Dr. Simone Caccetta</div>
+      </div>
+    </div>
 
-<!-- YOUSIGN MODAL -->
-<div id="ys-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;padding:20px;display:flex;align-items:center;justify-content:center;">
-  <div style="background:#fff;border-radius:18px;padding:24px;max-width:420px;width:100%;">
-    <div style="font-size:17px;font-weight:700;color:#1C1C1E;margin-bottom:6px;">Invia a firma certificata</div>
-    <div style="font-size:13px;color:#8E8E93;margin-bottom:18px;font-weight:400;line-height:1.5;">Il documento verrà inviato via email al paziente per la firma elettronica certificata tramite Yousign.</div>
-    <div style="margin-bottom:12px;">
-      <div style="font-size:12px;font-weight:700;color:#8E8E93;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;">Email paziente</div>
-      <input id="ys-email" type="email" placeholder="paziente@email.com" style="width:100%;height:46px;border:1.5px solid #E5E5EA;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700;outline:none;font-family:inherit;">
+  </div>
+
+  <!-- CHIRURGIA HOME: selezione intervento -->
+  <div id="chir-home" style="padding:24px 16px;">
+    <div class="group-label">Seleziona tipologia</div>
+    <div class="list list-blue">
+      <div class="row" style="cursor:pointer;" onclick="openIntervento('mammella')">
+        <span class="row-lbl">Mammella</span>
+        <span style="color:var(--blue);font-size:15px;padding-right:16px;">›</span>
+      </div>
+      <div class="row" style="cursor:pointer;" onclick="openIntervento('altro')">
+        <span class="row-lbl">Altro intervento</span>
+        <span style="color:var(--blue);font-size:15px;padding-right:16px;">›</span>
+      </div>
     </div>
-    <div style="margin-bottom:18px;">
-      <div style="font-size:12px;font-weight:700;color:#8E8E93;text-transform:uppercase;letter-spacing:.4px;margin-bottom:6px;">Nome paziente</div>
-      <input id="ys-name" type="text" placeholder="Nome Cognome" style="width:100%;height:46px;border:1.5px solid #E5E5EA;border-radius:10px;padding:0 14px;font-size:15px;font-weight:700;outline:none;font-family:inherit;">
+  </div>
+
+  <!-- MAMMELLA APP -->
+  <div id="chir-mammella" style="display:none;">
+    <div class="tabs-chir"><div class="tabs-inner">
+      <button class="tab-chir active" onclick="switchTabChir(0)">Anagrafica</button>
+      <button class="tab-chir" onclick="switchTabChir(1)">Anamnesi</button>
+      <button class="tab-chir" onclick="switchTabChir(2)">Esame</button>
+      <button class="tab-chir" onclick="switchTabChir(3)">BAP</button>
+      <button class="tab-chir" onclick="switchTabChir(4)">Piano Op.</button>
+      <button class="tab-chir" onclick="switchTabChir(5)">Consenso</button>
+    </div></div>
+
+    <!-- CHIR TAB 0: ANAGRAFICA -->
+    <div class="page active" id="chir-tab0">
+      <div class="group-label group-label-blue">Data scheda</div>
+      <div class="list list-blue">
+        <div class="row"><span class="row-lbl">Data</span><input id="c-data-scheda" type="date"></div>
+      </div>
+      <div class="group-label group-label-blue">Dati personali</div>
+      <div class="list list-blue">
+        <div class="row"><span class="row-lbl">Cognome</span><input id="c-cognome" placeholder="—"></div>
+        <div class="row"><span class="row-lbl">Nome</span><input id="c-nome" placeholder="—"></div>
+        <div class="row"><span class="row-lbl">Data di nascita</span><input id="c-dob" type="text" placeholder="gg/mm/aaaa" inputmode="numeric"></div>
+        <div class="row"><span class="row-lbl">Professione</span><input id="c-prof" placeholder="—"></div>
+        <div class="row"><span class="row-lbl">Altezza (cm)</span><input id="c-altezza" type="number" placeholder="—" oninput="calcBMI('c')"></div>
+        <div class="row"><span class="row-lbl">Peso (kg)</span><input id="c-peso" type="number" placeholder="—" oninput="calcBMI('c')"></div>
+        <div class="row"><span class="row-lbl">BMI</span><input id="c-bmi" readonly placeholder="—" style="color:var(--blue);font-weight:700;text-align:right;background:var(--blue-l);"></div>
+      </div>
+      <div class="group-label group-label-blue">Contatti</div>
+      <div class="list list-blue">
+        <div class="row"><span class="row-lbl">Telefono</span><input id="c-tel" type="tel" placeholder="—"></div>
+        <div class="row"><span class="row-lbl">E-mail</span><input id="c-email" type="email" placeholder="—"></div>
+      </div>
     </div>
-    <div id="ys-status" style="font-size:13px;color:#C0392B;margin-bottom:12px;min-height:18px;font-weight:400;"></div>
-    <div style="display:flex;gap:10px;">
-      <button onclick="document.getElementById('ys-modal').style.display='none';" style="flex:1;height:46px;border-radius:12px;border:1.5px solid #E5E5EA;background:#F2F2F7;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;">Annulla</button>
-      <button onclick="eseguiFirma()" id="ys-send-btn" style="flex:1;height:46px;border-radius:12px;border:none;background:linear-gradient(175deg,#5DBF9A,#3aA87c);color:#fff;font-size:15px;font-weight:700;cursor:pointer;font-family:inherit;box-shadow:0 1px 4px rgba(60,180,120,.3);">Invia</button>
+
+    <!-- CHIR TAB 1: ANAMNESI -->
+    <div class="page" id="chir-tab1">
+      <div class="group-label group-label-blue">Patologie</div>
+      <div class="list list-blue">
+        <div class="trow"><span class="trow-lbl">Patologie mammarie pregresse</span><div class="yn"><button class="yn-btn" data-key="ca1" data-val="si">Sì</button><button class="yn-btn" data-key="ca1" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca1n" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Familiarità per patologie mammarie</span><div class="yn"><button class="yn-btn" data-key="ca2" data-val="si">Sì</button><button class="yn-btn" data-key="ca2" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca2n" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Patologie sistemiche importanti</span><div class="yn"><button class="yn-btn" data-key="ca3" data-val="si">Sì</button><button class="yn-btn" data-key="ca3" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca3n" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Pregressi interventi chirurgici al seno</span><div class="yn"><button class="yn-btn" data-key="ca4" data-val="si">Sì</button><button class="yn-btn" data-key="ca4" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca4n" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Altri pregressi interventi chirurgici</span><div class="yn"><button class="yn-btn" data-key="ca4b" data-val="si">Sì</button><button class="yn-btn" data-key="ca4b" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca4bn" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Problemi di sanguinamento / coagulazione</span><div class="yn"><button class="yn-btn" data-key="ca5" data-val="si">Sì</button><button class="yn-btn" data-key="ca5" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca5n" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Trombosi venosa / embolia polmonare pregressa</span><div class="yn"><button class="yn-btn" data-key="ca6" data-val="si">Sì</button><button class="yn-btn" data-key="ca6" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca6n" placeholder="Specificare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Allergie</span><div class="yn"><button class="yn-btn" data-key="ca7" data-val="si">Sì</button><button class="yn-btn" data-key="ca7" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca7n" placeholder="A cosa..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Farmaci in uso</span><div class="yn"><button class="yn-btn" data-key="ca8" data-val="si">Sì</button><button class="yn-btn" data-key="ca8" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca8n" placeholder="Elencare..."></textarea></div>
+        <div class="trow"><span class="trow-lbl">Fumo</span><div class="yn"><button class="yn-btn" data-key="ca9" data-val="si">Sì</button><button class="yn-btn" data-key="ca9" data-val="no">No</button></div></div>
+        <div class="tnote"><textarea id="ca9n" placeholder="N° sigarette/die..."></textarea></div>
+      </div>
+    </div>
+
+    <!-- CHIR TAB 2: ESAME OBIETTIVO -->
+    <div class="page" id="chir-tab2">
+      <div class="group-label group-label-blue">Torace e morfologia</div>
+      <div class="list list-blue">
+        <div class="trow"><span class="trow-lbl">Pectus excavatum</span><div class="yn"><button class="yn-btn" data-key="eo1" data-val="si">Sì</button><button class="yn-btn" data-key="eo1" data-val="no">No</button></div></div>
+        <div class="trow"><span class="trow-lbl">Pectus carenatum</span><div class="yn"><button class="yn-btn" data-key="eo2" data-val="si">Sì</button><button class="yn-btn" data-key="eo2" data-val="no">No</button></div></div>
+        <div class="trow"><span class="trow-lbl">Scoliosi</span><div class="yn"><button class="yn-btn" data-key="eo3" data-val="si">Sì</button><button class="yn-btn" data-key="eo3" data-val="no">No</button></div></div>
+        <div class="trow"><span class="trow-lbl">Mammella tuberosa</span><div class="yn"><button class="yn-btn" data-key="eo4" data-val="si">Sì</button><button class="yn-btn" data-key="eo4" data-val="no">No</button></div></div>
+        <div class="trow"><span class="trow-lbl">Striae</span><div class="yn"><button class="yn-btn" data-key="eo5" data-val="si">Sì</button><button class="yn-btn" data-key="eo5" data-val="no">No</button></div></div>
+        <div class="trow"><span class="trow-lbl">Cicatrici pregresse</span><div class="yn"><button class="yn-btn" data-key="eo6" data-val="si">Sì</button><button class="yn-btn" data-key="eo6" data-val="no">No</button></div></div>
+        <div class="trow"><span class="trow-lbl">Asimmetria areola/capezzolo</span><div class="yn"><button class="yn-btn" data-key="eo7" data-val="si">Sì</button><button class="yn-btn" data-key="eo7" data-val="no">No</button></div></div>
+      </div>
+      <div class="group-label group-label-blue">Ptosi</div>
+      <div class="list list-blue">
+        <div class="row"><span class="row-lbl">Ptosi DX</span>
+          <select id="eo-ptosi-dx" onchange="schedula()"><option value="">—</option><option>Assente</option><option>Pseudo</option><option>Moderata</option><option>Major</option></select>
+        </div>
+        <div class="row"><span class="row-lbl">Ptosi SX</span>
+          <select id="eo-ptosi-sx" onchange="schedula()"><option value="">—</option><option>Assente</option><option>Pseudo</option><option>Moderata</option><option>Major</option></select>
+        </div>
+      </div>
+      <div class="group-label group-label-blue">Note esame obiettivo</div>
+      <div class="list list-blue">
+        <div class="row-area"><textarea id="eo-note" placeholder="Note aggiuntive..." style="min-height:100px;"></textarea></div>
+      </div>
+    </div>
+
+    <!-- CHIR TAB 3: BAP -->
+    <div class="page" id="chir-tab3">
+      <div class="group-label group-label-blue">BAP — Breast Augmentation Planning (Per Heiden)</div>
+      <div class="list list-blue">
+        <div class="row"><span class="row-lbl">Circ. torace IMF (cm)</span><input id="bap-circ-imf" type="number" step="0.1" placeholder="cm" oninput="calcolaTagliaReggiseno()"></div>
+        <div class="row-area-lbl">Misurazioni bilaterali (cm)</div>
+        <div class="row"><span class="row-lbl">Base Width DX</span><input id="bap-bw-dx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">Base Width SX</span><input id="bap-bw-sx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">N-IMF stretch DX</span><input id="bap-nimf-dx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">N-IMF stretch SX</span><input id="bap-nimf-sx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">Pinch mediale DX</span><input id="bap-pm-dx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">Pinch mediale SX</span><input id="bap-pm-sx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">Pinch laterale DX</span><input id="bap-pl-dx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">Pinch laterale SX</span><input id="bap-pl-sx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">SSN-N DX</span><input id="bap-ssn-dx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+        <div class="row"><span class="row-lbl">SSN-N SX</span><input id="bap-ssn-sx" type="number" step="0.1" placeholder="cm" oninput="calcBAP()"></div>
+      </div>
+      <div class="group-label group-label-blue">Risultato BAP</div>
+      <div class="list list-blue bap-result" id="bap-result">
+        <div class="bap-grid">
+          <div class="bap-side"><div class="bap-side-title">Destra</div><div class="bap-side-content" id="bap-out-dx">—</div></div>
+          <div class="bap-side"><div class="bap-side-title">Sinistra</div><div class="bap-side-content" id="bap-out-sx">—</div></div>
+        </div>
+        <div class="bap-warn" id="bap-note"></div>
+      </div>
+      <div class="group-label group-label-blue">Cataloghi protesi</div>
+      <div class="list list-blue">
+        <a href="https://motiva.health/app/implant-matrix/motiva/ergonomix2" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;text-decoration:none;border-bottom:0.5px solid var(--sep);">
+          <div>
+            <div style="font-size:15px;font-weight:700;color:var(--txt);">Motiva Ergonomix²</div>
+            <div style="font-size:12px;color:var(--txt3);font-weight:400;margin-top:2px;">Implant Matrix — motiva.health</div>
+          </div>
+          <span style="color:var(--blue);font-size:18px;">↗</span>
+        </a>
+        <a href="https://www.mentordirect.com.au/sites/default/files/2024-01/Mentor%20-%20Product%20Catalogue%20-%20v10.1_Digital%20Version.pdf" target="_blank" style="display:flex;align-items:center;justify-content:space-between;padding:14px 16px;text-decoration:none;">
+          <div>
+            <div style="font-size:15px;font-weight:700;color:var(--txt);">Mentor Product Catalogue</div>
+            <div style="font-size:12px;color:var(--txt3);font-weight:400;margin-top:2px;">Catalogo completo v10.1 — PDF</div>
+          </div>
+          <span style="color:var(--blue);font-size:18px;">↗</span>
+        </a>
+      </div>
+      <div class="group-label group-label-blue">Scelta protesi</div>
+      <div class="list list-blue">
+        <div class="row-area-lbl">Note ordine protesi</div>
+        <div class="row-area"><textarea id="prot-note" placeholder="Es. Motiva Ergonomix² Round Silk Surface — DX 280cc / SX 295cc — Moderate Plus..." style="min-height:140px;"></textarea></div>
+      </div>
+    </div>
+
+    <!-- CHIR TAB 4: PIANO OPERATORIO -->
+    <div class="page" id="chir-tab4">
+      <div class="group-label group-label-blue">Programma operatorio</div>
+      <div class="list list-blue">
+        <div class="row"><span class="row-lbl">Taglia reggiseno</span><input id="op-reggiseno" placeholder="—" readonly style="text-align:right;color:var(--blue);font-weight:700;background:var(--blue-l);"></div>
+        <div class="row-area-lbl">Note operative</div>
+        <div class="row-area"><textarea id="op-note" placeholder="Descrivere l'intervento, via d'accesso, tasca, anestesia, ricovero, data..." style="min-height:180px;"></textarea></div>
+      </div>
+      <div style="height:8px;"></div>
+    </div>
+
+    <!-- CHIR TAB 5: CONSENSO -->
+    <div class="page" id="chir-tab5">
+      <div class="group-label group-label-blue">Seleziona intervento</div>
+      <div class="list list-blue">
+        <div class="consenso-picker">
+          <select id="c-consenso-sel" onchange="caricaConsensoChir(this.value)">
+            <option value="">— Seleziona —</option>
+            <optgroup label="Viso">
+              <option value="facelift">Face Lifting (Ritidectomia)</option>
+              <option value="liftingfrontale">Lifting Frontale e Temporale</option>
+              <option value="blefaroplastica">Blefaroplastica</option>
+              <option value="rinoplastica">Rino-Settoplastica</option>
+              <option value="otoplastica">Otoplastica</option>
+              <option value="mentoplastica">Mentoplastica Additiva</option>
+            </optgroup>
+            <optgroup label="Mammella">
+              <option value="mastoadditiva">Mastoplastica Additiva (Protesi)</option>
+              <option value="mastoriduttiva">Mastoplastica Riduttiva</option>
+              <option value="mastopessi">Mastopessi</option>
+              <option value="lipofillingmammella">Lipofilling della Mammella</option>
+            </optgroup>
+            <optgroup label="Corpo">
+              <option value="addominoplastica">Addominoplastica</option>
+              <option value="liposuzione">Liposuzione</option>
+              <option value="lipofilling">Lipofilling / Autotrapianto Adiposo</option>
+              <option value="liftingcosce">Lifting delle Cosce</option>
+              <option value="liftingbraccia">Lifting delle Braccia</option>
+              <option value="gluteoplastica">Gluteoplastica con Protesi</option>
+              <option value="ginecomastia">Ginecomastia</option>
+            </optgroup>
+            <optgroup label="Cutanea">
+              <option value="chirurgiacutanea">Chirurgia Cutanea – Sottocutanea</option>
+            </optgroup>
+            <option value="generico">Consenso Generico</option>
+          </select>
+        </div>
+      </div>
+      <div id="c-consenso-contenuto" style="display:none;">
+        <div class="group-label group-label-blue">Testo consenso</div>
+        <div class="list list-blue">
+          <div class="consenso-body" style="border-color:rgba(33,118,174,.15);">
+            <h2 id="c-cons-titolo" style="color:var(--blue);"></h2>
+            <h3 id="c-cons-sub"></h3>
+            <div class="row-area-lbl" style="padding-top:10px;">Intervento specifico / Procedura proposta</div>
+            <div class="row-area" style="border-bottom:0.5px solid var(--sep);"><textarea id="c-cons-procedura" placeholder="Descrivere l'intervento specifico e la procedura proposta..." style="min-height:80px;"></textarea></div>
+            <div class="consenso-testo" id="c-cons-testo"></div>
+            <div id="c-cons-punti"></div>
+          </div>
+        </div>
+        <div class="group-label group-label-blue">Documentazione</div>
+        <div class="list list-blue">
+          <div class="trow"><span class="trow-lbl">Fotografie cliniche basali archiviate</span><div class="yn"><button class="yn-btn" data-key="ccons-foto" data-val="si">Sì</button><button class="yn-btn" data-key="ccons-foto" data-val="no">No</button></div></div>
+          <div class="row"><span class="row-lbl">Data visita</span><input id="c-data-visita" type="date"></div>
+        </div>
+      </div>
+      <div style="height:8px;"></div>
+    </div>
+
+    <div class="footer">
+      <button class="fbtn fbtn-sec" onclick="newSchedaChir()" style="flex:0.7;font-size:13px;">+ Nuova</button>
+      <button class="fbtn fbtn-blue" onclick="salvaPDFChir()">Salva PDF</button>
+      <button class="fbtn fbtn-green" onclick="inviaFirma()">Invia a firma</button>
     </div>
   </div>
 </div>
 
-<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<!-- ══ APP CHIRURGIA — ALTRO ══ -->
+<div id="chir-altro" style="display:none;">
+  <div class="tabs-chir"><div class="tabs-inner">
+    <button class="tab-chir active" onclick="switchTabChirA(0)">Anagrafica</button>
+    <button class="tab-chir" onclick="switchTabChirA(1)">Anamnesi</button>
+    <button class="tab-chir" onclick="switchTabChirA(2)">Esame</button>
+    <button class="tab-chir" onclick="switchTabChirA(3)">Piano Op.</button>
+    <button class="tab-chir" onclick="switchTabChirA(4)">Consenso</button>
+  </div></div>
+
+  <!-- ALTRO TAB 0: ANAGRAFICA -->
+  <div class="page active" id="altro-tab0">
+    <div class="group-label group-label-blue">Data scheda</div>
+    <div class="list list-blue">
+      <div class="row"><span class="row-lbl">Data</span><input id="a-data-scheda" type="date"></div>
+    </div>
+    <div class="group-label group-label-blue">Dati personali</div>
+    <div class="list list-blue">
+      <div class="row"><span class="row-lbl">Cognome</span><input id="a-cognome" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Nome</span><input id="a-nome" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Data di nascita</span><input id="a-dob" type="text" placeholder="gg/mm/aaaa" inputmode="numeric"></div>
+      <div class="row"><span class="row-lbl">Professione</span><input id="a-prof" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">Altezza (cm)</span><input id="a-altezza" type="number" placeholder="—" oninput="calcBMI('a')"></div>
+      <div class="row"><span class="row-lbl">Peso (kg)</span><input id="a-peso" type="number" placeholder="—" oninput="calcBMI('a')"></div>
+      <div class="row"><span class="row-lbl">BMI</span><input id="a-bmi" readonly placeholder="—" style="color:var(--blue);font-weight:700;text-align:right;background:var(--blue-l);"></div>
+    </div>
+    <div class="group-label group-label-blue">Contatti</div>
+    <div class="list list-blue">
+      <div class="row"><span class="row-lbl">Telefono</span><input id="a-tel" type="tel" placeholder="—"></div>
+      <div class="row"><span class="row-lbl">E-mail</span><input id="a-email" type="email" placeholder="—"></div>
+    </div>
+  </div>
+
+  <!-- ALTRO TAB 1: ANAMNESI -->
+  <div class="page" id="altro-tab1">
+    <div class="group-label group-label-blue">Patologie</div>
+    <div class="list list-blue">
+      <div class="trow"><span class="trow-lbl">Allergie (farmaci, latex, prodotti)</span><div class="yn"><button class="yn-btn" data-key="aa1" data-val="si">Sì</button><button class="yn-btn" data-key="aa1" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa1n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Patologie cardiovascolari</span><div class="yn"><button class="yn-btn" data-key="aa2" data-val="si">Sì</button><button class="yn-btn" data-key="aa2" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa2n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Diabete</span><div class="yn"><button class="yn-btn" data-key="aa3" data-val="si">Sì</button><button class="yn-btn" data-key="aa3" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa3n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Problemi di sanguinamento / coagulazione</span><div class="yn"><button class="yn-btn" data-key="aa4" data-val="si">Sì</button><button class="yn-btn" data-key="aa4" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa4n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Trombosi venosa / embolia polmonare pregressa</span><div class="yn"><button class="yn-btn" data-key="aa5" data-val="si">Sì</button><button class="yn-btn" data-key="aa5" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa5n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Patologie sistemiche importanti</span><div class="yn"><button class="yn-btn" data-key="aa6" data-val="si">Sì</button><button class="yn-btn" data-key="aa6" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa6n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Pregressi interventi chirurgici</span><div class="yn"><button class="yn-btn" data-key="aa7" data-val="si">Sì</button><button class="yn-btn" data-key="aa7" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa7n" placeholder="Specificare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Farmaci in uso</span><div class="yn"><button class="yn-btn" data-key="aa8" data-val="si">Sì</button><button class="yn-btn" data-key="aa8" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa8n" placeholder="Elencare..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Fumo</span><div class="yn"><button class="yn-btn" data-key="aa9" data-val="si">Sì</button><button class="yn-btn" data-key="aa9" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa9n" placeholder="N° sigarette/die..."></textarea></div>
+      <div class="trow"><span class="trow-lbl">Gravidanza in corso o pianificata</span><div class="yn"><button class="yn-btn" data-key="aa10" data-val="si">Sì</button><button class="yn-btn" data-key="aa10" data-val="no">No</button></div></div>
+      <div class="tnote"><textarea id="aa10n" placeholder="Specificare..."></textarea></div>
+    </div>
+  </div>
+
+  <!-- ALTRO TAB 2: ESAME OBIETTIVO -->
+  <div class="page" id="altro-tab2">
+    <div class="group-label group-label-blue">Esame obiettivo</div>
+    <div class="list list-blue">
+      <div class="row-area-lbl">Obiettività locale</div>
+      <div class="row-area"><textarea id="a-esame" placeholder="Descrizione esame obiettivo..." style="min-height:180px;"></textarea></div>
+    </div>
+  </div>
+
+  <!-- ALTRO TAB 3: PIANO OPERATORIO -->
+  <div class="page" id="altro-tab3">
+    <div class="group-label group-label-blue">Programma operatorio</div>
+    <div class="list list-blue">
+      <div class="row-area-lbl">Note operative</div>
+      <div class="row-area"><textarea id="a-note" placeholder="Descrivere l'intervento, via d'accesso, anestesia, ricovero, data..." style="min-height:220px;"></textarea></div>
+    </div>
+    <div style="height:8px;"></div>
+  </div>
+
+  <!-- ALTRO TAB 4: CONSENSO -->
+  <div class="page" id="altro-tab4">
+    <div class="group-label group-label-blue">Seleziona intervento</div>
+    <div class="list list-blue">
+      <div class="consenso-picker">
+        <select id="a-consenso-sel" onchange="caricaConsensoAltro(this.value)">
+          <option value="">— Seleziona —</option>
+          <optgroup label="Viso">
+            <option value="facelift">Face Lifting (Ritidectomia)</option>
+            <option value="liftingfrontale">Lifting Frontale e Temporale</option>
+            <option value="blefaroplastica">Blefaroplastica</option>
+            <option value="rinoplastica">Rino-Settoplastica</option>
+            <option value="otoplastica">Otoplastica</option>
+            <option value="mentoplastica">Mentoplastica Additiva</option>
+          </optgroup>
+          <optgroup label="Mammella">
+            <option value="mastoadditiva">Mastoplastica Additiva (Protesi)</option>
+            <option value="mastoriduttiva">Mastoplastica Riduttiva</option>
+            <option value="mastopessi">Mastopessi</option>
+            <option value="lipofillingmammella">Lipofilling della Mammella</option>
+          </optgroup>
+          <optgroup label="Corpo">
+            <option value="addominoplastica">Addominoplastica</option>
+            <option value="liposuzione">Liposuzione</option>
+            <option value="lipofilling">Lipofilling / Autotrapianto Adiposo</option>
+            <option value="liftingcosce">Lifting delle Cosce</option>
+            <option value="liftingbraccia">Lifting delle Braccia</option>
+            <option value="gluteoplastica">Gluteoplastica con Protesi</option>
+            <option value="ginecomastia">Ginecomastia</option>
+          </optgroup>
+          <optgroup label="Cutanea">
+            <option value="chirurgiacutanea">Chirurgia Cutanea – Sottocutanea</option>
+          </optgroup>
+          <option value="generico">Consenso Generico</option>
+        </select>
+      </div>
+    </div>
+    <div id="a-consenso-contenuto" style="display:none;">
+      <div class="group-label group-label-blue">Testo consenso</div>
+      <div class="list list-blue">
+        <div class="consenso-body" style="border-color:rgba(33,118,174,.15);">
+          <h2 id="a-cons-titolo" style="color:var(--blue);"></h2>
+          <h3 id="a-cons-sub"></h3>
+          <div class="row-area-lbl" style="padding-top:10px;">Intervento specifico / Procedura proposta</div>
+          <div class="row-area" style="border-bottom:0.5px solid var(--sep);"><textarea id="a-cons-procedura" placeholder="Descrivere l'intervento specifico e la procedura proposta..." style="min-height:80px;"></textarea></div>
+          <div class="consenso-testo" id="a-cons-testo"></div>
+          <div id="a-cons-punti"></div>
+        </div>
+      </div>
+      <div class="group-label group-label-blue">Documentazione</div>
+      <div class="list list-blue">
+        <div class="trow"><span class="trow-lbl">Fotografie cliniche basali archiviate</span><div class="yn"><button class="yn-btn" data-key="acons-foto" data-val="si">Sì</button><button class="yn-btn" data-key="acons-foto" data-val="no">No</button></div></div>
+        <div class="row"><span class="row-lbl">Data visita</span><input id="a-data-visita" type="date"></div>
+      </div>
+    </div>
+    <div style="height:8px;"></div>
+  </div>
+
+  <div class="footer">
+    <button class="fbtn fbtn-sec" onclick="newSchedaAltro()" style="flex:0.7;font-size:13px;">+ Nuova</button>
+    <button class="fbtn fbtn-blue" onclick="salvaPDFAltro()">Salva PDF</button>
+    <button class="fbtn fbtn-green" onclick="inviaFirma()">Invia a firma</button>
+  </div>
+</div>
+</div>
+
+<!-- ══ MODAL FIRMA ══ -->
+<div id="ys-modal" style="display:none;position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:200;padding:20px;align-items:center;justify-content:center;">
+  <div class="ys-modal-inner">
+    <div class="ys-modal-title">Invia a firma certificata</div>
+    <div class="ys-modal-desc">Il documento verrà inviato via email al paziente per la firma elettronica certificata tramite Yousign.</div>
+    <div class="ys-field-label">Email paziente</div>
+    <input id="ys-email" class="ys-input" type="email" placeholder="paziente@email.com">
+    <div class="ys-field-label">Nome paziente</div>
+    <input id="ys-name" class="ys-input" type="text" placeholder="Nome Cognome">
+    <div id="ys-status"></div>
+    <div class="ys-btns">
+      <button class="ys-btn-cancel" onclick="document.getElementById('ys-modal').style.display='none';">Annulla</button>
+      <button class="ys-btn-send" id="ys-send-btn" onclick="eseguiFirma()">Invia</button>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js" defer></script>
 <script>
-// ── CONSENSI ────────────────────────────────────────────────────────────────
-var CONSENSI = {
-  btx:{titolo:"Tossina Botulinica",sottotitolo:"Riduzione temporanea delle rughe d'espressione del viso",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con infiltrazione di Tossina Botulinica a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nLa muscolatura del volto produce, con la sua attività, solchi e rughe che tendono ad accentuarsi con il passare degli anni. La tossina botulinica è un farmaco capace di interrompere temporaneamente la trasmissione degli impulsi nervosi che determinano la contrazione della muscolatura mimica. Viene iniettata nei singoli muscoli di cui si vuole modulare l'attività per attenuare i solchi prodotti sulla cute.\n\nI primi effetti si manifestano mediamente dopo 3 giorni e raggiungono il massimo dopo 7-10 giorni. Il risultato dura dai 3 ai 5-6 mesi. L'applicazione non richiede anestesia locale.\n\nCONTROINDICAZIONI\n\nNon possono essere trattati: pazienti affetti da miastenia gravis o altre malattie neuromuscolari, donne in gravidanza o in allattamento, pazienti in terapia con aminoglicosidi, chinolonici o penicillamina.\n\nCOMPLICANZE POSSIBILI\n\nLe complicanze sono rare. Possono verificarsi: modesto arrossamento transitorio, cefalea fugace, piccole ecchimosi a riassorbimento spontaneo. Per migrazione del farmaco verso muscoli adiacenti possono verificarsi ptosi del sopracciglio o ptosi palpebrale, generalmente reversibili in 2-4 settimane. In rari casi (circa 0,2%) il trattamento può non produrre l'effetto desiderato.\n\nALTERNATIVE TERAPEUTICHE\n\nNon esistono alternative mediche equivalenti. Le rughe frontali possono essere trattate con filler o con lifting frontale chirurgico.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di aver compreso che la tossina botulinica si riassorbe progressivamente e sono necessarie reintegrazioni periodiche.\n2. Di essere consapevole che possono verificarsi asimmetrie o irregolarità cutanee transitorie.\n3. Di non aver assunto antiaggreganti, acido acetilsalicilico o FANS da almeno 10 giorni.\n4. Di dover evitare l'esposizione solare senza protezione per 7 giorni.\n5. Che la medicina non garantisce un risultato preciso, dipendente dalle risposte individuali dell'organismo.\n6. Che il presente consenso è valido anche per i trattamenti successivi, salvo revoca esplicita.",punti:[{id:"ct",testo:"Acconsento al trattamento con Tossina Botulinica"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
-  filler:{titolo:"Filler — Acido Ialuronico",sottotitolo:"Riduzione temporanea di rughe e aumenti selettivi di volume",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con infiltrazione di Acido Ialuronico a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nL'Acido Ialuronico è un materiale altamente puro, sterile, in siringhe pre-riempite, che può essere iniettato nei tessuti molli cutanei-sottocutanei al fine di aumentarne il volume. Ha un'elevatissima biocompatibilità e si riassorbe progressivamente nei mesi. La durata varia da 2-3 mesi per prodotti meno densi fino a 6-9 mesi per i più densi.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, infezioni cutanee attive nella zona, allergia documentata al prodotto. La presenza di filler precedenti non conosciuti aumenta il rischio di reazioni locali.\n\nCOMPLICANZE POSSIBILI\n\nLe complicanze sono rare (circa 1%). Possono verificarsi: arrossamento, prurito, gonfiore, ecchimosi, noduletti palpabili. Raramente: infezioni, infiammazione locale.\n\nALTERNATIVE TERAPEUTICHE\n\nFiller riassorbibili a diversa durata (acido polilattico, fosfato tricalcico), filler permanenti (oggi in disuso), autotrapianto di grasso.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di essere consapevole che i due lati del viso non sono identici e non potranno mai essere perfettamente simmetrici.\n2. Che la medicina non garantisce un risultato esatto, dipendente dalle risposte biologiche individuali.\n3. Di non aver assunto antiaggreganti, acido acetilsalicilico o FANS da almeno 10 giorni.\n4. Di dover evitare l'esposizione solare senza protezione per 7 giorni.\n5. Di non essere in stato di gravidanza.\n6. Che eventuali procedure secondarie o ritocchi sono a carico del paziente.\n7. Che il presente consenso è valido anche per i trattamenti analoghi successivi, salvo revoca esplicita.",punti:[{id:"ct",testo:"Acconsento al trattamento con infiltrazione di Acido Ialuronico"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
-  biostimolazione:{titolo:"Biostimolazione",sottotitolo:"Biorivitalizzazione cutanea con acido ialuronico e aminoacidi",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento di Biostimolazione cutanea a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nIl trattamento consiste nell'inoculazione intradermica di una sostanza a base di acido ialuronico, aminoacidi precursori del collagene e dell'elastina, e glicosaminoglicani. L'obiettivo è l'ottimizzazione biologica dello stato cutaneo nelle zone trattate. La sostanza è riassorbibile.\n\nProtocollo standard: 4 sedute settimanali, 2 sedute quindicinali, sedute mensili di mantenimento.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, terapia in corso con isotretinoina o retinoidi.\n\nCOMPLICANZE POSSIBILI\n\nReazioni comuni: eritema, edema, dolore, prurito nel sito di iniezione — solitamente lievi e a risoluzione spontanea. Reazioni rare (circa 2%): reazioni allergiche localizzate, infiammazione, infezione, pustole acneiformi. In casi rarissimi (< 1/15.000): manifestazioni permanenti di indurimento o colorazione grigiastra nel sito.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di non essere in stato di gravidanza.\n2. Di aver comunicato eventuali allergie a farmaci.\n3. Di aver comunicato eventuali trattamenti estetici effettuati negli ultimi anni.\n4. Di comprendere che i risultati non sono definitivi e che saranno necessarie più sedute.\n5. Che la medicina non garantisce un risultato preciso.",punti:[{id:"ct",testo:"Acconsento al trattamento di Biostimolazione"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
-  peeling:{titolo:"Peeling / Resurfacing — PRX-T33",sottotitolo:"Biorivitalizzazione cutanea e trattamento cicatrici atrofiche",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con PRX-T33 a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nPRX-T33 è un dispositivo medico indicato per la biorivitalizzazione della cute nell'invecchiamento cutaneo e per il trattamento delle cicatrici atrofiche. Viene applicato sulla cute mediante massaggio controllato.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, terapia in corso con isotretinoina o retinoidi topici, cute non integra nella zona da trattare.\n\nEFFETTI POST-TRATTAMENTO ATTESI\n\nArrossamento diffuso (può persistere qualche giorno), esfoliazione tardiva, macchie scure rotondeggianti nei primi due giorni — scompaiono con la desquamazione.\n\nCOMPLICANZE POSSIBILI\n\nIrritazione congiuntivale per contatto accidentale. Prurito con arrossamento e microvescicole per allergia all'acido cogico o al lattice. Infiammazioni circoscritte tardive. Abrasioni cutanee per massaggio eccessivo con possibili esiti cicatriziali.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di non essere in stato di gravidanza o allattamento.\n2. Di non essere in terapia con isotretinoina o retinoidi topici.\n3. Di aver ricevuto informazioni sufficienti per una decisione consapevole.\n4. Che tutte le domande poste al medico hanno ricevuto risposta esauriente.",punti:[{id:"ct",testo:"Acconsento al trattamento con PRX-T33"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]},
-  generico:{titolo:"Consenso Generico",sottotitolo:"Dichiarazione di avvenuta informazione e consenso all'atto sanitario proposto",testo:"Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta informazioni complete e comprensibili in merito all'atto sanitario proposto, alle sue indicazioni, ai rischi, alle possibili complicanze e alle alternative terapeutiche disponibili.\n\nINFORMAZIONI GENERALI\n\nIl/La paziente dichiara di essere stato/a informato/a in merito a:\n• La natura e le finalità dell'atto sanitario proposto\n• Le modalità di esecuzione della procedura\n• I benefici attesi dal trattamento\n• I rischi e le possibili complicanze\n• Le alternative terapeutiche disponibili\n• La possibilità di rifiutare o revocare il consenso in qualsiasi momento\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di aver ricevuto informazioni esaurienti sull'atto sanitario proposto e di averle comprese appieno.\n2. Di aver avuto la possibilità di porre domande, alle quali ha ricevuto risposta esauriente.\n3. Di essere consapevole che la medicina non può garantire risultati certi, in quanto dipendenti dalle risposte biologiche individuali.\n4. Di poter revocare il presente consenso in qualsiasi momento prima dell'esecuzione.\n5. Che eventuali procedure secondarie rese necessarie da complicanze impreviste sono a carico del paziente.\n\nIn piena libertà di giudizio, sulla base delle informazioni ricevute, accetta l'atto sanitario proposto.",punti:[{id:"ct",testo:"Acconsento all'atto sanitario proposto"},{id:"cf",testo:"Acconsento all'archiviazione di fotografie cliniche"},{id:"cs",testo:"Acconsento all'utilizzo delle fotografie per scopi scientifici con garanzia di anonimato (facoltativo)"}]}
+// Helper per ottenere jsPDF in modo sicuro
+function getJsPDF(){
+  if(window.jspdf&&window.jspdf.jsPDF)return window.jspdf.jsPDF;
+  if(typeof jsPDF!=='undefined')return jsPDF;
+  return null;
+}
+// ── SECTION MANAGEMENT ───────────────────────────────────────────────────────
+var currentSection='';
+var currentInterventoChir='';
+
+function openSection(sec){
+  currentSection=sec;
+  document.getElementById('home-screen').style.display='none';
+  if(sec==='est'){
+    document.getElementById('app-est').style.display='block';
+    document.getElementById('app-chir').style.display='none';
+    // Non caricare automaticamente l'ultima scheda — inizia sempre nuova
+    var de=document.getElementById('e-data-scheda');if(de&&!de.value)de.value=oggiISO();
+  } else {
+    document.getElementById('app-chir').style.display='block';
+    document.getElementById('app-est').style.display='none';
+    document.getElementById('chir-home').style.display='block';
+    document.getElementById('chir-mammella').style.display='none';
+    document.getElementById('chir-altro').style.display='none';
+  }
+}
+
+function openIntervento(tipo){
+  currentInterventoChir=tipo;
+  document.getElementById('chir-home').style.display='none';
+  document.getElementById('chir-mammella').style.display='none';
+  document.getElementById('chir-altro').style.display='none';
+  if(tipo==='mammella'){
+    document.getElementById('chir-mammella').style.display='block';
+    // Non caricare automaticamente l'ultima scheda — inizia sempre nuova
+    var dc=document.getElementById('c-data-scheda');if(dc&&!dc.value)dc.value=oggiISO();
+  } else {
+    document.getElementById('chir-altro').style.display='block';
+    // Non caricare automaticamente l'ultima scheda — inizia sempre nuova
+    var da=document.getElementById('a-data-scheda');if(da&&!da.value)da.value=oggiISO();
+  }
+}
+
+function goHome(){
+  document.getElementById('home-screen').style.display='flex';
+  document.getElementById('app-est').style.display='none';
+  document.getElementById('app-chir').style.display='none';
+}
+
+// ── STATE ────────────────────────────────────────────────────────────────────
+var ynState={};
+var schedaIdEst='est_'+Date.now();
+var schedaIdChir='chir_'+Date.now();
+var schedaIdAltro='altro_'+Date.now();
+var saveTimer=null;
+var currentConsenso=null;
+var currentTabEst=0;
+var currentTabChir=0;
+var currentTabChirA=0;
+
+var FIELDS_EST=['e-data-scheda','e-cognome','e-nome','e-dob','e-lob','e-sesso','e-tel','e-email','e-area','e-diagnosi','ea1n','ea2n','ea3n','ea4n','ea5n','ea6n','ea7n','ea8n','ea9n','ea10n','ea11n','ea12n','ea13n','eapn','efarmn','e-anam','e-tratt','e-prod','e-zona','e-dose','e-sedute','e-note','e-data-tratt','e-followup','e-data-visita','e-cons-procedura'];
+var FIELDS_CHIR=['c-data-scheda','c-cognome','c-nome','c-dob','c-prof','c-altezza','c-peso','c-bmi','c-tel','c-email','ca1n','ca2n','ca3n','ca4n','ca4bn','ca5n','ca6n','ca7n','ca8n','ca9n','ca10n','ca11n','bap-circ-imf','bap-bw-dx','bap-bw-sx','bap-nimf-dx','bap-nimf-sx','bap-pm-dx','bap-pm-sx','bap-pl-dx','bap-pl-sx','bap-ssn-dx','bap-ssn-sx','prot-note','eo-note','eo-ptosi-dx','eo-ptosi-sx','op-reggiseno','op-note','c-data-visita','c-cons-procedura'];
+var FIELDS_ALTRO=['a-data-scheda','a-cognome','a-nome','a-dob','a-prof','a-altezza','a-peso','a-bmi','a-tel','a-email','aa1n','aa2n','aa3n','aa4n','aa5n','aa6n','aa7n','aa8n','aa9n','aa10n','a-esame','a-note','a-data-visita','a-cons-procedura'];
+
+document.querySelectorAll('.yn-btn').forEach(function(btn){
+  btn.addEventListener('click',function(){selectBtn(this);});
+  btn.addEventListener('touchend',function(e){e.preventDefault();selectBtn(this);});
+});
+
+function selectBtn(btn){
+  var key=btn.getAttribute('data-key'),val=btn.getAttribute('data-val');
+  document.querySelectorAll('.yn-btn[data-key="'+key+'"]').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});
+  btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#ffffff';
+  ynState[key]=val;
+}
+
+function saveEst(){
+  var data={id:schedaIdEst,ts:new Date().toISOString()};
+  Object.assign(data,ynState);
+  FIELDS_EST.forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
+  var sel=document.getElementById('e-consenso-sel');if(sel)data.estConsensoKey=sel.value;
+  try{localStorage.setItem('sc_'+schedaIdEst,JSON.stringify(data));localStorage.setItem('sc_last_est',schedaIdEst);}catch(e){console.error('Salvataggio fallito',e);}
+}
+
+function saveChir(){
+  var data={id:schedaIdChir,ts:new Date().toISOString()};
+  Object.assign(data,ynState);
+  FIELDS_CHIR.forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
+  var csel=document.getElementById('c-consenso-sel');if(csel)data.chirConsensoKey=csel.value;
+  try{localStorage.setItem('sc_'+schedaIdChir,JSON.stringify(data));localStorage.setItem('sc_last_chir',schedaIdChir);}catch(e){console.error('Salvataggio fallito',e);}
+}
+
+function saveAltro(){
+  var data={id:schedaIdAltro,ts:new Date().toISOString()};
+  Object.assign(data,ynState);
+  FIELDS_ALTRO.forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
+  var asel=document.getElementById('a-consenso-sel');if(asel)data.altroConsensoKey=asel.value;
+  try{localStorage.setItem('sc_'+schedaIdAltro,JSON.stringify(data));localStorage.setItem('sc_last_altro',schedaIdAltro);}catch(e){console.error('Salvataggio fallito',e);}
+}
+
+function loadEst(id){
+  // Disabilitato: non caricare automaticamente schede salvate
+  schedaIdEst=id;
+}
+
+function loadChir(id){
+  // Disabilitato: non caricare automaticamente schede salvate
+  schedaIdChir=id;
+}
+
+function loadAltro(id){
+  // Disabilitato: non caricare automaticamente schede salvate
+  schedaIdAltro=id;
+}
+
+function restoreYn(data){
+  document.querySelectorAll('.yn-btn').forEach(function(btn){
+    btn.style.background='';btn.style.borderColor='';btn.style.color='';
+    var k=btn.getAttribute('data-key'),v=btn.getAttribute('data-val');
+    if(data[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#fff';ynState[k]=v;}
+  });
+}
+
+// ── TABS ─────────────────────────────────────────────────────────────────────
+function switchTabEst(i){
+  currentTabEst=i;
+  document.querySelectorAll('.tab-est').forEach(function(t,j){t.classList.toggle('active',i===j);});
+  document.querySelectorAll('#app-est .page').forEach(function(p,j){p.style.display=(i===j)?'block':'none';});
+  if(i===3)setTimeout(initAllFirme,50);
+}
+function switchTabChir(i){
+  currentTabChir=i;
+  document.querySelectorAll('.tab-chir').forEach(function(t,j){t.classList.toggle('active',i===j);});
+  document.querySelectorAll('#chir-mammella .page').forEach(function(p,j){p.style.display=(i===j)?'block':'none';});
+}
+function switchTabChirA(i){
+  currentTabChirA=i;
+  document.querySelectorAll('.tab-chir-a').forEach(function(t,j){t.classList.toggle('active',i===j);});
+  document.querySelectorAll('#chir-altro .page').forEach(function(p,j){p.style.display=(i===j)?'block':'none';});
+}
+document.querySelectorAll('#app-est .page').forEach(function(p,j){p.style.display=j===0?'block':'none';});
+document.querySelectorAll('#chir-mammella .page').forEach(function(p,j){p.style.display=j===0?'block':'none';});
+document.querySelectorAll('#chir-altro .page').forEach(function(p,j){p.style.display=j===0?'block':'none';});
+
+// ── SCHEDULA ─────────────────────────────────────────────────────────────────
+function schedula(){
+  // Salvataggio manuale: nessun auto-save
+}
+
+// ── NEW SCHEDA ────────────────────────────────────────────────────────────────
+function clearYn(){document.querySelectorAll('.yn-btn').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});}
+
+function newSchedaEst(){
+  if(!confirm('Nuova scheda? Quella corrente è già salvata.'))return;
+  schedaIdEst='est_'+Date.now();ynState={};currentConsenso=null;
+  FIELDS_EST.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  clearYn();clearFirma('e');
+  document.getElementById('e-consenso-contenuto').style.display='none';
+  document.getElementById('e-consenso-sel').value='';
+  document.getElementById('e-data-scheda').value=oggiISO();
+  switchTabEst(0);
+}
+function newSchedaChir(){
+  if(!confirm('Nuova scheda? Quella corrente è già salvata.'))return;
+  schedaIdChir='chir_'+Date.now();ynState={};currentConsenso=null;
+  FIELDS_CHIR.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  clearYn();
+  document.getElementById('c-consenso-contenuto').style.display='none';
+  document.getElementById('c-consenso-sel').value='';
+  document.getElementById('c-data-scheda').value=oggiISO();
+  switchTabChir(0);
+}
+function newSchedaAltro(){
+  if(!confirm('Nuova scheda? Quella corrente è già salvata.'))return;
+  schedaIdAltro='altro_'+Date.now();ynState={};currentConsenso=null;
+  FIELDS_ALTRO.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
+  clearYn();
+  document.getElementById('a-consenso-contenuto').style.display='none';
+  document.getElementById('a-consenso-sel').value='';
+  document.getElementById('a-data-scheda').value=oggiISO();
+  switchTabChirA(0);
+}
+
+function oggiISO(){
+  var d=new Date();
+  var mm=String(d.getMonth()+1).padStart(2,'0');
+  var dd=String(d.getDate()).padStart(2,'0');
+  return d.getFullYear()+'-'+mm+'-'+dd;
+}
+
+var CONSENSI={
+  btx:{titolo:'Tossina Botulinica',sottotitolo:'Riduzione temporanea delle rughe d\'espressione',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con infiltrazione di Tossina Botulinica a cui desidera sottoporsi.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nLa tossina botulinica interrompe temporaneamente la trasmissione degli impulsi nervosi che determinano la contrazione della muscolatura mimica. I primi effetti si manifestano dopo 3 giorni, il massimo dopo 7-10 giorni. Il risultato dura 3-6 mesi.\n\nCONTROINDICAZIONI\n\nMiastenia gravis, gravidanza, allattamento, terapia con aminoglicosidi, chinolonici o penicillamina.\n\nCOMPLICANZE POSSIBILI\n\nArrossamento transitorio, cefalea, ecchimosi. Raramente: ptosi del sopracciglio o palpebrale (reversibile in 2-4 settimane). In circa 0,2% dei casi il trattamento può non produrre l\'effetto desiderato.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di aver compreso che sono necessarie reintegrazioni periodiche.\n2. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni.\n3. Di dover evitare l\'esposizione solare senza protezione per 7 giorni.\n4. Che il presente consenso è valido anche per i trattamenti successivi, salvo revoca.',punti:[{id:'ct',testo:'Acconsento al trattamento con Tossina Botulinica'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  filler:{titolo:'Filler — Acido Ialuronico',sottotitolo:'Riduzione temporanea di rughe e aumenti selettivi di volume',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con infiltrazione di Acido Ialuronico.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nL\'Acido Ialuronico si riassorbe progressivamente nei mesi (2-9 mesi a seconda del prodotto). Sono necessarie reintegrazioni periodiche.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, infezioni cutanee attive, allergia documentata al prodotto.\n\nCOMPLICANZE POSSIBILI\n\nArrossamento, gonfiore, ecchimosi, noduletti palpabili (circa 1%). Raramente infezioni o granulomi.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di essere consapevole che i due lati del viso non possono essere resi identici.\n2. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni.\n3. Di non essere in stato di gravidanza.\n4. Che il presente consenso è valido anche per i trattamenti successivi, salvo revoca.',punti:[{id:'ct',testo:'Acconsento al trattamento con Acido Ialuronico'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  biostimolazione:{titolo:'Biostimolazione',sottotitolo:'Biorivitalizzazione cutanea',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento di Biostimolazione cutanea.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nInoculazione intradermica di acido ialuronico, aminoacidi precursori del collagene e glicosaminoglicani. Protocollo standard: 4 sedute settimanali, 2 quindicinali, mantenimento mensile.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, isotretinoina, retinoidi.\n\nCOMPLICANZE POSSIBILI\n\nEritema, edema, dolore nel sito (lievi, autolimitanti). Raramente (2%): reazioni allergiche, infezioni. In casi rarissimi (<1/15.000): indurimento permanente.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di non essere in stato di gravidanza.\n2. Di aver comunicato eventuali allergie e trattamenti precedenti.\n3. Di comprendere che i risultati non sono definitivi.',punti:[{id:'ct',testo:'Acconsento al trattamento di Biostimolazione'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  peeling:{titolo:'Peeling / Resurfacing — PRX-T33',sottotitolo:'Biorivitalizzazione cutanea e trattamento cicatrici',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito al trattamento con PRX-T33.\n\nINFORMAZIONI SUL TRATTAMENTO\n\nDispositivo medico per biorivitalizzazione e trattamento cicatrici atrofiche, applicato mediante massaggio controllato.\n\nCONTROINDICAZIONI\n\nGravidanza, allattamento, isotretinoina, retinoidi topici, cute non integra nella zona.\n\nEFFETTI POST-TRATTAMENTO\n\nArrossamento (può persistere qualche giorno), esfoliazione tardiva, macchie scure rotondeggianti nei primi 2 giorni.\n\nCOMPLICANZE POSSIBILI\n\nIrritazione congiuntivale, prurito per allergia all\'acido cogico o lattice, infiammazioni circoscritte tardive.',punti:[{id:'ct',testo:'Acconsento al trattamento con PRX-T33'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  generico:{titolo:'Consenso Generico',sottotitolo:'Dichiarazione di avvenuta informazione e consenso',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta informazioni complete in merito all\'atto sanitario proposto, alle sue indicazioni, ai rischi, alle possibili complicanze e alle alternative terapeutiche disponibili.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Di aver ricevuto informazioni esaurienti e di averle comprese.\n2. Di aver avuto la possibilità di porre domande con risposta esauriente.\n3. Di essere consapevole che la medicina non garantisce risultati certi.\n4. Di poter revocare il presente consenso in qualsiasi momento prima dell\'esecuzione.\n\nIn piena libertà di giudizio accetta l\'atto sanitario proposto.',punti:[{id:'ct',testo:'Acconsento all\'atto sanitario proposto'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+
+  // ── CONSENSI CHIRURGICI (AICPE) ─────────────────────────────────────────────
+  facelift:{titolo:'Face Lifting — Ritidectomia',sottotitolo:'Correzione per sovrabbondanza e lassità della cute del viso',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Face Lifting.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa cute ed i tessuti molli del viso tendono progressivamente a rilassarsi e a perdere di tono, scivolando verso il basso per effetto della gravità e dell\'invecchiamento. Il lifting del viso ha come scopo il miglioramento dell\'aspetto mediante asportazione della cute in eccesso e il riposizionamento dei tessuti molli in posizione più corretta. La tecnica prevede un\'incisione nel capillizio della regione temporale che scorre davanti all\'orecchio e posteriormente al lobo nel solco retro-auricolare. I fumatori devono sospendere il fumo da almeno 7 giorni prima ad almeno 15 giorni dopo l\'intervento per il rischio di necrosi cutanea e cicatrici ipertrofiche.\n\nALTERNATIVE TERAPEUTICHE\n\nFili di sospensione riassorbibili per i casi di minore entità; lipofilling per ripristino dei volumi; filler iniettabili per rughe profonde; ultrasuoni focalizzati per effetto tonificante.\n\nCOMPLICANZE POSSIBILI\n\nEmatoma (più frequente nei pazienti ipertesi); infezione; necrosi cutanea retro-auricolare (più frequente nei fumatori); riduzione della sensibilità cutanea; raramente lesioni ai rami del nervo facciale (temporofrontale o marginale mandibolare), generalmente reversibili; alopecia nelle zone di incisione nel cuoio capelluto.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il risultato non è stabile per sempre: i vantaggi si ridurranno negli anni.\n2. Le piccole rughe superficiali non possono essere corrette dal lifting.\n3. I risultati sono prevedibili solo in modo statistico; non può essere garantita un\'obbligazione di risultato.\n4. Il miglioramento è subito visibile ma apprezzabile in modo pieno dopo circa 6 mesi.\n5. Eventuali interventi secondari o ritocchi sono a carico del paziente.\n6. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima dell\'intervento.\n7. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per almeno 15 giorni dopo.\n8. Di accettare anestesia generale e le prescrizioni post-operatorie.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Face Lifting'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  liftingfrontale:{titolo:'Lifting Frontale e Temporale',sottotitolo:'Correzione del rilassamento della cute della fronte e delle tempie',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Lifting Frontale e Temporale.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nIl Lifting Frontale ha la finalità di sollevare la regione della fronte e delle tempie che con il passare del tempo hanno manifestato un rilassamento con abbassamento delle sopracciglia e comparsa di rughe o solchi glabellari. La tecnica prevede incisioni nel capillizio della regione temporale e della fronte, con riposizionamento delle fasce profonde per correggere le sopracciglia discese.\n\nALTERNATIVE TERAPEUTICHE\n\nLifting diretto del sopracciglio; fili riassorbibili (correzione temporanea); lipofilling; filler subsopraccigliare; tossina botulinica.\n\nCOMPLICANZE POSSIBILI\n\nEmatoma; infezione; riduzione transitoria della sensibilità cutanea; raramente lesione del ramo temporo-frontale del nervo facciale (reversibile, raramente irreversibile); alopecia in corrispondenza delle cicatrici; arretramento dell\'attaccatura dei capelli.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il risultato non è stabile per sempre; i vantaggi si ridurranno negli anni.\n2. Le piccole rughe superficiali non vengono corrette dall\'intervento.\n3. I risultati sono prevedibili solo in modo statistico.\n4. La sensibilità della cute della fronte può rimanere alterata per un periodo variabile.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni.\n6. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per 15 giorni dopo.\n7. Il lavoro e le attività sociali dovranno essere ridotti per almeno 3-4 settimane.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Lifting Frontale e Temporale'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  blefaroplastica:{titolo:'Blefaroplastica',sottotitolo:'Correzione della sovrabbondanza di cute palpebrale e asportazione del grasso in eccesso',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Blefaroplastica.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa blefaroplastica riduce eccessi cutanei palpebrali e borse adipose. L\'intervento alla palpebra superiore utilizza un\'incisione nella piega naturale sopra-palpebrale. L\'intervento alla palpebra inferiore utilizza un\'incisione a pochi millimetri sotto la linea d\'impianto delle ciglia. In casi selezionati senza lassità cutanea, le borse adipose inferiori possono essere rimosse per via trans-congiuntivale.\n\nALTERNATIVE TERAPEUTICHE\n\nPer la palpebra inferiore: via trans-congiuntivale nei pazienti giovani senza lassità cutanea. Per la palpebra superiore: lifting diretto del sopracciglio o lifting frontale; filler o tossina botulinica con effetto transitorio.\n\nCOMPLICANZE POSSIBILI\n\nEcchimosi frequenti; raccolta ematica (rara); ematoma retrobulbare (rarissimo, richiede cure immediate); chemosi congiuntivale transitoria; ectropion per retrazione cicatriziale; cisti di ritenzione sebacea (Milia); riduzione transitoria della sensibilità. Le complicanze previste in letteratura sono circa il 4% dei casi.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Residueranno cicatrici lungo la palpebra che si prolungano alcuni mm oltre l\'angolo esterno.\n2. Il risultato è legato a fattori genetici individuali; borse e lassità possono ripresentarsi nel tempo.\n3. L\'intervento non corregge l\'abbassamento del sopracciglio.\n4. I due lati del corpo umano non sono uguali e non potranno mai essere resi identici.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Nella convalescenza evitare esposizione solare fino al riassorbimento delle ecchimosi.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Blefaroplastica'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  rinoplastica:{titolo:'Rino-Settoplastica',sottotitolo:'Modifica dell\'aspetto esterno e della funzione respiratoria nasale',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Rino-Settoplastica.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa rinoplastica è finalizzata alla modifica della forma e dimensione del naso. Può migliorare le difficoltà respiratorie da setto deviato o ipertrofia dei turbinati. Le correzioni possono essere eseguite per via interna (closed) o con incisione trasversale alla base del naso (open). Al termine viene posizionato il tampone nelle narici e un archetto sul dorso. Nelle 6 settimane successive non si devono poggiare occhiali sul naso.\n\nALTERNATIVE TERAPEUTICHE\n\nRino-Filler per aumentare il volume di zone specifiche (non riduce); autotrapianto di grasso; fili riassorbibili per alzare la punta (effetto temporaneo).\n\nCOMPLICANZE POSSIBILI\n\nGonfiore transitorio (la punta si sgonfia più lentamente); epistassi al momento della rimozione dei tamponi; perforazione del setto nell\'1-1,5% degli interventi di settoplastica; formazione di callo osseo ipertrofico; recidiva della deviazione per "memoria cartilaginea". L\'incidenza di complicanze è del 6-12%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il gonfiore della punta può persistere mesi; il risultato è valutabile non prima di 6 mesi.\n2. Le due metà del naso non potranno mai essere rese identiche.\n3. L\'intervento non risolve apnee notturne o russamento.\n4. Non sono previsti trattamenti di polipi: richiedono intervento separato.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per 15 giorni dopo.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Rino-Settoplastica'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  otoplastica:{titolo:'Otoplastica',sottotitolo:'Correzione delle orecchie prominenti',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Otoplastica.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nL\'otoplastica corregge le malformazioni di forma e posizione dell\'orecchio esterno. Il miglioramento è evidente subito dopo l\'intervento, anche se persiste un gonfiore post-operatorio. Sono possibili e normali modeste asimmetrie tra i due padiglioni. Può essere eseguito sia nel paziente adulto che nel bambino in età prescolare.\n\nALTERNATIVE TERAPEUTICHE\n\nNon esistono alternative all\'intervento chirurgico di otoplastica.\n\nCOMPLICANZE POSSIBILI\n\nSanguinamento infrequente; deiscenza della ferita (correlata a fumo o diabete); recidiva parziale della deformità (infrequente con le moderne tecniche); cicatrice retro-auricolare che può divenire ipertrofica o cheloidea (trattabile con infiltrazioni di steroidi).\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Dopo l\'intervento la parte sarà dolente e si può gonfiare per alcuni giorni.\n2. La sensibilità locale può rimanere alterata per un periodo variabile.\n3. Il risultato è apprezzabile in modo pieno dopo circa 6 mesi.\n4. I due lati del corpo umano non sono uguali e non potranno mai essere resi identici.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Otoplastica'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  mentoplastica:{titolo:'Mentoplastica Additiva',sottotitolo:'Aumento del volume e della proiezione del mento mediante protesi mentoniera',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Mentoplastica Additiva.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nL\'intervento corregge un mento breve arretrato rispetto al profilo ideale, posizionando una protesi in silicone di forma anatomica sull\'osso, fissata al di sotto dei tessuti molli della regione mentoniera. L\'accesso può essere intra-orale o trans-cutaneo submentale.\n\nALTERNATIVE TERAPEUTICHE\n\nFiller riassorbibile (risultato temporaneo, da ripetere almeno annualmente); lipofilling (volume adiposo, non osseo); osteotomia mandibolare (più complessa, consente avanzamento o riduzione del mento).\n\nCOMPLICANZE POSSIBILI\n\nSanguinamento raro; spostamento della protesi per retrazione fibrosa; via intra-orale: rischio infettivo lievemente maggiore e possibili parestesie al labbro inferiore (generalmente transitorie); estrusione della protesi per infezione (rara). In caso di infezione può essere necessario rimuovere la protesi e attendere prima di reimpiantarla.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. La presenza della protesi non preclude alcun accertamento diagnostico.\n2. Le infezioni sono rare ma possono richiedere la rimozione della protesi.\n3. I due lati del corpo umano non sono uguali e non potranno mai essere resi identici.\n4. Il lavoro e le attività sociali dovranno essere ridotti per almeno 2 settimane.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Mentoplastica con protesi'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  mastoadditiva:{titolo:'Mastoplastica Additiva',sottotitolo:'Aumento del volume delle mammelle mediante inserimento di protesi mammarie',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Mastoplastica Additiva.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nL\'aumento del volume mammario si realizza mediante l\'impianto di una protesi in gel di silicone. L\'incisione può essere periareolare, nel solco sottomammario o ascellare. Il piano di posizionamento (sottomuscolare o sottoghiandolare) dipende dallo spessore dei tessuti. Le protesi sono soggette ad usura e nel tempo potranno necessitare di sostituzione.\n\nALTERNATIVE TERAPEUTICHE\n\nLipofilling mammario: volume limitato per seduta, attecchimento variabile (40-60%), possibili cisti oleose o calcificazioni.\n\nCOMPLICANZE POSSIBILI\n\nEmatoma; infezione (richiede eventuale rimozione temporanea della protesi); retrazione capsulare (3-8%): indurimento e deformazione del seno; dislocamento, rotazione (per protesi anatomiche), deformità dinamica; rottura protesica; sieroma periprotesico; BIA-ALCL (raro linfoma associato a protesi testurizzate: 3 casi/100.000 in Italia). La presenza delle protesi non preclude la mammografia ma può renderla più complessa.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Le protesi sono soggette ad usura e nel tempo andranno sostituite.\n2. L\'allattamento non può essere garantito dopo l\'intervento.\n3. I due lati del corpo umano non sono uguali e non potranno mai essere resi identici.\n4. La retrazione capsulare (3-8%) può richiedere revisione chirurgica o sostituzione.\n5. La protesi può essere visibile e palpabile sui bordi, soprattutto laterali e inferiori.\n6. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n7. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Mastoplastica Additiva con protesi'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  mastoriduttiva:{titolo:'Mastoplastica Riduttiva',sottotitolo:'Riduzione di un seno eccessivamente voluminoso e cadente',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Mastoplastica Riduttiva.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa Mastoplastica Riduttiva riduce il volume delle mammelle eccessivamente sviluppate e discese, correggendo eventuali asimmetrie. L\'intervento rimuove parte della ghiandola e del tessuto adiposo, la cute in eccesso, e riposiziona l\'areola-capezzolo. Le incisioni possono essere periareolari, verticali fino al solco sottomammario e, nei casi maggiori, estese nel solco stesso.\n\nALTERNATIVE TERAPEUTICHE\n\nLipoaspirazione: solo in mammelle con abbondante tessuto adiposo ed elevata elasticità cutanea.\n\nCOMPLICANZE POSSIBILI\n\nInfezione; ecchimosi frequenti; deiscenza delle ferite (specialmente nelle grandi riduzioni, in diabetiche, obese, fumatrici); necrosi cutanea (soprattutto dell\'areola-capezzolo nelle mammelle molto grandi e ptosiche); cicatrici ipertrofiche; riduzione transitoria (a volte permanente) della sensibilità del capezzolo; ptosi recidivante. Complicanze previste in letteratura: circa il 5-8%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. L\'intervento non è stabile per sempre: variazioni di peso, gravidanze e alterazioni ormonali alterano progressivamente il risultato.\n2. L\'intervento non corregge le smagliature.\n3. L\'allattamento non può essere garantito dopo l\'intervento.\n4. La pillola anticoncezionale deve essere sospesa un mese prima dell\'intervento.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Mastoplastica Riduttiva'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  mastopessi:{titolo:'Mastopessi',sottotitolo:'Rimodellamento della forma di un seno eccessivamente cadente',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Mastopessi.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa Mastopessi modifica la forma di una mammella troppo pendula, ricollocando areola e capezzolo in posizione più alta attraverso l\'asportazione della cute in eccesso e il rimodellamento della ghiandola. Non è previsto l\'aumento o la riduzione del volume ghiandolare.\n\nALTERNATIVE TERAPEUTICHE\n\nLa Mastopessi è l\'unica tecnica chirurgica per rialzare una mammella ptosica.\n\nCOMPLICANZE POSSIBILI\n\nEmatoma; necrosi cutanea (rara, soprattutto dell\'areola-capezzolo nelle ptosi elevate); deiscenza della sutura; infezione; cicatrizzazione ipertrofica; riduzione della sensibilità del capezzolo (frequente nel post-operatorio, talvolta permanente); ptosi recidivante. Complicanze previste in letteratura: 8-11%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il risultato non è stabile per sempre: variazioni di peso, gravidanze e alterazioni ormonali lo modificano progressivamente.\n2. L\'intervento lascia cicatrici permanenti.\n3. L\'allattamento non può essere garantito.\n4. I due lati del corpo umano non sono uguali e non potranno mai essere resi identici.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Mastopessi'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  lipofillingmammella:{titolo:'Lipofilling della Mammella',sottotitolo:'Aumento del volume mammario mediante innesti di tessuto adiposo autologo',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento di Lipofilling della Mammella.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nIl Lipofilling è un innesto di tessuto adiposo prelevato dal proprio corpo (auto-innesto). Il volume innestato attecchirà solo parzialmente (40-60%), con variazioni individuali. Per incrementi importanti sono necessari interventi successivi a 4-6 mesi di distanza. Il grasso trapiantato seguirà la sua evoluzione naturale con variazioni di peso.\n\nALTERNATIVE TERAPEUTICHE\n\nProtesi mammaria: aumento immediato e più stabile, ma con rischi di retrazione capsulare (3-5%), usura, rottura, dislocamento e deformità dinamica.\n\nCOMPLICANZE POSSIBILI\n\nEcchimosi frequenti; ematomi infrequenti; infezione (rara); fibrosi, cisti oleose o calcificazioni nel tessuto impiantato (possono rendere più difficoltosa la mammografia — informare sempre il radiologo). La presenza di tessuto impiantato non preclude la mammografia ma ne può complicare l\'interpretazione.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. La quantità di tessuto che attecchirà è variabile e non prevedibile.\n2. L\'allattamento non può essere garantito.\n3. La differente posizione delle mammelle sul torace non può essere modificata con il lipofilling.\n4. Evitare esposizione al sole fino al riassorbimento delle ecchimosi.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Lipofilling della Mammella'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  addominoplastica:{titolo:'Addominoplastica',sottotitolo:'Rimozione di eccessi cutanei-sottocutanei della superficie anteriore dell\'addome',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Addominoplastica.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nL\'intervento rimuove l\'eccesso di cute e tessuto adiposo sottocutaneo della parete addominale anteriore mediante incisione orizzontale soprapubica. Può includere plicatura dei muscoli retti in caso di diastasi, riposizionamento dell\'ombelico, eventuale correzione di ernia ombelicale. L\'intervento non rimuove il grasso endoaddominale e non corregge le smagliature.\n\nALTERNATIVE TERAPEUTICHE\n\nMetodiche non chirurgiche per casi di minore entità; liposuzione isolata solo in pazienti senza lassità cutanea.\n\nCOMPLICANZE POSSIBILI\n\nEmatoma (relativamente frequente); deiscenza o necrosi cutanea soprapubica; infezione; sieroma (11%); cicatrici ipertrofiche; necrosi dell\'ombelico; tromboflebite (0,1%). Complicanze previste in letteratura: sieromi 11%, ematomi 6.9%, infezioni 8.2%, necrosi 3%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il risultato è subito visibile ma apprezzabile pienamente non prima di 6 mesi.\n2. L\'intervento non corregge le smagliature né il grasso endoaddominale.\n3. In pazienti di sesso femminile: l\'addominoplastica preclude la Ricostruzione Mammaria con lembi addominali.\n4. La pillola anticoncezionale deve essere sospesa un mese prima dell\'intervento.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per 15 giorni dopo.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Addominoplastica'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  liposuzione:{titolo:'Liposuzione',sottotitolo:'Rimozione degli eccessi localizzati di tessuto adiposo sottocutaneo',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Liposuzione.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa Liposuzione riduce gli eccessi di tessuto adiposo sottocutaneo in determinate sedi anatomiche per migliorare il contorno corporeo. Non è un trattamento dell\'obesità. I soggetti ideali hanno pelle tonica, peso nella norma e accumuli di adipe localizzati. Il risultato è apprezzabile non prima di 6 mesi.\n\nALTERNATIVE TERAPEUTICHE\n\nMetodiche di Medicina Estetica (mesoterapia, criolipolisi, cavitazione, SculpSure) per adiposi localizzati di lieve entità.\n\nCOMPLICANZE POSSIBILI\n\nEcchimosi diffuse (frequenti); emorragie importanti (rare); trombosi venosa profonda (infrequente); irregolarità cutanee. Complicanze previste in letteratura: circa 5-7% dei casi.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Possono residuare modeste asimmetrie o irregolarità, normale esito dell\'intervento.\n2. La sensibilità cutanea può rimanere alterata per un periodo variabile.\n3. Fino al riassorbimento delle ecchimosi evitare esposizione al sole.\n4. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n5. Di aver interrotto il fumo da almeno 7 giorni prima.\n6. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Liposuzione'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  lipofilling:{titolo:'Lipofilling — Autotrapianto di Tessuto Adiposo',sottotitolo:'Asportazione di grasso autologo e suo reimpianto in sede diversa',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento di Lipofilling.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nIl Lipofilling (Lipostruttura) è un innesto di tessuto adiposo prelevato dal proprio corpo. L\'intervento corregge depressioni, irregolarità e solchi. Il tessuto innestato attecchisce parzialmente; una parte viene riassorbita in modo non prevedibile a priori. Se necessario, a 3-6 mesi può essere effettuato un nuovo lipofilling.\n\nALTERNATIVE TERAPEUTICHE\n\nFiller riassorbibili (temporanei, da ripetere periodicamente); protesi alloplastica (risultato stabile, ma con rischi di palpabilità e reazioni capsulari).\n\nCOMPLICANZE POSSIBILI\n\nEcchimosi frequenti (evitare sole fino a riassorbimento); asimmetrie o irregolarità nell\'area di prelievo e di innesto; fibrosi o cisti oleose nel tessuto impiantato. Complicanze previste in letteratura: 5-7% dei casi.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. La percentuale di attecchimento è variabile e non prevedibile a priori.\n2. I vantaggi si alterano nel tempo, specialmente con variazioni di peso e fumo.\n3. Eventuali interventi secondari sono a carico del paziente.\n4. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n5. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Lipofilling'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  liftingcosce:{titolo:'Lifting delle Cosce — Dermo-Lipectomia Inguino-Crurale',sottotitolo:'Correzione della sovrabbondanza e lassità della cute delle cosce',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Lifting delle Cosce.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nIl lifting delle cosce riduce la flaccidità per eccesso di cute e tessuto adiposo della regione supero-interna degli arti inferiori. L\'incisione è nel cavo inguinale per i casi minori; nei casi maggiori si prolunga lungo la superficie mediale fino a metà coscia o al ginocchio.\n\nALTERNATIVE TERAPEUTICHE\n\nMetodiche di medicina estetica (radiofrequenza, SculpSure, Ultherapy) per lassità lievi; liposuzione isolata se l\'eccesso cutaneo è modesto. Per lassità importanti, solo la dermo-lipectomia è indicata.\n\nCOMPLICANZE POSSIBILI\n\nContaminazione, macerazione e deiscenza per la vicinanza alla regione genito-anale; infezione; ematomi; flebiti; linfedema (generalmente transitorio); cicatrice ipertrofica (può scendere verso le grandi labbra). Complicanze previste in letteratura: 5-10%; pazienti ex-grandi obesi fino al 40%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il risultato non è permanente: variazioni di peso e fattori individuali lo modificano.\n2. La sensibilità cutanea può rimanere alterata per un periodo variabile.\n3. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n4. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per 15 giorni dopo.\n5. Il lavoro e le attività sociali dovranno essere ridotti per almeno 3-4 settimane.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Lifting delle Cosce'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  liftingbraccia:{titolo:'Lifting delle Braccia — Brachioplastica',sottotitolo:'Correzione della lassità della cute e del grasso delle braccia',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Lifting delle Braccia.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nIl Lifting delle Braccia (Brachioplastica) corregge l\'eccesso cutaneo e adiposo che conferisce la flaccidità della superficie interna del braccio. La tecnica prevede l\'asportazione della cute e del grasso in eccesso. Nei casi più modesti l\'incisione è limitata al cavo ascellare; nei casi maggiori si prolunga fino al gomito.\n\nALTERNATIVE TERAPEUTICHE\n\nMetodiche di medicina estetica per lassità lievi; liposuzione isolata per eccesso adiposo con modesta lassità cutanea.\n\nCOMPLICANZE POSSIBILI\n\nDeiscenza della ferita (più frequente in fumatori e diabetici); ematomi con possibili ipercromie; stasi linfatica con gonfiore alle mani (generalmente regredisce in settimane); cicatrici ipertrofiche sulla superficie mediale (più frequenti in carnagioni olivastre o brune). Complicanze previste in letteratura: 5-10%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. L\'intervento non è definitivo per sempre: i vantaggi si riducono negli anni.\n2. I fumatori sono a maggior rischio di necrosi cutanea e cicatrici brutte.\n3. La sensibilità cutanea può rimanere alterata per un periodo variabile.\n4. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n5. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per 15 giorni dopo.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Lifting delle Braccia'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  gluteoplastica:{titolo:'Gluteoplastica con Protesi',sottotitolo:'Aumento del volume dei glutei mediante inserimento di protesi glutee',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico di Gluteoplastica con Protesi.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nL\'aumento dei glutei si realizza mediante l\'impianto di una protesi in gel di silicone ad alta coesività. L\'incisione è nel solco intergluteo (una o due incisioni). Il piano di posizionamento (sottofasciale, intramuscolare o sottomuscolare) dipende dalla copertura dei tessuti molli. Le protesi sono soggette ad usura e nel tempo andranno sostituite.\n\nALTERNATIVE TERAPEUTICHE\n\nLipofilling gluteo: volume limitato per seduta (attecchimento 30-50%), necessari più interventi per incrementi importanti.\n\nCOMPLICANZE POSSIBILI\n\nEmatoma; infezione (può richiedere rimozione temporanea della protesi); retrazione capsulare (3-8%); dislocamento o rotazione della protesi; deformità dinamica durante la contrazione del grande gluteo; compressione del nervo sciatico con sciatalgia (rara) o paralisi (rarissima, anche permanente); rottura della protesi; GI-ALCL (linfoma rarissimo associato a protesi glutee). Complicanze previste in letteratura: 5-10%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Le protesi sono soggette ad usura e andranno sostituite nel tempo.\n2. La protesi può essere visibile e palpabile, specialmente sui bordi laterali e inferiori.\n3. Durante la contrazione del grande gluteo può manifestarsi la deformità dinamica.\n4. I due lati del corpo umano non sono uguali e non potranno mai essere resi identici.\n5. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n6. Di non essere in stato di gravidanza.',punti:[{id:'ct',testo:'Acconsento all\'intervento di Gluteoplastica con protesi'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  ginecomastia:{titolo:'Ginecomastia',sottotitolo:'Riduzione delle mammelle maschili eccessivamente sviluppate',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento chirurgico per Ginecomastia.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nLa Ginecomastia consiste nell\'aumento di volume delle mammelle nell\'uomo, da eccesso adiposo (falsa), ghiandolare (vera) o mista. Nelle forme moderate si esegue liposuzione con eventuale piccola incisione periareolare per rimuovere la ghiandola in eccesso. Nelle forme rilevanti con modesta elasticità cutanea si può ridurre il tessuto senza asportarlo completamente per evitare cute in eccesso.\n\nALTERNATIVE TERAPEUTICHE\n\nDieta per le forme adipose non avanzate; sospensione del farmaco responsabile nelle forme iatrogene; laser lipolitico per forme di limitata entità.\n\nCOMPLICANZE POSSIBILI\n\nEmorragia (possibile, raramente richiede reintervento); liponecrosi con irregolarità cutanee o infossamento dell\'areola (correggibili con lipofilling a distanza); riduzione della sensibilità dell\'areola e capezzolo. Complicanze previste in letteratura: circa 3-5% dei casi.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. Il risultato non è stabile per sempre: ingrassamenti, dimagramenti e alterazioni ormonali possono modificarlo.\n2. L\'intervento lascia piccole cicatrici periareolari permanenti ma di modeste dimensioni.\n3. Non corregge le smagliature.\n4. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.\n5. Di aver interrotto il fumo da almeno 7 giorni prima e di non fumare per 15 giorni dopo.',punti:[{id:'ct',testo:'Acconsento all\'intervento per Ginecomastia'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]},
+  chirurgiacutanea:{titolo:'Chirurgia Cutanea – Sottocutanea',sottotitolo:'Asportazione chirurgica di neoformazione cutanea o sottocutanea',testo:'Il/La sottoscritto/a dichiara di aver ricevuto dal Dr. Simone Caccetta tutte le informazioni necessarie per prendere una decisione consapevole in merito all\'intervento di Chirurgia Cutanea-Sottocutanea.\n\nDESCRIZIONE DELL\'INTERVENTO\n\nL\'asportazione di una neoformazione cutanea-sottocutanea prevede un trattamento chirurgico personalizzato in base alle caratteristiche biologiche della lesione. Si asporta la lesione con una losanga di cute che comprenda un bordo sano attorno. Sulla base dell\'esame istologico può rendersi necessario un ulteriore trattamento. La distruzione con Laser non consente l\'esame istologico ed è indicata solo per piccole lesioni benigne superficiali.\n\nALTERNATIVE TERAPEUTICHE\n\nCrioterapia ed elettrocoagulazione per piccole lesioni superficiali benigne; radioterapia per lesioni neoplastiche maligne (alternativa o complementare).\n\nCOMPLICANZE POSSIBILI\n\nSanguinamento o emorragia; infezione; cicatrici permanenti e visibili; alterazione della sensibilità e mobilità locale; possibile "Dog-Ear" agli apici; la lesione asportata può recidivare. Complicanze previste in letteratura: 5-8%.\n\nDICHIARAZIONI DEL PAZIENTE\n\n1. All\'intervento residuano sempre cicatrici permanenti e visibili.\n2. Saranno necessarie visite periodiche di controllo post-operatorie.\n3. L\'esposizione al sole e ai raggi UV deve essere evitata per mesi fino a stabilizzazione delle cicatrici.\n4. Di non aver assunto antiaggreganti o FANS da almeno 10 giorni prima.',punti:[{id:'ct',testo:'Acconsento all\'intervento di chirurgia cutanea proposto'},{id:'cf',testo:'Acconsento all\'archiviazione di fotografie cliniche'},{id:'cs',testo:'Acconsento all\'utilizzo delle fotografie per scopi scientifici (facoltativo)'}]}
 };
 
-var consState={};
-var currentConsenso=null;
-
-function caricaConsenso(key){
-  if(!key){document.getElementById('consenso-contenuto').style.display='none';return;}
-  var c=CONSENSI[key];
-  currentConsenso=key;
-  document.getElementById('cons-titolo').textContent=c.titolo;
-  document.getElementById('cons-sottotitolo').textContent=c.sottotitolo;
-  document.getElementById('cons-testo').textContent=c.testo;
-  var puntiDiv=document.getElementById('cons-punti');
-  puntiDiv.innerHTML='';
+function _caricaConsensoGen(key,prefixId,contenutoId,selId,ynPrefix){
+  var sel=document.getElementById(selId);if(sel)sel.value=key;
+  if(!key){document.getElementById(contenutoId).style.display='none';return;}
+  var c=CONSENSI[key];currentConsenso=key;
+  document.getElementById(prefixId+'-titolo').textContent=c.titolo;
+  document.getElementById(prefixId+'-sub').textContent=c.sottotitolo;
+  document.getElementById(prefixId+'-testo').textContent=c.testo;
+  var puntiDiv=document.getElementById(prefixId+'-punti');puntiDiv.innerHTML='';
   c.punti.forEach(function(p){
-    var row=document.createElement('div');
-    row.className='consenso-punto';
-    row.innerHTML='<span class="consenso-punto-lbl">'+p.testo+'</span><div class="yn"><button class="yn-btn" data-key="c_'+p.id+'" data-val="si">Sì</button><button class="yn-btn" data-key="c_'+p.id+'" data-val="no">No</button></div>';
+    var row=document.createElement('div');row.className='consenso-punto';
+    row.innerHTML='<span class="consenso-punto-lbl">'+p.testo+'</span><div class="yn"><button class="yn-btn" data-key="'+ynPrefix+'_'+p.id+'" data-val="si">Sì</button><button class="yn-btn" data-key="'+ynPrefix+'_'+p.id+'" data-val="no">No</button></div>';
     puntiDiv.appendChild(row);
   });
-  // restore state
   puntiDiv.querySelectorAll('.yn-btn').forEach(function(btn){
     btn.addEventListener('click',function(){selectBtn(this);});
     btn.addEventListener('touchend',function(e){e.preventDefault();selectBtn(this);});
     var k=btn.getAttribute('data-key'),v=btn.getAttribute('data-val');
     if(ynState[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#fff';}
   });
-  document.getElementById('consenso-contenuto').style.display='block';
+  document.getElementById(contenutoId).style.display='block';
   schedula();
 }
 
-// ── CORE ────────────────────────────────────────────────────────────────────
-var FIELDS=['cognome','nome','dob','lob','sesso','tel','email','area','diagnosi','a1n','a2n','a3n','a4n','a5n','a6n','a7n','a8n','a9n','a10n','a11n','a12n','a13n','a14n','apn','farmn','anam-est','tratt','prod','zona','dose','sedute','note-clin','data-tratt','followup','data-firma-paz','data-firma-med'];
-var ynState={};
-var schedaId='scheda_'+Date.now(),saveTimer=null,canvases={},currentTab=0;
+function caricaConsenso(key){_caricaConsensoGen(key,'e-cons','e-consenso-contenuto','e-consenso-sel','ec');}
+function caricaConsensoChir(key){_caricaConsensoGen(key,'c-cons','c-consenso-contenuto','c-consenso-sel','cc');}
+function caricaConsensoAltro(key){_caricaConsensoGen(key,'a-cons','a-consenso-contenuto','a-consenso-sel','ac');}
 
-function initCanvas(id){
-  var c=document.getElementById(id);if(!c)return;
-  var ctx=c.getContext('2d'),drawing=false,lx=0,ly=0;
-  function pos(e){var r=c.getBoundingClientRect(),sx=c.width/r.width,sy=c.height/r.height;if(e.touches)return{x:(e.touches[0].clientX-r.left)*sx,y:(e.touches[0].clientY-r.top)*sy};return{x:(e.clientX-r.left)*sx,y:(e.clientY-r.top)*sy};}
-  c.addEventListener('mousedown',function(e){drawing=true;var p=pos(e);lx=p.x;ly=p.y;});
-  c.addEventListener('touchstart',function(e){e.preventDefault();drawing=true;var p=pos(e);lx=p.x;ly=p.y;},{passive:false});
-  function draw(e){if(!drawing)return;var p=pos(e);ctx.beginPath();ctx.moveTo(lx,ly);ctx.lineTo(p.x,p.y);ctx.strokeStyle='#1C1C1E';ctx.lineWidth=2.5;ctx.lineCap='round';ctx.lineJoin='round';ctx.stroke();lx=p.x;ly=p.y;}
-  c.addEventListener('mousemove',draw);
-  c.addEventListener('touchmove',function(e){e.preventDefault();draw(e);},{passive:false});
-  c.addEventListener('mouseup',function(){drawing=false;schedula();});
-  c.addEventListener('touchend',function(){drawing=false;schedula();});
-  canvases[id]={c:c,ctx:ctx};
+// ── FIRME (solo Medicina Estetica) ──────────────────────────────────────────
+var firmaCtx={};
+var firmaDrawing={};
+var firmaHasContent={};
+
+function initFirma(canvasId){
+  var canvas=document.getElementById(canvasId);
+  if(!canvas||firmaCtx[canvasId])return;
+  var ratio=window.devicePixelRatio||1;
+  var rect=canvas.getBoundingClientRect();
+  canvas.width=rect.width*ratio;
+  canvas.height=rect.height*ratio;
+  var ctx=canvas.getContext('2d');
+  ctx.scale(ratio,ratio);
+  ctx.strokeStyle='#1C1C1E';
+  ctx.lineWidth=2;
+  ctx.lineCap='round';
+  ctx.lineJoin='round';
+  firmaCtx[canvasId]=ctx;
+  firmaDrawing[canvasId]=false;
+
+  function pos(e){
+    var r=canvas.getBoundingClientRect();
+    var cx=(e.touches?e.touches[0].clientX:e.clientX)-r.left;
+    var cy=(e.touches?e.touches[0].clientY:e.clientY)-r.top;
+    return {x:cx,y:cy};
+  }
+  function start(e){
+    e.preventDefault();
+    firmaDrawing[canvasId]=true;
+    var p=pos(e);
+    ctx.beginPath();
+    ctx.moveTo(p.x,p.y);
+    var ph=document.getElementById(canvasId+'-ph');if(ph)ph.style.display='none';
+  }
+  function move(e){
+    if(!firmaDrawing[canvasId])return;
+    e.preventDefault();
+    var p=pos(e);
+    ctx.lineTo(p.x,p.y);
+    ctx.stroke();
+    firmaHasContent[canvasId]=true;
+  }
+  function end(e){
+    if(!firmaDrawing[canvasId])return;
+    firmaDrawing[canvasId]=false;
+    salvaFirmaCanvas(canvasId);
+  }
+  canvas.addEventListener('mousedown',start);
+  canvas.addEventListener('mousemove',move);
+  window.addEventListener('mouseup',end);
+  canvas.addEventListener('touchstart',start,{passive:false});
+  canvas.addEventListener('touchmove',move,{passive:false});
+  canvas.addEventListener('touchend',end);
 }
-function clearCanvas(id){var o=canvases[id];if(o)o.ctx.clearRect(0,0,o.c.width,o.c.height);schedula();}
 
-document.querySelectorAll('.yn-btn').forEach(function(btn){
-  btn.addEventListener('click',function(){selectBtn(this);});
-  btn.addEventListener('touchend',function(e){e.preventDefault();selectBtn(this);});
-});
-function selectBtn(btn){
-  var key=btn.getAttribute('data-key'),val=btn.getAttribute('data-val');
-  document.querySelectorAll('.yn-btn[data-key="'+key+'"]').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});
-  btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#ffffff';
-  ynState[key]=val;schedula();
+function clearSingleFirma(canvasId){
+  var canvas=document.getElementById(canvasId);
+  if(!canvas)return;
+  initFirma(canvasId);
+  var ctx=firmaCtx[canvasId];
+  if(ctx)ctx.clearRect(0,0,canvas.width,canvas.height);
+  firmaHasContent[canvasId]=false;
+  var ph=document.getElementById(canvasId+'-ph');if(ph)ph.style.display='block';
+  try{localStorage.removeItem('firma_'+canvasId+'_'+schedaIdEst);}catch(e){}
 }
 
-function save(){
-  var data={id:schedaId,ts:new Date().toISOString(),consensoKey:currentConsenso||''};
-  Object.assign(data,ynState);
-  FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)data[id]=el.value;});
-  var sel=document.getElementById('consenso-select');if(sel)data.consensoKey=sel.value;
-  try{data['sig-paz']=canvases['sig-paz']?canvases['sig-paz'].c.toDataURL():'';}catch(e){}
-  try{data['sig-med']=canvases['sig-med']?canvases['sig-med'].c.toDataURL():'';}catch(e){}
+function salvaFirmaCanvas(canvasId){
+  var canvas=document.getElementById(canvasId);
+  if(!canvas||!firmaHasContent[canvasId])return;
   try{
-    localStorage.setItem('sc_'+schedaId,JSON.stringify(data));
-    localStorage.setItem('sc_last',schedaId);
-    var d=new Date();
-    document.getElementById('last-saved').textContent='Salvato alle '+d.getHours()+':'+String(d.getMinutes()).padStart(2,'0');
-    document.getElementById('dot').style.background='#30D158';
-  }catch(e){document.getElementById('dot').style.background='#FF3B30';}
-}
-function schedula(){clearTimeout(saveTimer);saveTimer=setTimeout(save,800);}
-
-function load(id){
-  schedaId=id||schedaId;
-  try{
-    var raw=localStorage.getItem('sc_'+schedaId);if(!raw)return;
-    var data=JSON.parse(raw);ynState={};
-    FIELDS.forEach(function(fid){var el=document.getElementById(fid);if(el&&data[fid]!=null)el.value=data[fid];});
-    document.querySelectorAll('.yn-btn').forEach(function(btn){
-      btn.style.background='';btn.style.borderColor='';btn.style.color='';
-      var k=btn.getAttribute('data-key'),v=btn.getAttribute('data-val');
-      if(data[k]===v){btn.style.background='#C0392B';btn.style.borderColor='#96281B';btn.style.color='#fff';ynState[k]=v;}
-    });
-    if(data.consensoKey){var sel=document.getElementById('consenso-select');if(sel){sel.value=data.consensoKey;caricaConsenso(data.consensoKey);}}
-    ['sig-paz','sig-med'].forEach(function(sid){
-      if(data[sid]&&data[sid].length>100){
-        var img=new Image();
-        img.onload=function(){if(canvases[sid])canvases[sid].ctx.drawImage(img,0,0);};
-        img.src=data[sid];
-      }
-    });
+    var dataUrl=canvas.toDataURL('image/png');
+    localStorage.setItem('firma_'+canvasId+'_'+schedaIdEst,dataUrl);
   }catch(e){}
 }
 
+function caricaFirmaCanvas(canvasId){
+  try{
+    var dataUrl=localStorage.getItem('firma_'+canvasId+'_'+schedaIdEst);
+    if(!dataUrl)return;
+    var canvas=document.getElementById(canvasId);
+    if(!canvas)return;
+    initFirma(canvasId);
+    var ctx=firmaCtx[canvasId];
+    var img=new Image();
+    img.onload=function(){
+      var rect=canvas.getBoundingClientRect();
+      ctx.drawImage(img,0,0,rect.width,rect.height);
+      firmaHasContent[canvasId]=true;
+      var ph=document.getElementById(canvasId+'-ph');if(ph)ph.style.display='none';
+    };
+    img.src=dataUrl;
+  }catch(e){}
+}
+
+function initAllFirme(){
+  initFirma('e-firma-paziente');
+  initFirma('e-firma-chirurgo');
+  caricaFirmaCanvas('e-firma-paziente');
+  caricaFirmaCanvas('e-firma-chirurgo');
+}
+
+function clearFirma(prefix){
+  if(prefix==='e'){
+    clearSingleFirma('e-firma-paziente');
+    clearSingleFirma('e-firma-chirurgo');
+  }
+}
+
+// ── BAP ───────────────────────────────────────────────────────────────────────
+function bapVolume(bw){
+  if(!bw||isNaN(bw))return null;
+  if(bw<11)return{min:150,max:250};
+  if(bw<12)return{min:200,max:325};
+  if(bw<13)return{min:275,max:400};
+  if(bw<14)return{min:350,max:500};
+  return{min:450,max:650};
+}
+function bapProfilo(pm,pl){
+  if(!pm||isNaN(pm))return null;
+  if(pm>=2&&(!pl||isNaN(pl)||pl>=2))return'Basso/Moderato — sottoghiandolare possibile';
+  if(pm>=2&&pl<2)return'Moderato — valutare dual plane';
+  if(pm<2&&(!pl||isNaN(pl)||pl>=2))return'Alto — dual plane consigliato';
+  return'Extra-alto — sottomuscolare/dual plane III';
+}
+function bapSolco(nimf){
+  if(!nimf||isNaN(nimf))return null;
+  if(nimf<4)return'Basso — considerare abbassamento IMF';
+  if(nimf<=6)return'Nella norma';
+  return'Alto — attenzione bottoming out';
+}
+function calcBAP(){
+  var bwDx=parseFloat(document.getElementById('bap-bw-dx').value);
+  var bwSx=parseFloat(document.getElementById('bap-bw-sx').value);
+  var nimfDx=parseFloat(document.getElementById('bap-nimf-dx').value);
+  var nimfSx=parseFloat(document.getElementById('bap-nimf-sx').value);
+  var pmDx=parseFloat(document.getElementById('bap-pm-dx').value);
+  var pmSx=parseFloat(document.getElementById('bap-pm-sx').value);
+  var plDx=parseFloat(document.getElementById('bap-pl-dx').value);
+  var plSx=parseFloat(document.getElementById('bap-pl-sx').value);
+  var hasDx=!isNaN(bwDx)||!isNaN(nimfDx)||!isNaN(pmDx);
+  var hasSx=!isNaN(bwSx)||!isNaN(nimfSx)||!isNaN(pmSx);
+  if(!hasDx&&!hasSx){document.getElementById('bap-result').style.display='none';return;}
+  function renderSide(bw,nimf,pm,pl){
+    var lines=[];
+    var vol=bapVolume(bw);if(vol)lines.push('Volume: '+vol.min+'–'+vol.max+' cc');
+    if(bw)lines.push('BW: '+bw+' cm');
+    var prof=bapProfilo(pm,pl);if(prof)lines.push(prof);
+    var solco=bapSolco(nimf);if(solco)lines.push('Solco: '+solco);
+    if(nimf)lines.push('N-IMF: '+nimf+' cm');
+    return lines.join('<br>')||'—';
+  }
+  document.getElementById('bap-out-dx').innerHTML=renderSide(bwDx,nimfDx,pmDx,plDx);
+  document.getElementById('bap-out-sx').innerHTML=renderSide(bwSx,nimfSx,pmSx,plSx);
+  var notes=[];
+  if(!isNaN(bwDx)&&!isNaN(bwSx)&&Math.abs(bwDx-bwSx)>0.5)notes.push('⚠️ Asimmetria BW '+Math.abs(bwDx-bwSx).toFixed(1)+' cm — considerare volumi differenti');
+  if(!isNaN(pmDx)&&pmDx<1.5)notes.push('⚠️ DX: pinch mediale sottile — rischio rippling');
+  if(!isNaN(pmSx)&&pmSx<1.5)notes.push('⚠️ SX: pinch mediale sottile — rischio rippling');
+  document.getElementById('bap-note').innerHTML=notes.join('<br>');
+  document.getElementById('bap-result').style.display='block';
+  schedula();
+}
+
+function calcolaTagliaReggiseno(){
+  var circ = parseFloat(document.getElementById('bap-circ-imf').value);
+  var el = document.getElementById('op-reggiseno');
+  if(!el) return;
+  if(isNaN(circ)){el.value='';return;}
+  // Calcolo taglia EU: circonferenza torace → taglia fascia
+  // Standard EU: se circ è pari → taglia = circ; se dispari → taglia = circ+1
+  // Poi si arrotonda alle taglie standard (60,65,70,75,80,85,90,95,100,105,110)
+  var sizes = [60,65,70,75,80,85,90,95,100,105,110];
+  // La circonferenza IMF in cm corrisponde approssimativamente alla taglia fascia EU
+  // (torace sotto seno ≈ taglia fascia reggiseno)
+  var band = null;
+  for(var i=0;i<sizes.length;i++){
+    if(circ <= sizes[i]+2){band=sizes[i];break;}
+  }
+  if(!band) band = sizes[sizes.length-1];
+  el.value = band + ' (EU)';
+}
+function calcolaGambaletto(){calcolaTagliaReggiseno();}
+function calcBMI(prefix){
+  var h=parseFloat(document.getElementById(prefix+'-altezza').value);
+  var w=parseFloat(document.getElementById(prefix+'-peso').value);
+  var el=document.getElementById(prefix+'-bmi');
+  if(!el)return;
+  if(isNaN(h)||isNaN(w)||h<=0){el.value='';return;}
+  var bmi=w/((h/100)*(h/100));
+  var cat='';
+  if(bmi<18.5)cat=' (Sottopeso)';
+  else if(bmi<25)cat=' (Normopeso)';
+  else if(bmi<30)cat=' (Sovrappeso)';
+  else cat=' (Obesità)';
+  el.value=bmi.toFixed(1)+cat;
+}
+
+
+// ── PDF ───────────────────────────────────────────────────────────────────────
+function get(id){var el=document.getElementById(id);return el?el.value:'';}
 function showToast(msg){var t=document.getElementById('toast');t.textContent=msg;t.style.display='block';setTimeout(function(){t.style.display='none';},2800);}
 
-function salvaPDF(){
-  if(typeof window.jspdf==='undefined'&&typeof jsPDF==='undefined'){showToast('Libreria PDF non disponibile.\nVerifica la connessione internet.');return;}
-  var jsPDFClass=window.jspdf?window.jspdf.jsPDF:jsPDF;
-  var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
-  var W=210,ml=14,mr=14,cw=W-ml-mr,y=0;
-  var RED=[192,57,43],BG=[247,247,249],DG=[100,100,100],BK=[28,28,30];
+function makePDFBase(doc,titolo,colore){
+  var W=210,ml=14,cw=196;
+  var C=colore||[192,57,43];
+  doc.setFillColor(C[0],C[1],C[2]);doc.rect(0,0,W,18,'F');
+  doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);
+  doc.text('Dr. Simone Caccetta',ml,9);
+  doc.setFontSize(7.5);doc.setFont('helvetica','normal');
+  doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica',ml,14);
+  doc.text(new Date().toLocaleDateString('it-IT'),210-ml,9,{align:'right'});
+  doc.setFontSize(9);doc.setFont('helvetica','bold');doc.setTextColor(255,255,255);
+  doc.text(titolo,210-ml,14,{align:'right'});
+  return 23;
+}
 
-  function chk(n){if(y+n>272){doc.addPage();y=0;pageHdr();}}
-  function pageHdr(){
-    doc.setFillColor(RED[0],RED[1],RED[2]);doc.rect(0,0,W,18,'F');
-    doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);
-    doc.text('Dr. Simone Caccetta',ml,9);
-    doc.setFontSize(7.5);doc.setFont('helvetica','normal');
-    doc.text('Chirurgia Plastica, Ricostruttiva ed Estetica  |  Medicina Estetica',ml,14);
-    doc.setFontSize(7.5);doc.text(new Date().toLocaleDateString('it-IT'),W-mr,9,{align:'right'});
-    y=23;
-  }
-  function secHdr(t){
-    chk(11);
-    doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');
-    doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);
-    doc.text(t.toUpperCase(),ml+4,y+5.5);y+=11;
-  }
-  function fRow(lbl,val){
-    chk(9);
-    doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');
-    doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(8);
-    doc.text(lbl,ml+3,y+5);
-    if(val){doc.setFont('helvetica','normal');doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(String(val),W-mr-3,y+5,{align:'right',maxWidth:cw*0.55});}
-    y+=9;
-  }
-  function ynRow(lbl,val,note){
-    var rh=note&&note.trim()?10:8.5;chk(rh+2);
-    doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,rh,1.5,1.5,'F');
-    doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
-    doc.text(lbl,ml+3,y+rh/2+2.5,{maxWidth:cw-22});
-    doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(W-mr-14,y+1.5,12,5,1.5,1.5,'F');
-    doc.setTextColor(255,255,255);doc.setFontSize(7.5);
-    doc.text(val==='si'?'Sì':'No',W-mr-8,y+5.2,{align:'center'});
-    y+=rh+1;
-    if(note&&note.trim()){
-      doc.setTextColor(DG[0],DG[1],DG[2]);doc.setFont('helvetica','italic');doc.setFontSize(7);
-      var lines=doc.splitTextToSize(note,cw-6);chk(lines.length*3.5+2);
-      doc.text(lines,ml+4,y);y+=lines.length*3.5+3;
-    }
-  }
-  function txtBox(lbl,val){
-    if(!val||!val.trim())return;
-    chk(14);doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);
-    doc.text(lbl.toUpperCase(),ml,y+4);y+=6;
-    doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BK[0],BK[1],BK[2]);
-    var lines=doc.splitTextToSize(val,cw-4),bh=lines.length*4+4;
-    chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,1.5,1.5,'F');
-    doc.text(lines,ml+3,y+4);y+=bh+4;
-  }
-  function get(id){var el=document.getElementById(id);return el?el.value:'';}
-
-  pageHdr();
-
-  // SCHEDA ANAMNESTICA
-  doc.setFillColor(BK[0],BK[1],BK[2]);doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
-  doc.roundedRect(ml,y,cw,10,2,2,'F');doc.text('SCHEDA ANAMNESTICA',W/2,y+7,{align:'center'});y+=14;
-
-  secHdr('Dati Anagrafici');
-  fRow('Cognome',get('cognome'));fRow('Nome',get('nome'));fRow('Data di nascita',get('dob'));
-  fRow('Luogo di nascita',get('lob'));fRow('Sesso',get('sesso'));fRow('Telefono',get('tel'));fRow('E-mail',get('email'));y+=3;
-
-  secHdr('Motivo della Visita');
-  fRow('Area di interesse',get('area'));txtBox('Inestetismo / Diagnosi',get('diagnosi'));y+=2;
-
-  secHdr('Controindicazioni e Fattori di Rischio');
-  var akeys=['a1','a2','a3','a4','a5','a6','a7','a8','a9','a10','a11','a12','a13','a14'];
-  var albls=['Allergie a farmaci o prodotti cosmetici','Malattie autoimmuni','Disturbi coagulazione / anticoagulanti','Herpes labiale ricorrente attivo','Acne attiva nella zona da trattare','Impetigine o infezione cutanea attiva','Patologia infiammatoria cronica (psoriasi, dermatite, rosacea)','Pregressi interventi nella zona','Pregresse reazioni avverse a prodotti estetici','Gravidanza in corso o sospetta','Allattamento al seno','Isotretinoina negli ultimi 6 mesi','Fotosensibilizzanti in uso','Fumo'];
-  akeys.forEach(function(k,i){if(ynState[k])ynRow(albls[i],ynState[k],get(k+'n'));});y+=2;
-
-  secHdr('Altre Patologie e Farmaci');
-  if(ynState['ap'])ynRow('Altre patologie rilevanti',ynState['ap'],get('apn'));
-  if(ynState['farm'])ynRow('Farmaci in uso',ynState['farm'],get('farmn'));
-  txtBox('Anamnesi estetica',get('anam-est'));y+=2;
-
-  secHdr('Piano di Trattamento');
-  txtBox('Trattamento concordato',get('tratt'));
-  fRow('Prodotto / Dispositivo',get('prod'));fRow('Zona target',get('zona'));
-  fRow('Quantità / Dose',get('dose'));fRow('N° sedute',get('sedute'));
-  txtBox('Note cliniche',get('note-clin'));
-  fRow('Data trattamento',get('data-tratt'));fRow('Prossimo controllo',get('followup'));y+=4;
-
-  // CONSENSO INFORMATO
-  if(currentConsenso&&CONSENSI[currentConsenso]){
-    doc.addPage();y=0;pageHdr();
-    var cons=CONSENSI[currentConsenso];
-    doc.setFillColor(BK[0],BK[1],BK[2]);doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);
-    doc.roundedRect(ml,y,cw,10,2,2,'F');doc.text('CONSENSO INFORMATO',W/2,y+7,{align:'center'});y+=14;
-    doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFont('helvetica','bold');doc.setFontSize(12);
-    doc.text(cons.titolo,W/2,y,{align:'center'});y+=6;
-    doc.setTextColor(DG[0],DG[1],DG[2]);doc.setFont('helvetica','normal');doc.setFontSize(9);
-    doc.text(cons.sottotitolo,W/2,y,{align:'center'});y+=10;
-    doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','normal');doc.setFontSize(8);
-    var tlines=doc.splitTextToSize(cons.testo,cw);
-    var bh=tlines.length*4+6;chk(bh);
-    doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,2,2,'F');
-    doc.text(tlines,ml+4,y+5);y+=bh+8;
-    secHdr('Dichiarazioni del Paziente');
-    cons.punti.forEach(function(p){
-      var val=ynState['c_'+p.id];
-      if(val)ynRow(p.testo,val,'');
-      else{
-        chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');
-        doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
-        doc.text(p.testo,ml+3,y+5,{maxWidth:cw-22});
-        doc.setDrawColor(200,200,200);doc.roundedRect(W-mr-14,y+1.5,12,5,1.5,1.5,'S');
-        doc.setTextColor(DG[0],DG[1],DG[2]);doc.text('—',W-mr-8,y+5.2,{align:'center'});y+=9;
-      }
-    });
-    y+=6;
-  }
-
-  // FIRME
-  chk(58);
-  doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,8,2,2,'F');
+function addSection(doc,y,title,colore){
+  var C=colore||[192,57,43];
+  if(y+11>272){doc.addPage();y=8;}
+  doc.setFillColor(C[0],C[1],C[2]);doc.roundedRect(14,y,182,8,1.5,1.5,'F');
   doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);
-  doc.text('FIRME',W/2,y+5.5,{align:'center'});y+=12;
-  var fw=(cw-6)/2;
-  doc.setDrawColor(200,200,200);doc.setLineWidth(0.3);
-  doc.roundedRect(ml,y,fw,44,2,2,'S');doc.roundedRect(ml+fw+6,y,fw,44,2,2,'S');
-  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);
-  doc.text('PAZIENTE',ml+3,y+5);doc.text('DR. SIMONE CACCETTA',ml+fw+9,y+5);
-  doc.setFont('helvetica','normal');doc.setFontSize(7.5);doc.setTextColor(BK[0],BK[1],BK[2]);
-  doc.text('Data: '+(get('data-firma-paz')||'_______________'),ml+3,y+11);
-  doc.text('Data: '+(get('data-firma-med')||'_______________'),ml+fw+9,y+11);
-  try{if(canvases['sig-paz'])doc.addImage(canvases['sig-paz'].c.toDataURL('image/png'),'PNG',ml+2,y+14,fw-4,24);}catch(e){}
-  try{if(canvases['sig-med'])doc.addImage(canvases['sig-med'].c.toDataURL('image/png'),'PNG',ml+fw+8,y+14,fw-4,24);}catch(e){}
-  y+=48;
-
-  // footer
+  doc.text(title.toUpperCase(),18,y+5.5);return y+11;
+}
+function addField(doc,y,label,value){
+  if(y+9>272){doc.addPage();y=8;}
+  doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,7.5,1.5,1.5,'F');
+  doc.setTextColor(28,28,30);doc.setFont('helvetica','bold');doc.setFontSize(8);
+  doc.text(label,17,y+5);
+  if(value){doc.setFont('helvetica','normal');doc.setTextColor(100,100,100);doc.text(String(value),196-3,y+5,{align:'right',maxWidth:100});}
+  return y+9;
+}
+function addText(doc,y,label,value){
+  if(!value||!value.trim())return y;
+  if(y+14>272){doc.addPage();y=8;}
+  doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(100,100,100);
+  doc.text(label.toUpperCase(),14,y+4);y+=6;
+  doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(28,28,30);
+  var lines=doc.splitTextToSize(value,178),bh=lines.length*4+4;
+  if(y+bh>272){doc.addPage();y=8;}
+  doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,bh,1.5,1.5,'F');
+  doc.text(lines,17,y+4);return y+bh+4;
+}
+function addYN(doc,y,label,val){
+  if(!val)return y;
+  if(y+8.5>272){doc.addPage();y=8;}
+  doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,7.5,1.5,1.5,'F');
+  doc.setTextColor(28,28,30);doc.setFont('helvetica','bold');doc.setFontSize(7.5);
+  doc.text(label,17,y+5,{maxWidth:155});
+  doc.setFillColor(192,57,43);doc.roundedRect(183,y+1.5,12,5,1.5,1.5,'F');
+  doc.setTextColor(255,255,255);doc.setFontSize(7.5);doc.text(val==='si'?'Sì':'No',189,y+5.2,{align:'center'});
+  return y+9;
+}
+function addFooter(doc){
   var np=doc.internal.getNumberOfPages();
-  for(var i=1;i<=np;i++){
-    doc.setPage(i);doc.setDrawColor(200,200,200);doc.setLineWidth(0.3);doc.line(ml,284,W-mr,284);
-    doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);
-    doc.text('Dr. Simone Caccetta  —  Documento medico riservato  —  GDPR Reg. UE 2016/679',ml,288);
-    doc.text('Pag. '+i+'/'+np,W-mr,288,{align:'right'});
-  }
-
-  var cognome=(get('cognome')||'Paziente').replace(/\s+/g,'_');
-  var dataT=get('data-tratt')||new Date().toISOString().split('T')[0];
-  var consKey=currentConsenso?'_'+currentConsenso:'';
-  doc.save('Scheda_'+cognome+'_'+dataT+consKey+'.pdf');
-  showToast('PDF salvato!');
+  for(var i=1;i<=np;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);doc.line(14,284,196,284);doc.text('Dr. Simone Caccetta — Documento medico riservato — GDPR Reg. UE 2016/679',14,288);doc.text('Pag. '+i+'/'+np,196,288,{align:'right'});}
 }
 
-function newScheda(){
-  if(!confirm('Creare una nuova scheda? Quella corrente è già salvata.'))return;
-  schedaId='scheda_'+Date.now();ynState={};currentConsenso=null;
-  FIELDS.forEach(function(id){var el=document.getElementById(id);if(el)el.value='';});
-  document.querySelectorAll('.yn-btn').forEach(function(b){b.style.background='';b.style.borderColor='';b.style.color='';});
-  var sel=document.getElementById('consenso-select');if(sel)sel.value='';
-  document.getElementById('consenso-contenuto').style.display='none';
-  if(canvases['sig-paz'])clearCanvas('sig-paz');
-  if(canvases['sig-med'])clearCanvas('sig-med');
-  document.getElementById('last-saved').textContent='Nuova scheda';
+function salvaPDFEst(){
+  var jsPDFClass=getJsPDF();
+  if(!jsPDFClass){showToast('Libreria PDF in caricamento, riprovare tra un secondo.');return;}
+  try{
+    var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
+    var RED=[192,57,43];
+    var y=makePDFBase(doc,'SCHEDA MEDICINA ESTETICA',RED);
+    y=addSection(doc,y,'Dati Anagrafici',RED);
+    if(get('e-data-scheda'))y=addField(doc,y,'Data scheda',get('e-data-scheda'));
+    y=addField(doc,y,'Cognome',get('e-cognome'));y=addField(doc,y,'Nome',get('e-nome'));
+    y=addField(doc,y,'Data di nascita',get('e-dob'));y=addField(doc,y,'Sesso',get('e-sesso'));
+    y=addField(doc,y,'Telefono',get('e-tel'));y=addField(doc,y,'E-mail',get('e-email'));y+=3;
+    y=addSection(doc,y,'Motivo della Visita',RED);
+    y=addField(doc,y,'Area di interesse',get('e-area'));
+    y=addText(doc,y,'Diagnosi / Inestetismo',get('e-diagnosi'));y+=2;
+    y=addSection(doc,y,'Piano di Trattamento',RED);
+    y=addText(doc,y,'Trattamento concordato',get('e-tratt'));
+    y=addField(doc,y,'Prodotto',get('e-prod'));y=addField(doc,y,'Zona',get('e-zona'));
+    y=addField(doc,y,'Data trattamento',get('e-data-tratt'));y+=3;
+    var akeys=['ea1','ea2','ea3','ea4','ea5','ea6','ea7','ea8','ea9','ea10','ea11','ea12','ea13','eap','efarm'];
+    var albls=['Allergie','Malattie autoimmuni','Disturbi coagulazione','Herpes labiale','Acne attiva','Patologia cutanea cronica','Interventi pregressi','Reazioni avverse estetici','Gravidanza','Allattamento','Isotretinoina 6 mesi','Fotosensibilizzanti','Fumo','Altre patologie','Farmaci in uso'];
+    var hasA=false;akeys.forEach(function(k){if(ynState[k])hasA=true;});
+    if(hasA){y=addSection(doc,y,'Anamnesi',RED);akeys.forEach(function(k,i){if(ynState[k])y=addYN(doc,y,albls[i],ynState[k]);});y+=3;}
+    var cKey=document.getElementById('e-consenso-sel').value;
+    if(cKey&&CONSENSI[cKey]){
+      doc.addPage();y=makePDFBase(doc,'CONSENSO INFORMATO',RED);
+      var cons=CONSENSI[cKey];
+      doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFont('helvetica','bold');doc.setFontSize(13);
+      doc.text(cons.titolo,105,y,{align:'center'});y+=8;
+      doc.setTextColor(100,100,100);doc.setFontSize(9);doc.setFont('helvetica','normal');
+      doc.text(cons.sottotitolo,105,y,{align:'center'});y+=8;
+      var proc=get('e-cons-procedura');
+      if(proc&&proc.trim()){y=addSection(doc,y,'Intervento / Procedura proposta',RED);y=addText(doc,y,'',proc);y+=2;}
+      doc.setTextColor(28,28,30);doc.setFontSize(8);
+      var tl=doc.splitTextToSize(cons.testo,178),bh=tl.length*4+6;
+      doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,bh,2,2,'F');doc.text(tl,18,y+5);y+=bh+8;
+      y=addSection(doc,y,'Dichiarazioni',RED);
+      cons.punti.forEach(function(p){y=addYN(doc,y,p.testo,ynState['ec_'+p.id]);});
+      var fp=document.getElementById('e-firma-paziente'),fc=document.getElementById('e-firma-chirurgo');
+      var fpData=fp?localStorage.getItem('firma_e-firma-paziente_'+schedaIdEst):null;
+      var fcData=fc?localStorage.getItem('firma_e-firma-chirurgo_'+schedaIdEst):null;
+      if(fpData||fcData){
+        if(y>240){doc.addPage();y=makePDFBase(doc,'CONSENSO INFORMATO — Firme',RED);}
+        y=addSection(doc,y,'Firme',RED);
+        if(fpData){
+          doc.setFontSize(9);doc.setTextColor(100,100,100);doc.text('Firma del paziente',18,y);y+=3;
+          try{doc.addImage(fpData,'PNG',18,y,80,28);}catch(e){}
+          y+=32;
+        }
+        if(fcData){
+          doc.setFontSize(9);doc.setTextColor(100,100,100);doc.text('Firma del chirurgo',18,y);y+=3;
+          try{doc.addImage(fcData,'PNG',18,y,80,28);}catch(e){}
+          y+=32;
+        }
+      }
+    }
+    addFooter(doc);
+    var cognome=(get('e-cognome')||'Paziente').replace(/\s+/g,'_');
+    doc.save('Estetica_'+cognome+'_'+new Date().toISOString().split('T')[0]+'.pdf');
+    showToast('PDF salvato!');
+  }catch(e){showToast('Errore PDF: '+e.message);}
 }
 
-function switchTab(i){
-  currentTab=i;
-  document.querySelectorAll('.tab').forEach(function(t,j){t.classList.toggle('active',i===j);});
-  document.querySelectorAll('.page').forEach(function(p,j){p.style.display=(i===j)?'block':'none';});
-  if(i===3){initCanvas('sig-paz');initCanvas('sig-med');}
+function salvaPDFChir(){
+  var jsPDFClass=getJsPDF();
+  if(!jsPDFClass){showToast('Libreria PDF in caricamento, riprovare tra un secondo.');return;}
+  try{
+    var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
+    var BLU=[33,118,174];
+    var y=makePDFBase(doc,'SCHEDA CHIRURGICA — MAMMELLA',BLU);
+    y=addSection(doc,y,'Dati Anagrafici',BLU);
+    if(get('c-data-scheda'))y=addField(doc,y,'Data scheda',get('c-data-scheda'));
+    y=addField(doc,y,'Cognome',get('c-cognome'));y=addField(doc,y,'Nome',get('c-nome'));
+    y=addField(doc,y,'Data di nascita',get('c-dob'));
+    y=addField(doc,y,'Altezza',get('c-altezza')+' cm');y=addField(doc,y,'Peso',get('c-peso')+' kg');y=addField(doc,y,'BMI',get('c-bmi'));
+    y=addField(doc,y,'Telefono',get('c-tel'));y=addField(doc,y,'E-mail',get('c-email'));y+=3;
+    y=addSection(doc,y,'BAP — Misurazioni',BLU);
+    if(get('bap-circ-imf'))y=addField(doc,y,'Circ. torace IMF',get('bap-circ-imf')+' cm');
+    y=addField(doc,y,'BW DX / SX',get('bap-bw-dx')+' / '+get('bap-bw-sx')+' cm');
+    y=addField(doc,y,'N-IMF DX / SX',get('bap-nimf-dx')+' / '+get('bap-nimf-sx')+' cm');
+    y=addField(doc,y,'Pinch med DX / SX',get('bap-pm-dx')+' / '+get('bap-pm-sx')+' cm');
+    y=addField(doc,y,'Pinch lat DX / SX',get('bap-pl-dx')+' / '+get('bap-pl-sx')+' cm');
+    y=addField(doc,y,'SSN-N DX / SX',get('bap-ssn-dx')+' / '+get('bap-ssn-sx')+' cm');y+=3;
+    y=addSection(doc,y,'Scelta Protesi',BLU);
+    y=addText(doc,y,'Note ordine protesi',get('prot-note'));y+=3;
+    y=addSection(doc,y,'Esame Obiettivo',BLU);
+    y=addField(doc,y,'Ptosi DX',get('eo-ptosi-dx'));y=addField(doc,y,'Ptosi SX',get('eo-ptosi-sx'));
+    var eokeys=['eo1','eo2','eo3','eo4','eo5','eo6','eo7'];
+    var eolbls=['Pectus excavatum','Pectus carenatum','Scoliosi','Mammella tuberosa','Striae','Cicatrici','Asimmetria areola/capezzolo'];
+    eokeys.forEach(function(k,i){if(ynState[k]==='si')y=addYN(doc,y,eolbls[i],'si');});
+    y=addText(doc,y,'Note',get('eo-note'));y+=3;
+    y=addSection(doc,y,'Programma Operatorio',BLU);
+    y=addText(doc,y,'Note operative',get('op-note'));
+    if(get('op-reggiseno'))y=addField(doc,y,'Taglia reggiseno',get('op-reggiseno'));
+    var cKey=document.getElementById('c-consenso-sel').value;
+    if(cKey&&CONSENSI[cKey]){
+      doc.addPage();y=makePDFBase(doc,'CONSENSO INFORMATO',BLU);
+      var cons=CONSENSI[cKey];
+      doc.setTextColor(BLU[0],BLU[1],BLU[2]);doc.setFont('helvetica','bold');doc.setFontSize(13);
+      doc.text(cons.titolo,105,y,{align:'center'});y+=8;
+      doc.setTextColor(100,100,100);doc.setFontSize(9);doc.setFont('helvetica','normal');
+      doc.text(cons.sottotitolo,105,y,{align:'center'});y+=8;
+      var proc=get('c-cons-procedura');
+      if(proc&&proc.trim()){y=addSection(doc,y,'Intervento / Procedura proposta',BLU);y=addText(doc,y,'',proc);y+=2;}
+      doc.setTextColor(28,28,30);doc.setFontSize(8);
+      var tl=doc.splitTextToSize(cons.testo,178),bh=tl.length*4+6;
+      doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,bh,2,2,'F');doc.text(tl,18,y+5);y+=bh+8;
+      y=addSection(doc,y,'Dichiarazioni',BLU);
+      cons.punti.forEach(function(p){y=addYN(doc,y,p.testo,ynState['cc_'+p.id]);});
+    }
+    addFooter(doc);
+    var cognome=(get('c-cognome')||'Paziente').replace(/\s+/g,'_');
+    doc.save('Mammella_'+cognome+'_'+new Date().toISOString().split('T')[0]+'.pdf');
+    showToast('PDF salvato!');
+  }catch(e){showToast('Errore PDF: '+e.message);}
 }
-document.querySelectorAll('.page').forEach(function(p,j){p.style.display=j===0?'block':'none';});
-document.querySelectorAll('input,textarea').forEach(function(el){el.addEventListener('input',schedula);});
 
-var lastId=localStorage.getItem('sc_last');
-if(lastId){schedaId=lastId;load(lastId);}
+function salvaPDFAltro(){
+  var jsPDFClass=getJsPDF();
+  if(!jsPDFClass){showToast('Libreria PDF in caricamento, riprovare tra un secondo.');return;}
+  try{
+    var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
+    var BLU=[33,118,174];
+    var y=makePDFBase(doc,'SCHEDA CHIRURGICA',BLU);
+    y=addSection(doc,y,'Dati Anagrafici',BLU);
+    if(get('a-data-scheda'))y=addField(doc,y,'Data scheda',get('a-data-scheda'));
+    y=addField(doc,y,'Cognome',get('a-cognome'));y=addField(doc,y,'Nome',get('a-nome'));
+    y=addField(doc,y,'Data di nascita',get('a-dob'));
+    y=addField(doc,y,'Altezza',get('a-altezza')+' cm');y=addField(doc,y,'Peso',get('a-peso')+' kg');y=addField(doc,y,'BMI',get('a-bmi'));
+    y=addField(doc,y,'Telefono',get('a-tel'));y=addField(doc,y,'E-mail',get('a-email'));y+=3;
+    var akeys=['aa1','aa2','aa3','aa4','aa5','aa6','aa7','aa8','aa9','aa10'];
+    var albls=['Allergie','Patologie cardiovascolari','Diabete','Disturbi coagulazione','Trombosi/embolia pregressa','Patologie sistemiche','Pregressi interventi chirurgici','Farmaci in uso','Fumo','Gravidanza/pianificata'];
+    var hasA=false;akeys.forEach(function(k){if(ynState[k])hasA=true;});
+    if(hasA){y=addSection(doc,y,'Anamnesi',BLU);akeys.forEach(function(k,i){if(ynState[k])y=addYN(doc,y,albls[i],ynState[k]);});y+=3;}
+    y=addSection(doc,y,'Esame Obiettivo',BLU);
+    y=addText(doc,y,'',get('a-esame'));y+=2;
+    y=addSection(doc,y,'Programma Operatorio',BLU);
+    y=addText(doc,y,'Note operative',get('a-note'));
+    var cKey=document.getElementById('a-consenso-sel').value;
+    if(cKey&&CONSENSI[cKey]){
+      doc.addPage();y=makePDFBase(doc,'CONSENSO INFORMATO',BLU);
+      var cons=CONSENSI[cKey];
+      doc.setTextColor(BLU[0],BLU[1],BLU[2]);doc.setFont('helvetica','bold');doc.setFontSize(13);
+      doc.text(cons.titolo,105,y,{align:'center'});y+=8;
+      doc.setTextColor(100,100,100);doc.setFontSize(9);doc.setFont('helvetica','normal');
+      doc.text(cons.sottotitolo,105,y,{align:'center'});y+=8;
+      var proc=get('a-cons-procedura');
+      if(proc&&proc.trim()){y=addSection(doc,y,'Intervento / Procedura proposta',BLU);y=addText(doc,y,'',proc);y+=2;}
+      doc.setTextColor(28,28,30);doc.setFontSize(8);
+      var tl=doc.splitTextToSize(cons.testo,178),bh=tl.length*4+6;
+      doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,bh,2,2,'F');doc.text(tl,18,y+5);y+=bh+8;
+      y=addSection(doc,y,'Dichiarazioni',BLU);
+      cons.punti.forEach(function(p){y=addYN(doc,y,p.testo,ynState['ac_'+p.id]);});
+    }
+    addFooter(doc);
+    var cognome=(get('a-cognome')||'Paziente').replace(/\s+/g,'_');
+    doc.save('Chir_'+cognome+'_'+new Date().toISOString().split('T')[0]+'.pdf');
+    showToast('PDF salvato!');
+  }catch(e){showToast('Errore PDF: '+e.message);}
+}
 
-// ── YOUSIGN INTEGRATION ─────────────────────────────────────────────────────
-var YOUSIGN_API_KEY = ''; // chiave gestita dal proxy Cloudflare
-var YOUSIGN_BASE = 'https://yousign-proxy.caccettas.workers.dev/proxy';
 
+
+// ── FIRMA YOUSIGN ─────────────────────────────────────────────────────────────
 function inviaFirma(){
-  if(!currentConsenso){showToast('Seleziona prima un consenso\nnella tab Consenso');return;}
-  var nome=document.getElementById('cognome')?document.getElementById('cognome').value+' '+(document.getElementById('nome')?document.getElementById('nome').value:''):'';
-  var email=document.getElementById('email')?document.getElementById('email').value:'';
-  var nameEl=document.getElementById('ys-name');
-  var emailEl=document.getElementById('ys-email');
-  if(nameEl)nameEl.value=nome.trim();
-  if(emailEl)emailEl.value=email.trim();
+  var email='',nome='';
+  if(currentSection==='est'){email=get('e-email');nome=(get('e-nome')+' '+get('e-cognome')).trim();}
+  else if(currentInterventoChir==='mammella'){email=get('c-email');nome=(get('c-nome')+' '+get('c-cognome')).trim();}
+  else{email=get('a-email');nome=(get('a-nome')+' '+get('a-cognome')).trim();}
+  document.getElementById('ys-email').value=email;
+  document.getElementById('ys-name').value=nome;
   document.getElementById('ys-status').textContent='';
   document.getElementById('ys-modal').style.display='flex';
 }
@@ -579,57 +1420,61 @@ function eseguiFirma(){
 
   var pdfBase64='';
   try{
-    var jsPDFClass=window.jspdf?window.jspdf.jsPDF:jsPDF;
+    var jsPDFClass=getJsPDF();
+    if(!jsPDFClass)throw new Error('Libreria PDF non ancora caricata');
     var doc=new jsPDFClass({orientation:'portrait',unit:'mm',format:'a4'});
-    var W=210,ml=14,mr=14,cw=W-ml-mr,y=0;
-    var RED=[192,57,43],BG=[247,247,249],DG=[100,100,100],BK=[28,28,30];
-    function chk(n){if(y+n>272){doc.addPage();y=0;phdr();}}
-    function phdr(){doc.setFillColor(RED[0],RED[1],RED[2]);doc.rect(0,0,W,18,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(11);doc.text('Dr. Simone Caccetta',ml,9);doc.setFontSize(7.5);doc.setFont('helvetica','normal');doc.text('Chirurgia Plastica | Medicina Estetica',ml,14);doc.text(new Date().toLocaleDateString('it-IT'),W-mr,9,{align:'right'});y=23;}
-    function sh(t){chk(11);doc.setFillColor(RED[0],RED[1],RED[2]);doc.roundedRect(ml,y,cw,8,1.5,1.5,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(8.5);doc.text(t.toUpperCase(),ml+4,y+5.5);y+=11;}
-    function fr(l,v){chk(9);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,7.5,1.5,1.5,'F');doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','bold');doc.setFontSize(8);doc.text(l,ml+3,y+5);if(v){doc.setFont('helvetica','normal');doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(String(v),W-mr-3,y+5,{align:'right',maxWidth:cw*0.55});}y+=9;}
-    function tb(l,v){if(!v||!v.trim())return;chk(14);doc.setFont('helvetica','bold');doc.setFontSize(7.5);doc.setTextColor(DG[0],DG[1],DG[2]);doc.text(l.toUpperCase(),ml,y+4);y+=6;doc.setFont('helvetica','normal');doc.setFontSize(8);doc.setTextColor(BK[0],BK[1],BK[2]);var lines=doc.splitTextToSize(v,cw-4),bh=lines.length*4+4;chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,1.5,1.5,'F');doc.text(lines,ml+3,y+4);y+=bh+4;}
-    function get(id){var el=document.getElementById(id);return el?el.value:'';}
-    phdr();
-    doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);doc.text('SCHEDA ANAMNESTICA',W/2,y+7,{align:'center'});y+=14;
-    sh('Dati Anagrafici');fr('Cognome',get('cognome'));fr('Nome',get('nome'));fr('Data di nascita',get('dob'));fr('Sesso',get('sesso'));fr('Telefono',get('tel'));fr('E-mail',get('email'));y+=3;
-    sh('Motivo della Visita');fr('Area di interesse',get('area'));tb('Inestetismo',get('diagnosi'));y+=2;
-    sh('Piano di Trattamento');tb('Trattamento',get('tratt'));fr('Prodotto',get('prod'));fr('Data',get('data-tratt'));y+=4;
-    if(currentConsenso&&CONSENSI[currentConsenso]){
-      doc.addPage();y=0;phdr();
-      var cons=CONSENSI[currentConsenso];
-      doc.setFillColor(BK[0],BK[1],BK[2]);doc.roundedRect(ml,y,cw,10,2,2,'F');doc.setTextColor(255,255,255);doc.setFont('helvetica','bold');doc.setFontSize(10);doc.text('CONSENSO INFORMATO',W/2,y+7,{align:'center'});y+=14;
-      doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFontSize(12);doc.text(cons.titolo,W/2,y,{align:'center'});y+=8;
-      doc.setTextColor(BK[0],BK[1],BK[2]);doc.setFont('helvetica','normal');doc.setFontSize(8);
-      var tl=doc.splitTextToSize(cons.testo,cw),bh=tl.length*4+6;chk(bh);doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,bh,2,2,'F');doc.text(tl,ml+4,y+5);y+=bh+8;
-      sh('Firma elettronica — paziente: '+nome);
-      doc.setFillColor(BG[0],BG[1],BG[2]);doc.roundedRect(ml,y,cw,30,2,2,'F');
-      doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(DG[0],DG[1],DG[2]);
-      doc.text('Data: '+new Date().toLocaleDateString('it-IT'),ml+4,y+10);
-      doc.text('[Firma elettronica certificata Yousign]',ml+4,y+22);y+=34;
+    var y=0;
+    if(currentSection==='est'){
+      var RED=[192,57,43];
+      y=makePDFBase(doc,'CONSENSO INFORMATO',RED);
+      y=addSection(doc,y,'Paziente',RED);
+      y=addField(doc,y,'Cognome',get('e-cognome'));y=addField(doc,y,'Nome',get('e-nome'));
+      y=addField(doc,y,'Data di nascita',get('e-dob'));y+=3;
+      y=addSection(doc,y,'Trattamento',RED);
+      y=addField(doc,y,'Area',get('e-area'));y=addText(doc,y,'Trattamento',get('e-tratt'));y+=3;
+      if(currentConsenso&&CONSENSI[currentConsenso]){
+        var cons=CONSENSI[currentConsenso];
+        doc.setTextColor(RED[0],RED[1],RED[2]);doc.setFont('helvetica','bold');doc.setFontSize(13);
+        doc.text(cons.titolo,105,y,{align:'center'});y+=8;
+        doc.setTextColor(28,28,30);doc.setFont('helvetica','normal');doc.setFontSize(8);
+        var tl=doc.splitTextToSize(cons.testo,178),bh=tl.length*4+6;
+        doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,bh,2,2,'F');doc.text(tl,18,y+5);y+=bh+8;
+        y=addSection(doc,y,'Dichiarazioni',RED);
+        cons.punti.forEach(function(p){y=addYN(doc,y,p.testo,ynState['ec_'+p.id]);});
+      }
+      doc.addPage();y=makePDFBase(doc,'FIRMA PAZIENTE',RED);
+      y+=10;doc.setFont('helvetica','normal');doc.setFontSize(9);doc.setTextColor(100,100,100);
+      doc.text('Paziente: '+nome,14,y);y+=6;
+      doc.text('Data: '+new Date().toLocaleDateString('it-IT'),14,y);y+=16;
+      doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,30,2,2,'F');
+      doc.setFontSize(9);doc.setTextColor(150,150,150);doc.text('[Firma elettronica certificata Yousign]',105,y+17,{align:'center'});
+    } else {
+      var BLU=[33,118,174];
+      y=makePDFBase(doc,'SCHEDA CHIRURGICA — MAMMELLA',BLU);
+      y=addSection(doc,y,'Paziente',BLU);
+      y=addField(doc,y,'Cognome',get('c-cognome'));y=addField(doc,y,'Nome',get('c-nome'));y+=3;
+      y=addSection(doc,y,'Programma Operatorio',BLU);
+      y=addText(doc,y,'Note operative',get('op-note'));y+=10;
+      doc.setFillColor(247,247,249);doc.roundedRect(14,y,182,30,2,2,'F');
+      doc.setFontSize(9);doc.setTextColor(150,150,150);doc.text('[Firma elettronica certificata Yousign]',105,y+17,{align:'center'});
     }
-    var np=doc.internal.getNumberOfPages();
-    for(var i=1;i<=np;i++){doc.setPage(i);doc.setFont('helvetica','normal');doc.setFontSize(7);doc.setTextColor(160,160,160);doc.text('Dr. Simone Caccetta — Documento medico riservato — GDPR Reg. UE 2016/679',ml,289);doc.text('Pag. '+i+'/'+np,W-mr,289,{align:'right'});}
+    addFooter(doc);
     pdfBase64=doc.output('datauristring').split(',')[1];
-  }catch(e){
-    document.getElementById('ys-status').textContent='Errore PDF: '+e.message;
-    btn.textContent='Invia';btn.disabled=false;return;
-  }
+  }catch(e){document.getElementById('ys-status').textContent='Errore PDF: '+e.message;btn.textContent='Invia';btn.disabled=false;return;}
 
   var PROXY='https://yousign-proxy.caccettas.workers.dev/proxy';
-  var cognome=document.getElementById('cognome')?document.getElementById('cognome').value:'';
+  var cognome=currentSection==='est'?get('e-cognome'):get('c-cognome');
   var nomeArr=nome.split(' ');
   var firstName=nomeArr[0]||nome;
   var lastName=nomeArr.slice(1).join(' ')||cognome||'.';
   var reqId='';
 
   document.getElementById('ys-status').textContent='Creazione richiesta...';
-
   fetch(PROXY+'/create_request',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({name:'Consenso_'+nome.replace(/ /g,'_')})})
   .then(function(r){return r.json();})
   .then(function(data){
     if(!data.id)throw new Error('Creazione fallita: '+JSON.stringify(data));
-    reqId=data.id;
-    document.getElementById('ys-status').textContent='Upload documento...';
+    reqId=data.id;document.getElementById('ys-status').textContent='Upload documento...';
     return fetch(PROXY+'/upload_document',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({request_id:reqId,pdf_base64:pdfBase64,filename:'Scheda_'+cognome+'.pdf'})});
   })
   .then(function(r){return r.json();})
@@ -648,7 +1493,7 @@ function eseguiFirma(){
   .then(function(){
     btn.textContent='Invia';btn.disabled=false;
     document.getElementById('ys-modal').style.display='none';
-    showToast('Inviato! Il paziente '+nome+' ricevera una email per firmare.');
+    showToast('Inviato! '+nome+' riceverà una email per firmare.');
   })
   .catch(function(err){
     btn.textContent='Invia';btn.disabled=false;
@@ -656,6 +1501,20 @@ function eseguiFirma(){
   });
 }
 
+// Nessun auto-save: il salvataggio avviene solo premendo il pulsante "Salva PDF"
+
+</script>
+
+<script>
+// Inizializzazione: forza sempre la home screen al caricamento
+document.addEventListener('DOMContentLoaded',function(){
+  var homeEl=document.getElementById('home-screen');
+  var estEl=document.getElementById('app-est');
+  var chirEl=document.getElementById('app-chir');
+  if(homeEl)homeEl.style.display='flex';
+  if(estEl)estEl.style.display='none';
+  if(chirEl)chirEl.style.display='none';
+});
 </script>
 </body>
 </html>
