@@ -136,7 +136,7 @@ input,textarea,button,select{font-family:var(--fnt);font-weight:700;}
 <div id="toast"></div>
 
 <!-- ══ HOME ══ -->
-<div class="home" id="home-screen">
+<div class="home" id="home-screen" style="display:flex!important;">
   <div class="home-logo">Dr. Simone Caccetta</div>
   <div class="home-sub">Chirurgia Plastica, Ricostruttiva ed Estetica</div>
   <div class="home-cards">
@@ -156,7 +156,7 @@ input,textarea,button,select{font-family:var(--fnt);font-weight:700;}
 </div>
 
 <!-- ══ APP MEDICINA ESTETICA ══ -->
-<div id="app-est" style="display:none;">
+<div id="app-est" style="display:none!important;">
   <div class="hdr hdr-est">
     <div class="hdr-top">
       <button class="hdr-back" onclick="goHome()">← Home</button>
@@ -328,7 +328,7 @@ input,textarea,button,select{font-family:var(--fnt);font-weight:700;}
 </div>
 
 <!-- ══ APP CHIRURGIA ══ -->
-<div id="app-chir" style="display:none;">
+<div id="app-chir" style="display:none!important;">
   <div class="hdr hdr-chir">
     <div class="hdr-top">
       <button class="hdr-back" onclick="goHome()">← Home</button>
@@ -777,9 +777,14 @@ function openIntervento(tipo){
 }
 
 function goHome(){
+  currentSection='';
+  currentInterventoChir='';
   document.getElementById('home-screen').style.display='flex';
   document.getElementById('app-est').style.display='none';
   document.getElementById('app-chir').style.display='none';
+  document.getElementById('chir-home').style.display='block';
+  document.getElementById('chir-mammella').style.display='none';
+  document.getElementById('chir-altro').style.display='none';
 }
 
 // ── STATE ────────────────────────────────────────────────────────────────────
@@ -1505,16 +1510,5 @@ function eseguiFirma(){
 
 </script>
 
-<script>
-// Inizializzazione: forza sempre la home screen al caricamento
-document.addEventListener('DOMContentLoaded',function(){
-  var homeEl=document.getElementById('home-screen');
-  var estEl=document.getElementById('app-est');
-  var chirEl=document.getElementById('app-chir');
-  if(homeEl)homeEl.style.display='flex';
-  if(estEl)estEl.style.display='none';
-  if(chirEl)chirEl.style.display='none';
-});
-</script>
 </body>
 </html>
